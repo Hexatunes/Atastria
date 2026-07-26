@@ -1,5 +1,5 @@
 body {
-  background-image: url('../Sprites/battle.jpeg');
+  background-image: url('/Scenes/Battle/Sprites/battle.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -54,7 +54,7 @@ body {
 .myHPFill {
     width: 50%;
     height: 100%;
-    background-image: url('../Sprites/hpFill.png');
+    background-image: url('/Scenes/Battle/Sprites/hpFill.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -169,7 +169,7 @@ body {
 .enemyHPFill {
     width: 50%;
     height: 100%;
-    background-image: url('../Sprites/enemyHpFill.png');
+    background-image: url('/Scenes/Battle/Sprites/enemyHpFill.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -209,7 +209,7 @@ body {
 }
 
 #imanaFill {
-  background-image: url('../Sprites/ImanaFill.png');
+  background-image: url('/Scenes/Battle/Sprites/ImanaFill.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

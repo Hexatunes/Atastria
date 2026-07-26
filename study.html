@@ -8,16 +8,16 @@
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
-  <link rel="stylesheet" href="./CSS/study.css">
+  <link rel="stylesheet" href="/Scenes/Study/CSS/study.css">
 
 </head>
 
 <body>
 
-    <input type = "image" src = "../../UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
 
-    <audio id = "BGM" loop src = "./Audio/TitleBGM.mp3" autoplay></audio>
-    <audio id = "ClickSound" src = "../../UniversalAudio/Click.ogg"></audio>
+    <audio id = "BGM" loop src = "/Scenes/Study/Audio/TitleBGM.mp3" autoplay></audio>
+    <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
 
 
@@ -30,7 +30,7 @@
 
     <div id = "StandardShadow" style="display: none;"></div>
     <div id = "StandardDiv" style="display: none;">
-        <input id = "StandardImage" src = "./Sprites/Standard.png" type = "image" onclick="standardBattle()">
+        <input id = "StandardImage" src = "/Scenes/Study/Sprites/Standard.png" type = "image" onclick="standardBattle()">
         <button id = "Standard" onclick="standardBattle()">Standard</button>
     </div>
 
@@ -41,9 +41,9 @@
         <div class="layer dark"></div>
         <div class="layer white"></div>
 
-        <img class="logo" src="../../UniversalSprites/AtastriaLogoDark.png">
+        <img class="logo" src="/UniversalSprites/AtastriaLogoDark.png">
     </div>
 
-    <script src="./JS/study.js"></script>
+    <script src="/Scenes/Study/JS/study.js"></script>
 </body>
 </html>

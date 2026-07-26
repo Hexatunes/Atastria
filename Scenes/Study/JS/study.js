@@ -116,7 +116,7 @@ function standardBattle() {
 
     setTimeout(() => {
         console.log("switch")
-        window.location.href = "../Battle/battle.html";
+        window.location.href = "/battle.html";
     }, 800);
 
 }
@@ -156,7 +156,7 @@ function back() {
         document.querySelector(".logo").classList.add("slide-in");
 
         setTimeout(() => {
-            window.location.href = "../Home/index.html";
+            window.location.href = "/index.html";
         }, 800);
     }
     

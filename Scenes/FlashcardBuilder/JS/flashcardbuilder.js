@@ -52,7 +52,7 @@ function refreshSetList() {
 
         const deleteButton = document.createElement("input");
         deleteButton.className = "FlashsetDeleteButton";
-        deleteButton.src = "./Sprites/trashIcon.png";
+        deleteButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
         deleteButton.type = "image"
         deleteButton.addEventListener("click", () => {
             deleteSet(i);
@@ -130,7 +130,7 @@ function openSet(idx) {
         const deleteCardButton = document.createElement("input");
         deleteCardButton.className = "DeleteCard";
         deleteCardButton.type = "image";
-        deleteCardButton.src = "./Sprites/trashIcon.png";
+        deleteCardButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
         deleteCardButton.addEventListener("click", () => {
             deleteCard(i);
         });
@@ -295,7 +295,7 @@ function back() {
         document.querySelector(".logo").classList.add("slide-in");
 
         setTimeout(() => {
-            window.location.href = "../Home/index.html";
+            window.location.href = "/index.html";
         }, 800);
     } else {
         document.getElementById("FlashcardEditor").style.display = "none";

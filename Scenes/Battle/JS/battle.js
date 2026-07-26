@@ -184,19 +184,19 @@ function damageCalc(power, attack, defence, level, mods) {
 
 function refreshDisplays() {
 
-  document.getElementById("mySlot").src = "./CHAR_DATABASE/" + turnOrder[0]["code"] + "/" + turnOrder[0]["code"] + ".webp";
+  document.getElementById("mySlot").src = "/Scenes/Battle/CHAR_DATABASE/" + turnOrder[0]["code"] + "/" + turnOrder[0]["code"] + ".webp";
 
   for ( var i = 0; i < party.length; i++ ) {
 
     var code = party[i]["code"]
     
     if ( i < 3 ) {
-      document.getElementById("myIcon" + String(i)).src = "./CHAR_DATABASE/" + code + "/" + code + ".webp";
-      document.getElementById("team" + String(i)).src = "./CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("myIcon" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("team" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
 
       document.getElementById("myHP" + String(i) + "Fill").style.width = String(party[i]["hp"] / party[i]["maxHP"] * 100) + "%"
     } else {
-      document.getElementById("sub" + String(i)).src = "./CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("sub" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
     }
 
     
@@ -207,7 +207,7 @@ function refreshDisplays() {
     var code = enemies[i]["code"]
 
     if ( i < 3 ) {
-      document.getElementById("enemySlot" + String(i)).src = "./ENEMY_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("enemySlot" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + ".webp";
     }
 
     document.getElementById("enemyHP" + String(i) + "Fill").style.width = String(enemies[i]["hp"] / enemies[i]["maxHP"] * 100) + "%"
@@ -222,9 +222,9 @@ function refreshDisplays() {
     var code = turnOrder[i]["code"]
 
     if ( turnOrder[i]["side"] == "my" ) {
-      document.getElementById("turn" + String(i)).src = "./CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
     } else {
-      document.getElementById("turn" + String(i)).src = "./ENEMY_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + ".webp";
     }
     
   }
@@ -256,7 +256,7 @@ function back() {
         document.querySelector(".logo").classList.add("slide-in");
 
         setTimeout(() => {
-            window.location.href = "../Home/index.html";
+            window.location.href = "/index.html";
         }, 800);
     }
     
@@ -271,7 +271,7 @@ window.addEventListener("load", () => {
     if ( getCookie("battleInit") == "" ) {
       
       alert("Error: No active battle! Returning to home...")
-      window.location.href = "../Home/index.html";
+      window.location.href = "/index.html";
 
       return
     }

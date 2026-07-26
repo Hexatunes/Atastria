@@ -36,7 +36,7 @@ function switchToStudyMode() {
     document.querySelector(".logo").classList.add("slide-in");
 
     setTimeout(() => {
-        window.location.href = "../Study/study.html";
+        window.location.href = "/study.html";
     }, 800);
 }
 
@@ -46,7 +46,7 @@ function switchToFlashcardBuilder() {
     document.querySelector(".logo").classList.add("slide-in");
 
     setTimeout(() => {
-        window.location.href = "../FlashcardBuilder/flashcardbuilder.html";
+        window.location.href = "/flashcardbuilder.html";
     }, 800);
 }
 

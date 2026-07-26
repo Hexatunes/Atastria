@@ -1,5 +1,5 @@
 body {
-  background-image: url('../Sprites/BG.jpg');
+  background-image: url('/Scenes/Study/Sprites/BG.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
