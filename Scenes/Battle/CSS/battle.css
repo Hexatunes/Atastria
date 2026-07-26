@@ -1,0 +1,419 @@
+body {
+  background-image: url('../Sprites/battle.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#mySlot {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: 65%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+
+#teamData {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 25%;
+    top: 100%;
+    left: 50%;
+    background-color: rgba(240, 248, 255, 0.375);
+    border-radius: 25px;
+}
+
+
+
+#myHP0 {
+    top: 45%;
+    left: 18%;
+}
+#myHP1 {
+    top: 45%;
+    left: 50%;
+}
+#myHP2 {
+    top: 45%;
+    left: 82%;
+}
+
+.myHP {
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #06215c;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.myHPFill {
+    width: 50%;
+    height: 100%;
+    background-image: url('../Sprites/hpFill.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#myIcon0 {
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 25%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+}
+#myIcon1 {
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#myIcon2 {
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 25%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+#team3 {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+#team4 {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#team5 {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: 75%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+#enemySlot1 {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    top: 60%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+#enemySlot0 {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+#enemySlot2 {
+    position: absolute;
+    width: 15%;
+    height: auto;
+    top: 60%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+#enemyHP1 {
+    top: 45%;
+    left: 55%;
+}
+#enemyHP0 {
+    top: 45%;
+    left: 70%;
+}
+#enemyHP2 {
+    top: 45%;
+    left: 85%;
+}
+
+.enemyHP {
+    position: absolute;
+    width: 13%;
+    height: 2%;
+    transform: translate(-50%, -50%);
+    background-color: #220202;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.enemyHPFill {
+    width: 50%;
+    height: 100%;
+    background-image: url('../Sprites/enemyHpFill.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+
+#attackButton {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    top: 80%;
+    left: 80%;
+}
+
+#techniqueButton {
+    position: absolute;
+    width: 9%;
+    height: auto;
+    top: 70%;
+    left: 89%;
+}
+
+
+
+#imanaBar {
+    position: absolute;
+    width: 3%;
+    height: 75%;
+    top: 15%;
+    left: 0.5%;
+    background-color: #06215c;
+    border-radius: 15px;
+    transform: rotate(180deg);
+    overflow: hidden;
+}
+
+#imanaFill {
+  background-image: url('../Sprites/ImanaFill.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  animation: float 2s ease-in-out infinite;
+}
+
+/* 1. Define the animation keyframes */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px); /* Moves up by 20 pixels */
+  }
+  100% {
+    transform: translateY(0px); /* Returns back to start */
+  }
+}
+
+
+#turnOrderHolder {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.611);
+    border-radius: 25px;
+    transform: rotate(90deg);
+    width: 35%;
+    height: 10%;
+    top: 50%;
+    left: -10.5%;
+}
+
+.turnOrder {
+    width: 15%;
+    height: auto;
+    transform: rotate(-90deg);
+}
+
+
+
+
+
+/* ------------------------------------- */
+p {
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+
+button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    text-align: center;
+    font-size: 2vw;
+    cursor: pointer;
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    border-radius: 8px;
+    text-shadow: 
+    1px 1px 0px #a2f0ffa2,
+    2px 2px 0px #ffbef4c1;
+    padding: 15px 32px;
+}
+
+.layer {
+    position: fixed;
+    inset: 0;
+}
+
+.dark {
+    background: #111;
+}
+
+.white {
+    background: white;
+}
+
+.logo {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.dark.slide-out {
+    animation: darkOut 0.7s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.white.slide-out {
+    animation: whiteOut 0.65s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.logo.slide-out {
+    animation: logoOut 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes darkOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes whiteOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes logoOut {
+    to {
+        transform: translate(-50%, calc(-50% - 100vh));
+        opacity: 0;
+    }
+}
+
+.dark.slide-in {
+    animation: darkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.white.slide-in {
+    animation: whiteIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logo.slide-in {
+    animation: logoIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes darkIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes whiteIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoIn {
+    from {
+        transform: translate(-50%, calc(-50% + 100vh));
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.hover-button {
+    padding: 12px 24px;
+    font-size: 18px;
+
+    /* Starting state */
+    transform: scale(0.95);
+    opacity: 0.8;
+
+    /* Animation */
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.hover-button:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+#back {
+    position: absolute;
+    width: 5%;
+    height: auto;
+    top: 0%;
+}
+
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+input {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+

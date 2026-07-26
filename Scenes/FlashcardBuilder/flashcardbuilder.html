@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Flashcard Builder - Atastria</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+  <link rel="stylesheet" href="./CSS/flashcardbuilder.css">
+
+</head>
+
+<body>
+
+    <input type = "image" src = "../../UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+
+    <audio id = "BGM" loop src = "./Audio/Music/FlashcardbuilderBGM.mp3"></audio>
+    <audio id = "ClickSound" src = "../../UniversalAudio/Click.ogg"></audio>
+
+
+
+    <div id = "FlashsetList">
+    </div>
+    <p id = "NoSetsLabel">You do not have any Flashsets created!</p>
+
+    <button id = "NewSet" onclick="promptNewSetName()">+ Create New Set</button>
+
+    <div id = "FlashcardEditor" style="display: none;">
+    </div>
+    <button id = "NewCard" onclick = "newCard()" style="display: none;">+ New Flashcard</button>
+
+    <p id = "CardAmountWarning" style="display: none;">Your flashset must have at least 4 cards or more to be used!</p>
+
+
+    <div id="transition">
+        <div class="layer dark"></div>
+        <div class="layer white"></div>
+
+        <img class="logo" src="../../UniversalSprites/AtastriaLogoDark.png">
+    </div>
+
+    <script src="./JS/flashcardbuilder.js"></script>
+</body>
+</html>

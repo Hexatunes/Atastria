@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Atastria</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+  <link rel="stylesheet" href="./CSS/battle.css">
+
+</head>
+
+<body>
+
+    <input type = "image" src = "../../UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+    <audio id = "BGM" loop src = "./Audio/Music/battle.mp3" autoplay></audio>
+    <audio id = "ClickSound" src = "../../UniversalAudio/Click.ogg"></audio>
+
+    <img id = "enemySlot0" src = "">
+    <img id = "enemySlot1" src = "">
+    <img id = "enemySlot2" src = "">
+    <div id = "enemyHP0" class = "enemyHP">
+        <div id = "enemyHP0Fill" class = "enemyHPFill"></div>
+    </div>
+    <div id = "enemyHP1" class = "enemyHP">
+        <div id = "enemyHP1Fill" class = "enemyHPFill"></div>
+    </div>
+    <div id = "enemyHP2" class = "enemyHP">
+        <div id = "enemyHP2Fill" class = "enemyHPFill"></div>
+    </div>
+
+
+    <img id = "mySlot" src = "">
+
+    <div id = "teamData">
+        <img id = "myIcon0" src = "">
+        <img id = "myIcon1" src = "">
+        <img id = "myIcon2" src = "">
+        <div id = "myHP0" class = "myHP">
+            <div id = "myHP0Fill" class = "myHPFill"></div>
+        </div>
+        <div id = "myHP1" class = "myHP">
+            <div id = "myHP1Fill" class = "myHPFill"></div>
+        </div>
+        <div id = "myHP2" class = "myHP">
+            <div id = "myHP2Fill" class = "myHPFill"></div>
+        </div>
+    </div>
+
+    
+    
+    
+    <img id = "team0" src = "" style="display: none;">
+    <img id = "team1" src = "" style="display: none;">
+    <img id = "team2" src = "" style="display: none;">
+
+    <img id = "sub3" src = "" style="display: none;">
+    <img id = "sub4" src = "" style="display: none;">
+    <img id = "sub5" src = "" style="display: none;">
+
+    
+    <div id = "imanaBar">
+        <div id = "imanaFill"></div>
+    </div>
+
+    
+
+    <div id = "turnOrderHolder">
+        <img id = "turn0" class = "turnOrder">
+        <img id = "turn1" class = "turnOrder">
+        <img id = "turn2" class = "turnOrder">
+        <img id = "turn3" class = "turnOrder">
+        <img id = "turn4" class = "turnOrder">
+        <img id = "turn5" class = "turnOrder">
+    </div>
+
+    <button onclick="advanceTurn()">advance turn</button>
+    
+
+    <input id = "attackButton" type="image" src="./Sprites/AttackButton.png" class="hover-button" onclick="attack()">
+    <input id = "techniqueButton" type="image" src="./Sprites/TechniqueButton.png" class="hover-button" onclick="technique()">
+
+    <div id="transition">
+        <div class="layer dark"></div>
+        <div class="layer white"></div>
+
+        <img class="logo" src="../../UniversalSprites/AtastriaLogoDark.png">
+    </div>
+
+    <script src = "./CHAR_DATABASE/CHAR_DATABASE.js"></script>
+    <script src = "./ENEMY_DATABASE/ENEMY_DATABASE.js"></script>
+    <script src="./JS/battle.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+body {
+  background-image: url('../Sprites/BG.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+#FlashsetList {
+    position: absolute;
+    translate: calc(-50%, -50%);
+    width: 75%;
+    height: 65%;
+    left: 12.5%;
+    top: 5%;
+    background-color: rgba(255, 255, 255, 0.856);
+    border-radius: 25px;
+    overflow-y: auto;
+}
+
+#FlashcardEditor {
+    position: absolute;
+    translate: calc(-50%, -50%);
+    width: 75%;
+    height: 65%;
+    left: 12.5%;
+    top: 5%;
+    background-color: rgba(255, 255, 255, 0.856);
+    border-radius: 25px;
+    overflow-y: auto;
+}
+
+#NewCard {
+    position: absolute;
+    top: 70%;
+    left: 12.5%;
+}
+
+#CardAmountWarning {
+    position: absolute;
+    top: 75%;
+    left: 15%;
+    font-size: 3vw;
+}
+
+#NoSetsLabel {
+    position: absolute;
+    font-size: 2vw;
+    top: 35%;
+    left: 35%;
+}
+
+#NewSet {
+    position: absolute;
+    font-size: 2vw;
+    translate: calc(-50%, -50%);
+    left: 70%;
+    top: 70%;
+}
+
+.SetName {
+    font-size: 2vw;
+    text-align: center;
+}
+
+.FlashsetDiv {
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
+
+.FlashsetOpenButton {
+    width: 75%;
+}
+
+.FlashsetDeleteButton {
+    width: 5%;
+    vertical-align: middle;
+}
+
+.FlashsetRenameButton {
+    width: 20%;
+}
+
+
+.CardDiv {
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+
+.QuestionInput {
+    width: 45%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
+.AnswerInput {
+    width: 45%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
+.DeleteCard {
+    width: 5%;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------- */
+p {
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    text-shadow:
+    -2px -2px 0 #ffffff,
+    2px -2px 0 #ffffff,
+    -2px 2px 0 #ffffff,
+    2px 2px 0 #ffffff; 
+}
+
+button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    text-align: center;
+    font-size: 2vw;
+    cursor: pointer;
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    border-radius: 8px;
+    text-shadow: 
+    1px 1px 0px #a2f0ffa2,
+    2px 2px 0px #ffbef4c1;
+    padding: 15px 32px;
+}
+
+input {
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    border-radius: 8px;
+    text-shadow: 
+    1px 1px 0px #a2f0ffa2,
+    2px 2px 0px #ffbef4c1;
+}
+
+
+.layer {
+    position: fixed;
+    inset: 0;
+}
+
+.dark {
+    background: #111;
+}
+
+.white {
+    background: white;
+}
+
+.logo {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.dark.slide-out {
+    animation: darkOut 0.7s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.white.slide-out {
+    animation: whiteOut 0.65s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.logo.slide-out {
+    animation: logoOut 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes darkOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes whiteOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes logoOut {
+    to {
+        transform: translate(-50%, calc(-50% - 100vh));
+        opacity: 0;
+    }
+}
+
+.dark.slide-in {
+    animation: darkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.white.slide-in {
+    animation: whiteIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logo.slide-in {
+    animation: logoIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes darkIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes whiteIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoIn {
+    from {
+        transform: translate(-50%, calc(-50% + 100vh));
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}

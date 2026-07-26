@@ -1,0 +1,189 @@
+
+body {
+  background-image: url('../Sprites/BG.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+#SplashImage {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: auto;
+}
+
+#StartPrompt {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(6, 13, 45);
+  font-size: 2vw;
+  text-align: center;
+}
+
+#StartText {
+    position: absolute;
+    top: 67%;
+    left: 44.5%;
+    color: rgb(255, 255, 255);
+}
+
+#Logo {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+}
+
+
+button {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    text-align: center;
+    font-size: 2vw;
+    cursor: pointer;
+    color: rgb(4, 5, 64);
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    border-radius: 8px;
+    text-shadow: 
+    1px 1px 0px #a2f0ffa2,
+    2px 2px 0px #ffbef4c1;
+    padding: 15px 32px;
+}
+
+#ToFlashcardBuilder {
+    position: absolute;
+    left: 30%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
+
+#ToStudyMode {
+    position: absolute;
+    left: 30%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+#transition {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------- */
+
+.layer {
+    position: fixed;
+    inset: 0;
+}
+
+.dark {
+    background: #111;
+}
+
+.white {
+    background: white;
+}
+
+.logo {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.dark.slide-out {
+    animation: darkOut 0.7s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.white.slide-out {
+    animation: whiteOut 0.65s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.logo.slide-out {
+    animation: logoOut 0.6s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes darkOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes whiteOut {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes logoOut {
+    to {
+        transform: translate(-50%, calc(-50% - 100vh));
+        opacity: 0;
+    }
+}
+
+.dark.slide-in {
+    animation: darkIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.white.slide-in {
+    animation: whiteIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logo.slide-in {
+    animation: logoIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes darkIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes whiteIn {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoIn {
+    from {
+        transform: translate(-50%, calc(-50% + 100vh));
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
