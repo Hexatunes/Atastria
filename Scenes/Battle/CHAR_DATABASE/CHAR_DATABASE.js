@@ -275,7 +275,7 @@ const CHAR_DB = {
 
     "toki": {
         "BASE_HP" : 110,
-        "BASE_STRENGTH" : 90,
+        "BASE_STRENGTH" : 60,
         "BASE_MAGIC" : 30,
         "BASE_DEFENCE" : 90,
         "BASE_RESISTENCE" : 65,
@@ -301,7 +301,7 @@ const CHAR_DB = {
 
         "TECHNIQUE" : {
             "name": "Be My First Mate?",
-            "description": "The chosen ally becomes Toki's first mate, greatly boosting their speed for 2 turns.",
+            "description": "The chosen ally becomes Toki's first mate, greatly boost their speed for 2 turns.",
             "type": "drain",
             "stat": "speed",
             "basePower": 100,

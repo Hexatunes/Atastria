@@ -180,7 +180,7 @@ function newCard() {
     const deleteCardButton = document.createElement("input");
     deleteCardButton.className = "DeleteCard";
     deleteCardButton.type = "image";
-    deleteCardButton.src = "./Sprites/trashIcon.png";
+    deleteCardButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
     deleteCardButton.addEventListener("click", () => {
         deleteCard(fs.length - 1);
     });

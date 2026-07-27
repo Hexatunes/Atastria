@@ -141,6 +141,8 @@ function calculateStat(base, level, investment) {
 
 // ⸻⸻⸻⸻⸻⸻ TURN ENGINE ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
 
+
+
 function advanceTurn() {
 
   var lowestAP = turnOrder[0]["ap"]
@@ -171,6 +173,8 @@ function advanceTurn() {
     inCard = false
     pendingAction = "none"
 
+    
+
   } else {
     document.getElementById("attackButton").style.display = "none";
     document.getElementById("techniqueButton").style.display = "none";
@@ -193,6 +197,8 @@ var pendingAction = "none"
 var correct = false
 
 var lastRNR = "recognition"
+
+var pinned = 0
 
 function initiateFlashcard(action) {
 
@@ -336,15 +342,14 @@ function recallSubmit() {
   document.getElementById("recallAnswer").style.display = "none";
   document.getElementById("flashcardFeedback").style.display = "block";
 
-  document.getElementById("recallAnswer").value = "";
-
   // ----------------------------------------------------------
   
   if ( document.getElementById("recallAnswer").value == correctAnswer ) {
 
     document.getElementById("flashcardFeedback").style.display = "none";
-
     document.getElementById("recallFlashcard").style.display = "none";
+
+    document.getElementById("recallAnswer").value = "";
 
     correct = true
 
@@ -356,6 +361,8 @@ function recallSubmit() {
   }
 
   // ----------------------------------------------------------
+
+  document.getElementById("recallAnswer").value = "";
   
   document.getElementById("flashcardFeedback").innerHTML = "The correct answer was: " + correctAnswer
 
@@ -400,8 +407,7 @@ function attack() {
     acc = 0
   }
 
-  // !! EDIT THIS LATER TO ALLOW FOR MANUAL TARGETTING !!
-  var target = enemies[randiRange(0, 2)]
+  var target = enemies[pinned]
 
   // ------------------Calculate Damage-------------------------
 
@@ -444,7 +450,8 @@ function enemyDecision() {
   if ( decision == "attack" ) {
     
     var attackInfo = ENEMY_DB[code]["ATTACK"]
-    var target = party[randiRange(0, 2)]
+    var targetIDX = randiRange(0, 2)
+    var target = party[targetIDX]
 
     for ( var i = 0; i < attackInfo["hits"]; i++ ) {
 
@@ -454,6 +461,24 @@ function enemyDecision() {
 
       console.log(code + " attacked " + target["code"] + " for " + String(damage) + "!");
 
+    }
+
+    if ( targetIDX == 0 ) {
+      setCameraAnchor("right");
+
+      document.getElementById("mySlot0").classList.add("visible")
+      document.getElementById("mySlot1").classList.remove("visible")
+      document.getElementById("mySlot2").classList.remove("visible")
+    } else if ( targetIDX == 1 ) {
+      setCameraAnchor("center");
+      document.getElementById("mySlot0").classList.remove("visible")
+      document.getElementById("mySlot1").classList.add("visible")
+      document.getElementById("mySlot2").classList.remove("visible")
+    } else if ( targetIDX == 2 ) {
+      setCameraAnchor("left");
+      document.getElementById("mySlot0").classList.remove("visible")
+      document.getElementById("mySlot1").classList.remove("visible")
+      document.getElementById("mySlot2").classList.add("visible")
     }
     
   }
@@ -466,7 +491,7 @@ function enemyDecision() {
 
     advanceTurn()
 
-  }, 1000);
+  }, 1500);
 
 }
 
@@ -488,6 +513,26 @@ function damageCalc(power, strength, defence, level, mods, acc) {
 
 
 
+function setPinned(idx) {
+  document.getElementById("pin" + String(pinned)).src = "/Scenes/Battle/Sprites/transparent.png";
+  pinned = idx;
+  document.getElementById("pin" + String(pinned)).src = "/Scenes/Battle/Sprites/pinned.png";
+}
+
+const CAMERA_ANCHORS = {
+  "left":   { "x": '-15vmin', "y": '0vmin'  },
+  "center": { "x": '0vmin',   "y": '0vmin'  },
+  "right":  { "x": '15vmin',  "y": '0vmin' },
+};
+
+function setCameraAnchor(name, durationMs = 900) {
+  const rig = document.querySelector('.camera-rig');
+  if (!rig || !CAMERA_ANCHORS[name]) return;
+  rig.style.transitionDuration = `${durationMs}ms`;
+  rig.style.setProperty('--ax', CAMERA_ANCHORS[name].x);
+  rig.style.setProperty('--ay', CAMERA_ANCHORS[name].y);
+
+}
 
 
 function refreshDisplays() {
@@ -498,9 +543,11 @@ function refreshDisplays() {
 
   // ----------------------------------------------------------
 
-  if ( turnOrder[0]["side"] == "my" ) {
-    document.getElementById("mySlot").src = "/Scenes/Battle/CHAR_DATABASE/" + turnOrder[0]["code"] + "/" + turnOrder[0]["code"] + ".webp";
-  }
+  document.getElementById("mySlot0").src = "/Scenes/Battle/CHAR_DATABASE/" + party[0]["code"] + "/" + party[0]["code"] + ".webp";
+  document.getElementById("mySlot1").src = "/Scenes/Battle/CHAR_DATABASE/" + party[1]["code"] + "/" + party[1]["code"] + ".webp";
+  document.getElementById("mySlot2").src = "/Scenes/Battle/CHAR_DATABASE/" + party[2]["code"] + "/" + party[2]["code"] + ".webp";
+
+  
 
   // ----------------------------------------------------------
 
@@ -538,6 +585,18 @@ function refreshDisplays() {
     } else {
       document.getElementById("enemyHP" + String(i)).style.display = "none";
       document.getElementById("enemySlot" + String(i)).style.display = "none";
+
+      if ( pinned == i ) {
+        document.getElementById("pin" + String(i)).style.display = "none";
+
+        for ( var j = 0; j < 3; j++ ) {
+          if ( enemies[j]["hp"] > 0 ) {
+            document.getElementById("pin" + String(j)).src = "/Scenes/Battle/Sprites/pinned.png";
+            pinned = j
+            break
+          }
+        }
+      }
     }
 
   }
@@ -564,7 +623,26 @@ function refreshDisplays() {
 
   document.getElementById("imanaFill").style.height = String(imana) + "%"
 
-  
+  // ----------------------------------------------------------
+
+  if ( turnOrder[0]["code"] == party[0]["code"] ) {
+    setCameraAnchor("right");
+
+    document.getElementById("mySlot0").classList.add("visible")
+    document.getElementById("mySlot1").classList.remove("visible")
+    document.getElementById("mySlot2").classList.remove("visible")
+  } else if ( turnOrder[0]["code"] == party[1]["code"] ) {
+    setCameraAnchor("center");
+    document.getElementById("mySlot0").classList.remove("visible")
+    document.getElementById("mySlot1").classList.add("visible")
+    document.getElementById("mySlot2").classList.remove("visible")
+  } else if ( turnOrder[0]["code"] == party[2]["code"] ) {
+    setCameraAnchor("left");
+    document.getElementById("mySlot0").classList.remove("visible")
+    document.getElementById("mySlot1").classList.remove("visible")
+    document.getElementById("mySlot2").classList.add("visible")
+  }
+
 
 }
 
@@ -683,7 +761,7 @@ function randiRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var bouncyButtons = ["attackButton", "techniqueButton"]
+var bouncyButtons = ["attackButton", "techniqueButton", "pin0", "pin1", "pin2"]
 
 for ( var i = 0; i < bouncyButtons.length; i++ ) {
   

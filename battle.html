@@ -13,28 +13,52 @@
 </head>
 
 <body>
+    
 
-    <img id = "bgLayer1" class = "shake" style="--shake-amt: 3" src = "/Scenes/Battle/Sprites/battle.jpeg">
+
+    <div class = "camera-rig">
+
+
+        <img id = "bgLayer1" class = "shake" style="--shake-amt: 3" src = "/Scenes/Battle/Sprites/battle.jpeg">
+
+        <img id = "mySlot0" src = "" class = "shake fade" style="--shake-amt: 6">
+        <img id = "mySlot1" src = "" class = "shake fade" style="--shake-amt: 6">
+        <img id = "mySlot2" src = "" class = "shake fade" style="--shake-amt: 6">
+
+        
+
+        <img id = "enemySlot0" src = "" class = "shake" style="--shake-amt: 4">
+        <img id = "enemySlot1" src = "" class = "shake" style="--shake-amt: 4">
+        <img id = "enemySlot2" src = "" class = "shake" style="--shake-amt: 4">
+        <div id = "enemyHP0" class = "enemyHP shake" style="--shake-amt: 4">
+            <div id = "enemyHP0Fill" class = "enemyHPFill"></div>
+        </div>
+        <div id = "enemyHP1" class = "enemyHP shake" style="--shake-amt: 4">
+            <div id = "enemyHP1Fill" class = "enemyHPFill"></div>
+        </div>
+        <div id = "enemyHP2" class = "enemyHP shake" style="--shake-amt: 4">
+            <div id = "enemyHP2Fill" class = "enemyHPFill"></div>
+        </div>
+
+
+        <input id = "pin0" type="image" src = "/Scenes/Battle/Sprites/pinned.png" class = "shake elastic-button" style="--shake-amt: 5;" onclick="setPinned(0)">
+        <input id = "pin1" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake elastic-button" style="--shake-amt: 5;" onclick="setPinned(1)">
+        <input id = "pin2" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake elastic-button" style="--shake-amt: 5;" onclick="setPinned(2)">
+
+
+    </div>
+
+    
+    
 
     <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
     <audio id = "BGM" loop src = "/Scenes/Battle/Audio/Music/battle.mp3" autoplay></audio>
     <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
-    <img id = "enemySlot0" src = "" class = "shake" style="--shake-amt: 4">
-    <img id = "enemySlot1" src = "" class = "shake" style="--shake-amt: 4">
-    <img id = "enemySlot2" src = "" class = "shake" style="--shake-amt: 4">
-    <div id = "enemyHP0" class = "enemyHP shake" style="--shake-amt: 4">
-        <div id = "enemyHP0Fill" class = "enemyHPFill"></div>
-    </div>
-    <div id = "enemyHP1" class = "enemyHP shake" style="--shake-amt: 4">
-        <div id = "enemyHP1Fill" class = "enemyHPFill"></div>
-    </div>
-    <div id = "enemyHP2" class = "enemyHP shake" style="--shake-amt: 4">
-        <div id = "enemyHP2Fill" class = "enemyHPFill"></div>
-    </div>
+    
 
 
-    <img id = "mySlot" src = "" class = "shake" style="--shake-amt: 6">
+    
 
     <div id = "teamData">
         <img id = "myIcon0" src = "">
@@ -61,6 +85,8 @@
     <img id = "sub3" src = "" style="display: none;">
     <img id = "sub4" src = "" style="display: none;">
     <img id = "sub5" src = "" style="display: none;">
+
+    
 
     
     <div id = "imanaBar">
@@ -103,6 +129,8 @@
 
     <input id = "attackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')">
     <input id = "techniqueButton" type="image" src="/Scenes/Battle/Sprites/TechniqueButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('technique')">
+
+    
 
     <div id="transition">
         <div class="layer dark"></div>
