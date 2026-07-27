@@ -17,7 +17,7 @@ function refreshSetList() {
 
         var set = flashsets[i]
 
-        if ( set["cards"].length >= 4 ) {
+        if ( set["cards"].length >= 5 ) {
             const flashsetDiv = document.createElement("div");
             flashsetDiv.className = "FlashsetDiv";
 

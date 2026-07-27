@@ -144,7 +144,7 @@ function openSet(idx) {
 
     }
 
-    if ( fs["cards"].length < 4 ) {
+    if ( fs["cards"].length < 5 ) {
         document.getElementById("CardAmountWarning").style.display = "block";
     } else {
         document.getElementById("CardAmountWarning").style.display = "none";
@@ -194,7 +194,7 @@ function newCard() {
 
     save_data()
 
-    if ( fs.length < 4 ) {
+    if ( fs.length < 5 ) {
         document.getElementById("CardAmountWarning").style.display = "block";
     } else {
         document.getElementById("CardAmountWarning").style.display = "none";
