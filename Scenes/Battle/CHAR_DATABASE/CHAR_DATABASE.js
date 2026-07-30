@@ -1,5 +1,8 @@
 const CHAR_DB = {
     "lullaby": {
+
+        "DISPLAY_NAME" : "Lullaby",
+
         "BASE_HP" : 120,
         "BASE_STRENGTH" : 50,
         "BASE_MAGIC" : 130,
@@ -27,7 +30,7 @@ const CHAR_DB = {
 
         "TECHNIQUE" : {
             "name": "Soothing Melody",
-            "description": "Lullaby sings a soothing melody to an ally, healing the target's hp when it's their turn for 5 turns.",
+            "description": "Lullaby sings a soothing melody to an ally, healing the target's hp for 5 turns.",
             "type": "status",
             "stat": "hp",
             "basePower": 80,
@@ -35,8 +38,9 @@ const CHAR_DB = {
             "accuracy": 1,
             "status" : {
                 "name": "Soothing Melody",
-                "effect": "healOnAffectTurn",
+                "effect": "heal",
                 "type": "positive",
+                "turns": 5,
             }
         },
 
@@ -54,6 +58,9 @@ const CHAR_DB = {
     },
 
     "xiaoling": {
+
+        "DISPLAY_NAME" : "XiaoLing",
+
         "BASE_HP" : 60,
         "BASE_STRENGTH" : 170,
         "BASE_MAGIC" : 85,
@@ -103,6 +110,9 @@ const CHAR_DB = {
     },
 
     "lizzy": {
+
+        "DISPLAY_NAME" : "Lizzy",
+
         "BASE_HP" : 90,
         "BASE_STRENGTH" : 55,
         "BASE_MAGIC" : 175,
@@ -155,12 +165,16 @@ const CHAR_DB = {
             "status": {
                 "name": "I'll Ensure Your Safety!",
                 "effect": "resistenceUp",
+                "type": "positive",
                 "turns": 5,
             }
         },
     },
 
     "cuddlefish": {
+
+        "DISPLAY_NAME" : "Cuddle Fish",
+
         "BASE_HP" : 115,
         "BASE_STRENGTH" : 60,
         "BASE_MAGIC" : 85,
@@ -213,12 +227,16 @@ const CHAR_DB = {
             "status": {
                 "name": "Let's Cuddle for Eternity!",
                 "effect": "speedDown",
+                "type": "negative",
                 "turns": 5
             }
         },
     },
 
     "syla": {
+
+        "DISPLAY_NAME" : "Syla",
+
         "BASE_HP" : 130,
         "BASE_STRENGTH" : 10,
         "BASE_MAGIC" : 170,
@@ -247,8 +265,8 @@ const CHAR_DB = {
         "TECHNIQUE" : {
             "name": "Critical Analysis",
             "description": "Syla analysizes the weakness of an enemy, lowering their resistence for 3 turns.",
-            "type": "drain",
-            "stat": "strength",
+            "type": "status",
+            "stat": "magic",
             "basePower": 100,
             "hits": 1,
             "accuracy": 1,
@@ -274,6 +292,9 @@ const CHAR_DB = {
     },
 
     "toki": {
+
+        "DISPLAY_NAME" : "Toki",
+
         "BASE_HP" : 110,
         "BASE_STRENGTH" : 60,
         "BASE_MAGIC" : 30,
@@ -301,12 +322,18 @@ const CHAR_DB = {
 
         "TECHNIQUE" : {
             "name": "Be My First Mate?",
-            "description": "The chosen ally becomes Toki's first mate, greatly boost their speed for 2 turns.",
-            "type": "drain",
+            "description": "The chosen ally becomes Toki's first mate, greatly boosting their speed for 2 turns.",
+            "type": "status",
             "stat": "speed",
             "basePower": 100,
             "hits": 1,
             "accuracy": 1,
+            "status" : {
+                "name": "Be My First Mate?",
+                "effect": "speedUp",
+                "type": "positive",
+                "turns": 2,
+            }
         },
 
         "ULTIMATE" : {
@@ -322,6 +349,8 @@ const CHAR_DB = {
             "status" : {
                 "name": "Full Speed Ahead!",
                 "effect": "speedUp",
+                "type": "positive",
+                "turns": 3,
             }
         },
     },

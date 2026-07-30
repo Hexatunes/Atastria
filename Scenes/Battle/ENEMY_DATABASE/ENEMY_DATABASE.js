@@ -1,5 +1,8 @@
 const ENEMY_DB = {
     "testdummy": {
+
+        "DISPLAY_NAME" : "Test Dummy",
+
         "BASE_HP" : 200,
         "BASE_STRENGTH" : 50,
         "BASE_MAGIC" : 130,

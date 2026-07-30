@@ -387,9 +387,73 @@ body {
 }
 
 
+#teamFocus {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#focusText {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 2.5vw;
+    top: 55%;
+    left: 50%;
+    text-shadow: 
+    1px 1px 0px #a2f0ffa2,
+    2px 2px 0px #ffbef4c1;
+}
+
+#teammateTarget0 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 92%;
+    left: 42%;
+    width: 5%;
+    height: 10%;
+    opacity: 0;
+}
+
+#teammateTarget1 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 92%;
+    left: 50%;
+    width: 5%;
+    height: 10%;
+    opacity: 0;
+}
+
+#teammateTarget2 {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 92%;
+    left: 58%;
+    width: 5%;
+    height: 10%;
+    opacity: 0;
+}
+
+#battlelog {
+    position: absolute;
+    top: -5%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    height: 25%;
+    text-align: right;
+    
+}
 
 
-
+.logtext {
+    font-size: 1.5vw;
+    color: #06215caa;
+    text-shadow: 
+    2px 2px 2px #ffffff85,
+    2px 2px 2px #ffffff91;
+}
 
 
 /* ------------------------------------- */
@@ -554,23 +618,25 @@ input {
 
 @property --sx { syntax: '<length>'; inherits: false; initial-value: 0px; }
 @property --sy { syntax: '<length>'; inherits: false; initial-value: 0px; }
-@property --ax { syntax: '<length>'; inherits: true;  initial-value: 0px; }
-@property --ay { syntax: '<length>'; inherits: true;  initial-value: 0px; }
 
 .camera-rig {
-  --ax: 0vmin;
-  --ay: 0vmin;
-  transition: --ax 1.5s cubic-bezier(0.19, 1, 0.22, 1), --ay 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  position: absolute;
+  inset: 0;
+  transform: translate(0vmin, 0vmin);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
 }
 
+/* .shake now ONLY adds motion — no position/top/left/centering assumptions */
 .shake {
   --shake-amt: 1;
-  translate: calc(var(--sx) + var(--ax)) calc(var(--sy) + var(--ay));
+  translate: var(--sx) var(--sy);
   animation:
     shake-x 5s cubic-bezier(.37,0,.63,1) infinite,
-    shake-y 6s cubic-bezier(.37,0,.63,1) infinite;
+    shake-y 5s cubic-bezier(.37,0,.63,1) infinite;
   will-change: translate;
 }
+/* @keyframes shake-x / shake-y — unchanged */
 
 @keyframes shake-x {
   0%   { --sx: calc(var(--shake-amt) * -0.15vmin); }
@@ -610,3 +676,21 @@ input {
   50% { transform: scale(1.1, 1.1); }
   100% { transform: scale(1, 1); }
 }
+
+.hide-scrollbar {
+  /* Enables vertical scrolling */
+  overflow-y: auto; 
+  
+  /* Firefox */
+  scrollbar-width: none; 
+  
+  /* IE and Edge (Legacy) */
+  -ms-overflow-style: none; 
+}
+
+/* Chrome, Safari, and Opera (WebKit browsers) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+

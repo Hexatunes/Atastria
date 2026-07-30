@@ -27,6 +27,7 @@ function setUp() {
     let level = m["level"]
 
     let partyInstance = {
+      "DISPLAY_NAME": CHAR_DB[code]["DISPLAY_NAME"],
       "code": code,
       "level": level,
 
@@ -61,6 +62,7 @@ function setUp() {
     let level = e["level"]
 
     let enemyInstance = {
+      "DISPLAY_NAME": ENEMY_DB[code]["DISPLAY_NAME"],
       "code": code,
       "level": level,
 
@@ -182,6 +184,45 @@ function advanceTurn() {
     enemyDecision()
   }
 
+  //--------------Increment Statuses-----------------
+
+  for ( var i = 0; i < party.length; i++ ) {
+
+    for ( var j = 0; j < party[i]["statuses"].length; j++ ) {
+
+      var status = party[i]["statuses"][j]
+
+      if ( status["effect"] == "heal" ) {
+
+        applyStatus(party[i], "heal")
+        
+      }
+
+    }
+
+  }
+
+  for ( var i = 0; i < party.length; i++ ) {
+
+    for ( var j = 0; j < party[i]["statuses"].length; j++ ) {
+
+      var status = party[i]["statuses"][j]
+
+      status["turns_passed"] += 1
+      console.log(party[i]["DISPLAY_NAME"] + "'s " + status["name"] + " down to " + String(status["turns_duration"] - status["turns_passed"]))
+
+      if ( status["turns_passed"] > status["turns_duration"] ) {
+
+        battlelog(party[i]["DISPLAY_NAME"] + "'s " + '"' + status["name"] + '" expired!');
+        removeStatus(party[i], status["effect"])
+        party[i]["statuses"].splice(j, 1);
+        
+      }
+
+    }
+
+  }
+
   console.log("-------------")
   console.log("Advanced turn!")
   console.log(turnOrder)
@@ -199,6 +240,7 @@ var correct = false
 var lastRNR = "recognition"
 
 var pinned = 0
+var pinnedSelf = 0
 
 function initiateFlashcard(action) {
 
@@ -309,6 +351,8 @@ function recognitionSubmit(idx) {
 
     if ( pendingAction == "attack" ) {
       attack()
+    } else if ( pendingAction == "technique" ) {
+      technique()
     }
 
     return
@@ -326,7 +370,10 @@ function recognitionSubmit(idx) {
 
     if ( pendingAction == "attack" ) {
       attack()
+    } else if ( pendingAction == "technique" ) {
+      technique()
     }
+
 
     document.getElementById("recognitionFlashcard").style.display = "none";
     document.getElementById("flashcardFeedback").style.display = "none";
@@ -355,7 +402,10 @@ function recallSubmit() {
 
     if ( pendingAction == "attack" ) {
       attack()
+    } else if ( pendingAction == "technique" ) {
+      technique()
     }
+
 
     return
   }
@@ -374,7 +424,10 @@ function recallSubmit() {
 
     if ( pendingAction == "attack" ) {
       attack()
+    } else if ( pendingAction == "technique" ) {
+      technique()
     }
+
 
 
     document.getElementById("recallFlashcard").style.display = "none";
@@ -407,17 +460,23 @@ function attack() {
     acc = 0
   }
 
+  var defendingStat = "defence"
+
+  if ( attackInfo["stat"] == "magic" ) {
+    defendingStat = "resistence"
+  }
+
   var target = enemies[pinned]
 
   // ------------------Calculate Damage-------------------------
 
   for ( var i = 0; i < attackInfo["hits"]; i++ ) {
 
-    let damage = damageCalc(bp, acting["strength"], target["defence"], acting["level"], 1, acc)
+    let damage = damageCalc(bp, acting[attackInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
 
     target["hp"] -= damage
 
-    console.log(code + " attacked " + target["code"] + " for " + String(damage) + "!");
+    battlelog(acting["DISPLAY_NAME"] + " used " + attackInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
   }
 
@@ -434,7 +493,157 @@ function attack() {
 
 }
 
+function mySlotInput(idx) {
+
+  if ( pendingAction = "chooseTeammateTechnique" ) {
+    pinnedSelf = idx;
+    initiateFlashcard("technique")
+
+    document.getElementById("teamFocus").style.display = "none";
+    document.getElementById("focusText").style.display = "none";
+  }
+
+}
+
+function techniqueTarget() {
+
+  var acting = turnOrder[0]
+  var code = acting["code"]
+
+  var techniqueInfo = CHAR_DB[code]["TECHNIQUE"]
+
+  if ( techniqueInfo["type"] == "heal" || (techniqueInfo["type"] == "status" && techniqueInfo["status"]["type"] == "positive") ) {
+
+    document.getElementById("teamFocus").style.display = "block";
+    document.getElementById("focusText").style.display = "block";
+
+    pendingAction = "chooseTeammateTechnique"
+
+  } else {
+    initiateFlashcard("technique")
+  }
+
+}
+
 function technique() {
+
+  // ------------------Set Up Variables-------------------------
+
+  var acting = turnOrder[0]
+  var code = acting["code"]
+
+  var techniqueInfo = CHAR_DB[code]["TECHNIQUE"]
+
+  var bp = techniqueInfo["basePower"]
+
+  if ( lastRNR == "recall" ) {
+    bp *= 1.25
+  }
+
+  var defendingStat = "defence"
+
+  if ( techniqueInfo["stat"] == "magic" ) {
+    defendingStat = "resistence"
+  }
+
+  var acc = techniqueInfo["accuracy"]
+
+  if ( !correct ) {
+    acc = 0
+  }
+
+  var target = enemies[pinned]
+
+  if ( techniqueInfo["type"] == "heal" || (techniqueInfo["type"] == "status" && techniqueInfo["status"]["type"] == "positive") ) {
+    target = party[pinnedSelf];
+  }
+
+  // ------------Act Depending on Type of Technique-------------
+
+  if ( techniqueInfo["type"] == "damage" ) {
+
+    for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+      let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
+
+      target["hp"] -= damage
+
+      battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
+
+    
+    }
+
+  } else if ( techniqueInfo["type"] == "status" ) {
+
+    if ( correct ) {
+      target["statuses"].push({
+        "name": techniqueInfo["status"]["name"],
+        "effect": techniqueInfo["status"]["effect"],
+        "turns_duration": techniqueInfo["status"]["turns"],
+        "turns_passed": 0,
+      })
+
+      if ( techniqueInfo["status"]["type"] == "positive" ) {
+        battlelog(acting["DISPLAY_NAME"] + ' gave inspiration "' + techniqueInfo["status"]["name"] + '" to ' + target["DISPLAY_NAME"] + "!");
+      } else {
+        battlelog(acting["DISPLAY_NAME"] + ' gave hinderance "' + techniqueInfo["status"]["name"] + '" to ' + target["DISPLAY_NAME"] + "!");
+      }
+      
+
+      applyStatus(target, techniqueInfo["status"]["effect"])
+    }
+
+    
+
+  } else if ( techniqueInfo["type"] == "drain" ) {
+
+    for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+      let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
+
+      target["hp"] -= damage
+      acting["hp"] += Math.floor(damage * 0.5)
+
+      if ( acting["hp"] > acting["maxHP"] ) {
+        acting["hp"] = acting["maxHP"]
+      }
+
+      battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
+      battlelog(acting["DISPLAY_NAME"] + " healed " + String(damage * 0.5) + " and now has " + String(acting["hp"]) + "/" + String(acting["maxHP"]) + " hp!")
+
+    
+    }
+
+  } else if ( techniqueInfo["type"] == "heal" ) {
+
+    for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+      let heal = damageCalc(bp, acting[techniqueInfo["stat"]], 100, acting["level"], 1, acc)
+
+      target["hp"] += heal
+
+      if ( target["hp"] > target["maxHP"] ) {
+        target["hp"] = target["maxHP"]
+      }
+
+      battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " to heal " + String(heal) + "hp!");
+
+    
+    }
+
+  }
+
+  
+
+  // ----------------------------------------------------------
+
+  refreshDisplays()
+
+  setTimeout(() => {
+
+    advanceTurn()
+
+  }, 1000);
 
 }
 
@@ -459,7 +668,7 @@ function enemyDecision() {
 
       target["hp"] -= damage
 
-      console.log(code + " attacked " + target["code"] + " for " + String(damage) + "!");
+      battlelog(acting["DISPLAY_NAME"] + " attacked " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
     }
 
@@ -495,7 +704,7 @@ function enemyDecision() {
 
 }
 
-function damageCalc(power, strength, defence, level, mods, acc) {
+function damageCalc(power, stat, defence, level, mods, acc) {
 
   var hitRoll = randiRange(0, 100) / 100
 
@@ -504,7 +713,7 @@ function damageCalc(power, strength, defence, level, mods, acc) {
   }
 
   var part1 = ( (2 * level) / 5 ) + 2;
-  var final = part1 * power * (strength / defence) * 0.02 + 2;
+  var final = part1 * power * (stat / defence) * 0.02 + 2;
 
   return Math.floor(final * mods);
 
@@ -520,18 +729,17 @@ function setPinned(idx) {
 }
 
 const CAMERA_ANCHORS = {
-  "left":   { "x": '-15vmin', "y": '0vmin'  },
+  "left":   { "x": '-13vmin', "y": '0vmin'  },
   "center": { "x": '0vmin',   "y": '0vmin'  },
-  "right":  { "x": '15vmin',  "y": '0vmin' },
+  "right":  { "x": '13vmin',  "y": '0vmin' },
 };
 
 function setCameraAnchor(name, durationMs = 900) {
   const rig = document.querySelector('.camera-rig');
   if (!rig || !CAMERA_ANCHORS[name]) return;
+  const a = CAMERA_ANCHORS[name];
   rig.style.transitionDuration = `${durationMs}ms`;
-  rig.style.setProperty('--ax', CAMERA_ANCHORS[name].x);
-  rig.style.setProperty('--ay', CAMERA_ANCHORS[name].y);
-
+  rig.style.transform = `translate(${a.x}, ${a.y})`;
 }
 
 
@@ -648,6 +856,164 @@ function refreshDisplays() {
 
 function checkAlive(member) {
   return member["hp"] > 0;
+}
+
+function applyStatus(char, effect) {
+
+  var change = 25
+
+  switch (effect) {
+
+    case "heal":
+      char["hp"] += Math.floor(char["maxHP"] * 0.08)
+
+      if ( char["hp"] > char["maxHP"] ) {
+        char["hp"] = char["maxHP"]
+      }
+      break;
+    
+    case "strengthUp":
+
+      char["strength"] += change
+
+      break;
+    
+    case "strengthDown":
+
+      char["strength"] -= change
+
+      break;
+    
+    case "magicUp":
+
+      char["magic"] += change
+
+      break;
+    
+    case "magicDown":
+
+      char["magic"] -= change
+
+      break;
+    
+    case "defenceUp":
+
+      char["defence"] += change
+
+      break;
+    
+    case "defenceDown":
+
+      char["defence"] -= change
+
+      break;
+    
+    case "resistenceUp":
+
+      char["resistence"] += change
+
+      break;
+    
+    case "resistenceDown":
+
+      char["resistence"] -= change
+
+      break;
+    
+    case "speedUp":
+
+      char["speed"] += change
+
+      break;
+    
+    case "speedDown":
+
+      char["speed"] -= change
+
+      break;
+  }
+
+}
+
+function removeStatus(char, effect) {
+
+  var change = 25
+
+  switch (effect) {
+    
+    case "strengthUp":
+
+      char["strength"] -= change
+
+      break;
+    
+    case "strengthDown":
+
+      char["strength"] += change
+
+      break;
+    
+    case "magicUp":
+
+      char["magic"] -= change
+
+      break;
+    
+    case "magicDown":
+
+      char["magic"] += change
+
+      break;
+    
+    case "defenceUp":
+
+      char["defence"] -= change
+
+      break;
+    
+    case "defenceDown":
+
+      char["defence"] += change
+
+      break;
+    
+    case "resistenceUp":
+
+      char["resistence"] -= change
+
+      break;
+    
+    case "resistenceDown":
+
+      char["resistence"] += change
+
+      break;
+    
+    case "speedUp":
+
+      char["speed"] -= change
+
+      break;
+    
+    case "speedDown":
+
+      char["speed"] += change
+
+      break;
+  }
+
+}
+
+function battlelog(message) {
+  const m = document.createElement("p")
+  m.innerHTML = String(message)
+  m.className = "logtext"
+  document.getElementById("battlelog").appendChild(m)
+
+  document.getElementById("battlelog").scrollTo({
+    top: document.getElementById("battlelog").scrollHeight,
+    behavior: 'smooth'
+  });
 }
 // ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
 

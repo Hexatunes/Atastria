@@ -76,21 +76,6 @@ function standardBattle() {
         ],
         "party": [
           {
-            "code": "lullaby",
-            "level": 50,
-            "items": [],
-          },
-          {
-            "code": "xiaoling",
-            "level": 50,
-            "items": [],
-          },
-          {
-            "code": "cuddlefish",
-            "level": 50,
-            "items": [],
-          },
-          {
             "code": "syla",
             "level": 50,
             "items": [],
@@ -102,6 +87,21 @@ function standardBattle() {
           },
           {
             "code": "toki",
+            "level": 50,
+            "items": [],
+          },
+          {
+            "code": "lullaby",
+            "level": 50,
+            "items": [],
+          },
+          {
+            "code": "xiaoling",
+            "level": 50,
+            "items": [],
+          },
+          {
+            "code": "cuddlefish",
             "level": 50,
             "items": [],
           },
