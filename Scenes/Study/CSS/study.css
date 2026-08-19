@@ -36,6 +36,13 @@ body {
     left: 26%
 }
 
+#back {
+    position: absolute;
+    width: 5%;
+    height: auto;
+    top: 0%;
+}
+
 .FlashsetDiv {
     width: 100%;
     height: auto;

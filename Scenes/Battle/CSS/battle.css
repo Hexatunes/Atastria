@@ -12,30 +12,30 @@ body {
 
 #mySlot0 {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: auto;
-    top: 65%;
-    left: 20%;
+    top: 60%;
+    left: 40%;
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
 
 #mySlot1 {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: auto;
-    top: 65%;
-    left: 25%;
+    top: 60%;
+    left: 45%;
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
 
 #mySlot2 {
     position: absolute;
-    width: 50%;
+    width: 100%;
     height: auto;
-    top: 65%;
-    left: 30%;
+    top: 60%;
+    left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
@@ -88,7 +88,7 @@ body {
 
 #myIcon0 {
     position: absolute;
-    width: 35%;
+    width: 25%;
     height: auto;
     top: 25%;
     left: 18%;
@@ -96,7 +96,7 @@ body {
 }
 #myIcon1 {
     position: absolute;
-    width: 35%;
+    width: 25%;
     height: auto;
     top: 25%;
     left: 50%;
@@ -104,7 +104,7 @@ body {
 }
 #myIcon2 {
     position: absolute;
-    width: 35%;
+    width: 25%;
     height: auto;
     top: 25%;
     left: 82%;
@@ -266,6 +266,8 @@ body {
   height: 100%;
 
   animation: float 2s ease-in-out infinite;
+
+  position: absolute;
 }
 
 /* 1. Define the animation keyframes */
@@ -286,17 +288,15 @@ body {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.611);
     border-radius: 25px;
-    transform: rotate(90deg);
-    width: 35%;
-    height: 10%;
-    top: 50%;
-    left: -10.5%;
+    width: 29%;
+    height: 8%;
+    top: 90%;
+    left: 4%;
 }
 
 .turnOrder {
-    width: 15%;
-    height: auto;
-    transform: rotate(-90deg);
+    width: auto;
+    height: 100%;
 }
 
 .flashcard {
@@ -370,8 +370,9 @@ body {
 
 #rnrModeText {
     position: absolute;
-    top: 85%;
-    font-size: 3vw;
+    top: 90%;
+    left: 63%;
+    font-size: 2vw;
     text-shadow: 
     2px 2px 2px #ffffff,
     2px 2px 2px #ffffff;
@@ -437,19 +438,21 @@ body {
 
 #battlelog {
     position: absolute;
-    top: -5%;
-    left: 75%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 45%;
-    height: 25%;
-    text-align: right;
+    height: 50%;
+    text-align: center;
+    background-color: #ffffffc6;
+    border-radius: 5%;
     
 }
 
 
 .logtext {
     font-size: 1.5vw;
-    color: #06215caa;
+    color: #06215c;
     text-shadow: 
     2px 2px 2px #ffffff85,
     2px 2px 2px #ffffff91;
@@ -632,8 +635,8 @@ input {
   --shake-amt: 1;
   translate: var(--sx) var(--sy);
   animation:
-    shake-x 5s cubic-bezier(.37,0,.63,1) infinite,
-    shake-y 5s cubic-bezier(.37,0,.63,1) infinite;
+    shake-x 7s cubic-bezier(.37,0,.63,1) infinite,
+    shake-y 7s cubic-bezier(.37,0,.63,1) infinite;
   will-change: translate;
 }
 /* @keyframes shake-x / shake-y — unchanged */
@@ -693,4 +696,8 @@ input {
   display: none;
 }
 
+
+.squiggle {
+  filter: url(#squiggle-filter);
+}
 

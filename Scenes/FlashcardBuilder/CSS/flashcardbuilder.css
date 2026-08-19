@@ -89,6 +89,13 @@ body {
     align-items: center;
 }
 
+#back {
+    position: absolute;
+    width: 5%;
+    height: auto;
+    top: 0%;
+}
+
 .QuestionInput {
     width: 45%;
     height: 100%;

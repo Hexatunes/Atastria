@@ -76,17 +76,7 @@ function standardBattle() {
         ],
         "party": [
           {
-            "code": "syla",
-            "level": 50,
-            "items": [],
-          },
-          {
             "code": "lizzy",
-            "level": 50,
-            "items": [],
-          },
-          {
-            "code": "toki",
             "level": 50,
             "items": [],
           },
@@ -100,11 +90,24 @@ function standardBattle() {
             "level": 50,
             "items": [],
           },
+          
           {
             "code": "cuddlefish",
             "level": 50,
             "items": [],
           },
+          {
+            "code": "syla",
+            "level": 50,
+            "items": [],
+          },
+          
+          {
+            "code": "toki",
+            "level": 50,
+            "items": [],
+          },
+          
         ],
     })
 

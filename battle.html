@@ -19,7 +19,7 @@
     <div class = "camera-rig">
 
 
-        <img id = "bgLayer1" class = "shake" style="--shake-amt: 3" src = "/Scenes/Battle/Sprites/battle.jpeg">
+        <img id = "bgLayer1" class = "shake" style="--shake-amt: 3">
 
         
 
@@ -28,6 +28,7 @@
         <img id = "enemySlot0" src = "" class = "shake" style="--shake-amt: 4">
         <img id = "enemySlot1" src = "" class = "shake" style="--shake-amt: 4">
         <img id = "enemySlot2" src = "" class = "shake" style="--shake-amt: 4">
+
         <div id = "enemyHP0" class = "enemyHP shake" style="--shake-amt: 4">
             <div id = "enemyHP0Fill" class = "enemyHPFill"></div>
         </div>
@@ -40,22 +41,29 @@
 
 
         
-        <input id = "pin0" type="image" src = "/Scenes/Battle/Sprites/pinned.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(0)">
-        <input id = "pin1" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(1)">
-        <input id = "pin2" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(2)">
+        <input id = "pin0" type="image" src = "/Scenes/Battle/Sprites/pinned.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(0)" tabindex="-1">
+        <input id = "pin1" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(1)" tabindex="-1">
+        <input id = "pin2" type="image" src = "/Scenes/Battle/Sprites/transparent.png" class = "shake" style="--shake-amt: 4" onclick="setPinned(2)" tabindex="-1">
 
-        <img id = "mySlot0" src = "" class = "shake fade" style="--shake-amt: 6">
-        <img id = "mySlot1" src = "" class = "shake fade" style="--shake-amt: 6">
-        <img id = "mySlot2" src = "" class = "shake fade" style="--shake-amt: 6">
+        <img id = "mySlot0" src = "" class = "shake fade squiggle" style="--shake-amt: 8">
+        <img id = "mySlot1" src = "" class = "shake fade squiggle" style="--shake-amt: 8">
+        <img id = "mySlot2" src = "" class = "shake fade squiggle" style="--shake-amt: 8">
 
-        <div id = "battlelog" class="hide-scrollbar shake"style="--shake-amt: 4"></div>
+        <div id = "battlelog" class="hide-scrollbar shake"style="--shake-amt: 4; display: none;"></div>
 
     </div>
 
     
-    
+    <svg width="0" height="0" style="position:absolute">
+    <filter id="squiggle-filter" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="4s" repeatCount="indefinite" calcMode="discrete"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
 
-    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()" tabindex="-1">
     <audio id = "BGM" loop src = "/Scenes/Battle/Audio/Music/battle.mp3" autoplay></audio>
     <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
@@ -123,7 +131,7 @@
 
     <div id = "recallFlashcard" class = "flashcard" style="display: none;">
         <p id = "recallQuestion" class = "question">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque nisl, euismod quis finibus vitae, iaculis sit amet nunc.</p>
-        <input id = "recallAnswer">
+        <input id = "recallAnswer" tabindex="-1">
     </div>
 
     <p id = "flashcardFeedback" style="display: none;">The correct answer was: </p>
@@ -131,8 +139,8 @@
     <p id = "rnrModeText">[Recognition] / Recall</p>
     
 
-    <input id = "attackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')">
-    <input id = "techniqueButton" type="image" src="/Scenes/Battle/Sprites/TechniqueButton.png" class="hover-button elastic-button" onclick="techniqueTarget()">
+    <input id = "attackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')" tabindex="-1">
+    <input id = "techniqueButton" type="image" src="/Scenes/Battle/Sprites/TechniqueButton.png" class="hover-button elastic-button" onclick="techniqueTarget() "tabindex="-1">
 
     <img id = "teamFocus" src = "/Scenes/Battle/Sprites/TeamFocus.png" style="display: none;">
     <p id = "focusText" style="display: none;">Choose a party member!</p>

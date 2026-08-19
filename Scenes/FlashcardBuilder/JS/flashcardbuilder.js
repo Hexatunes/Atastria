@@ -9,9 +9,9 @@ function promptNewSetName() {
         return
     }
 
-    console.log(flashsets)
-
     var flashsets = save["flashsets"];
+
+    console.log(flashsets)
 
     setName = setName.replaceAll('"', '')
     setName = setName.replaceAll("'", "")
@@ -98,14 +98,16 @@ function openSet(idx) {
     setName.innerHTML = fs["name"];
     document.getElementById("FlashcardEditor").appendChild(setName);
 
+    console.log(fs)
+
     for ( let i = 0; i < fs["cards"].length; i++ ) {
 
-        var card = fs["cards"][i]
+        let card = fs["cards"][i]
 
-        const cardDiv = document.createElement("div")
+        let cardDiv = document.createElement("div")
         cardDiv.className = "CardDiv"
 
-        const questionInput = document.createElement("input")
+        let questionInput = document.createElement("input")
         questionInput.className = "QuestionInput"
         questionInput.addEventListener("input", () => {
             updateCard(i, "question", questionInput.value);
@@ -117,7 +119,7 @@ function openSet(idx) {
         }
         
 
-        const answerInput = document.createElement("input");
+        let answerInput = document.createElement("input");
         answerInput.className = "AnswerInput";
         answerInput.addEventListener("input", () => {
             updateCard(i, "answer", answerInput.value);
@@ -127,7 +129,7 @@ function openSet(idx) {
         }
         answerInput.placeholder = "Answer"
 
-        const deleteCardButton = document.createElement("input");
+        let deleteCardButton = document.createElement("input");
         deleteCardButton.className = "DeleteCard";
         deleteCardButton.type = "image";
         deleteCardButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
@@ -153,36 +155,38 @@ function openSet(idx) {
 
 function newCard() {
 
-    var fs = save["flashsets"][editingSet]["cards"];
+    let fs = save["flashsets"][editingSet]["cards"];
 
     fs.push({
         "question": "",
         "answer": "",
     });
 
-    const cardDiv = document.createElement("div")
+    const newLength = fs.length - 1
+
+    let cardDiv = document.createElement("div")
     cardDiv.className = "CardDiv"
 
-    const questionInput = document.createElement("input")
+    let questionInput = document.createElement("input")
     questionInput.className = "QuestionInput"
     questionInput.addEventListener("input", () => {
-        updateCard(fs.length - 1, "question", questionInput.value);
+        updateCard(newLength, "question", questionInput.value);
     });
     questionInput.placeholder = "Question"
 
-    const answerInput = document.createElement("input");
+    let answerInput = document.createElement("input");
     answerInput.className = "AnswerInput";
     answerInput.addEventListener("input", () => {
-        updateCard(fs.length - 1, "answer", answerInput.value);
+        updateCard(newLength, "answer", answerInput.value);
     });
     answerInput.placeholder = "Answer"
 
-    const deleteCardButton = document.createElement("input");
+    let deleteCardButton = document.createElement("input");
     deleteCardButton.className = "DeleteCard";
     deleteCardButton.type = "image";
     deleteCardButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
     deleteCardButton.addEventListener("click", () => {
-        deleteCard(fs.length - 1);
+        deleteCard(newLength);
     });
 
     cardDiv.appendChild(questionInput);
@@ -206,6 +210,8 @@ function updateCard(cardIDX, toUpdate, text) {
     var fs = save["flashsets"][editingSet]["cards"];
 
     fs[cardIDX][toUpdate] = text
+
+    console.log(cardIDX, toUpdate, text)
 
     save_data()
 }

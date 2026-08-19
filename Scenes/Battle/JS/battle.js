@@ -9,6 +9,8 @@ var imana = 0;                 //
 var turnOrder = [];            //
 
 var rnrMode = "recognition";   //
+
+var scene = "Sunset";          //
 // ⸻⸻⸻⸻⸻
 
 
@@ -84,6 +86,16 @@ function setUp() {
     enemies.push(enemyInstance)
 
   }
+
+  document.getElementById("mySlot0").src = "/Scenes/Battle/CHAR_DATABASE/" + party[0]["code"] + "/" + party[0]["code"] + "Idle" + scene + ".png";
+  document.getElementById("mySlot1").src = "/Scenes/Battle/CHAR_DATABASE/" + party[1]["code"] + "/" + party[1]["code"] + "Idle" + scene + ".png";
+  document.getElementById("mySlot2").src = "/Scenes/Battle/CHAR_DATABASE/" + party[2]["code"] + "/" + party[2]["code"] + "Idle" + scene + ".png";
+
+  document.getElementById("enemySlot0").src = "/Scenes/Battle/ENEMY_DATABASE/" + enemies[0]["code"] + "/" + enemies[0]["code"] + ".png";
+  document.getElementById("enemySlot1").src = "/Scenes/Battle/ENEMY_DATABASE/" + enemies[1]["code"] + "/" + enemies[1]["code"] + ".png";
+  document.getElementById("enemySlot2").src = "/Scenes/Battle/ENEMY_DATABASE/" + enemies[2]["code"] + "/" + enemies[2]["code"] + ".png";
+
+  document.getElementById("bgLayer1").src = "/Scenes/Battle/Sprites/battleBG" + scene + ".png" 
   
 
 
@@ -451,7 +463,7 @@ function attack() {
   var bp = attackInfo["basePower"]
 
   if ( lastRNR == "recall" ) {
-    bp *= 1.25
+    bp *= 1.5
   }
 
   var acc = attackInfo["accuracy"]
@@ -480,6 +492,16 @@ function attack() {
 
   }
 
+  if ( lastRNR == "recognition" && correct ) {
+    imana += 5
+  } else if ( lastRNR == "recall" && correct ) {
+    imana += 10
+  }
+
+  if ( imana > 100 ) {
+    imana = 100
+  }
+
   // ----------------------------------------------------------
 
   refreshDisplays()
@@ -488,7 +510,7 @@ function attack() {
 
     advanceTurn()
 
-  }, 1000);
+  }, 500);
 
 
 }
@@ -537,7 +559,7 @@ function technique() {
   var bp = techniqueInfo["basePower"]
 
   if ( lastRNR == "recall" ) {
-    bp *= 1.25
+    bp *= 1.5
   }
 
   var defendingStat = "defence"
@@ -631,11 +653,24 @@ function technique() {
     
     }
 
+  
   }
 
   
 
   // ----------------------------------------------------------
+
+  if ( lastRNR == "recognition" && correct ) {
+    imana += 5
+  } else if ( lastRNR == "recall" && correct ) {
+    imana += 10
+  }
+  
+
+  if ( imana > 100 ) {
+    imana = 100
+  }
+
 
   refreshDisplays()
 
@@ -643,7 +678,7 @@ function technique() {
 
     advanceTurn()
 
-  }, 1000);
+  }, 500);
 
 }
 
@@ -653,8 +688,8 @@ function enemyDecision() {
   var acting = turnOrder[0]
   var code = acting["code"]
 
-  var choices = ["attack"]
-  var decision = choices[randiRange(0, 0)]
+  var choices = ["attack", "technique"]
+  var decision = choices[randiRange(0, 1)]
 
   if ( decision == "attack" ) {
     
@@ -690,6 +725,122 @@ function enemyDecision() {
       document.getElementById("mySlot2").classList.add("visible")
     }
     
+  } else if ( decision == "technique" ) {
+    
+    var techniqueInfo = ENEMY_DB[code]["TECHNIQUE"]
+    var targetIDX = randiRange(0, 2)
+    var target = party[targetIDX]
+
+    var defendingStat = "defence"
+
+    if ( techniqueInfo["stat"] == "magic" ) {
+      defendingStat = "resistence"
+    }
+
+    var acc = techniqueInfo["accuracy"]
+
+    if ( !correct ) {
+      acc = 0
+    }
+
+    if ( techniqueInfo["type"] == "heal" || (techniqueInfo["type"] == "status" && techniqueInfo["status"]["type"] == "positive") ) {
+      target = enemies[randiRange(0,2)];
+    }
+
+    // ------------Act Depending on Type of Technique-------------
+
+    if ( techniqueInfo["type"] == "damage" ) {
+
+      for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+        let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
+
+        target["hp"] -= damage
+
+        battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
+
+      
+      }
+
+    } else if ( techniqueInfo["type"] == "status" ) {
+
+      if ( correct ) {
+        target["statuses"].push({
+          "name": techniqueInfo["status"]["name"],
+          "effect": techniqueInfo["status"]["effect"],
+          "turns_duration": techniqueInfo["status"]["turns"],
+          "turns_passed": 0,
+        })
+
+        if ( techniqueInfo["status"]["type"] == "positive" ) {
+          battlelog(acting["DISPLAY_NAME"] + ' gave inspiration "' + techniqueInfo["status"]["name"] + '" to ' + target["DISPLAY_NAME"] + "!");
+        } else {
+          battlelog(acting["DISPLAY_NAME"] + ' gave hinderance "' + techniqueInfo["status"]["name"] + '" to ' + target["DISPLAY_NAME"] + "!");
+        }
+        
+
+        applyStatus(target, techniqueInfo["status"]["effect"])
+      }
+
+      
+
+    } else if ( techniqueInfo["type"] == "drain" ) {
+
+      for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+        let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
+
+        target["hp"] -= damage
+        acting["hp"] += Math.floor(damage * 0.5)
+
+        if ( acting["hp"] > acting["maxHP"] ) {
+          acting["hp"] = acting["maxHP"]
+        }
+
+        battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
+        battlelog(acting["DISPLAY_NAME"] + " healed " + String(damage * 0.5) + " and now has " + String(acting["hp"]) + "/" + String(acting["maxHP"]) + " hp!")
+
+      
+      }
+
+    } else if ( techniqueInfo["type"] == "heal" ) {
+
+      for ( var i = 0; i < techniqueInfo["hits"]; i++ ) {
+
+        let heal = damageCalc(bp, acting[techniqueInfo["stat"]], 100, acting["level"], 1, acc)
+
+        target["hp"] += heal
+
+        if ( target["hp"] > target["maxHP"] ) {
+          target["hp"] = target["maxHP"]
+        }
+
+        battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " to heal " + String(heal) + "hp!");
+
+      
+      }
+
+    
+    }
+
+    if ( targetIDX == 0 ) {
+      setCameraAnchor("right");
+
+      document.getElementById("mySlot0").classList.add("visible")
+      document.getElementById("mySlot1").classList.remove("visible")
+      document.getElementById("mySlot2").classList.remove("visible")
+    } else if ( targetIDX == 1 ) {
+      setCameraAnchor("center");
+      document.getElementById("mySlot0").classList.remove("visible")
+      document.getElementById("mySlot1").classList.add("visible")
+      document.getElementById("mySlot2").classList.remove("visible")
+    } else if ( targetIDX == 2 ) {
+      setCameraAnchor("left");
+      document.getElementById("mySlot0").classList.remove("visible")
+      document.getElementById("mySlot1").classList.remove("visible")
+      document.getElementById("mySlot2").classList.add("visible")
+    }
+    
   }
 
   // ----------------------------------------------------------
@@ -701,6 +852,12 @@ function enemyDecision() {
     advanceTurn()
 
   }, 1500);
+
+  imana += 1
+
+  if ( imana > 100 ) {
+    imana = 100
+  }
 
 }
 
@@ -751,21 +908,13 @@ function refreshDisplays() {
 
   // ----------------------------------------------------------
 
-  document.getElementById("mySlot0").src = "/Scenes/Battle/CHAR_DATABASE/" + party[0]["code"] + "/" + party[0]["code"] + ".webp";
-  document.getElementById("mySlot1").src = "/Scenes/Battle/CHAR_DATABASE/" + party[1]["code"] + "/" + party[1]["code"] + ".webp";
-  document.getElementById("mySlot2").src = "/Scenes/Battle/CHAR_DATABASE/" + party[2]["code"] + "/" + party[2]["code"] + ".webp";
-
-  
-
-  // ----------------------------------------------------------
-
   for ( var i = 0; i < party.length; i++ ) {
 
     let code = party[i]["code"]
     
     if ( i < 3 ) {
-      document.getElementById("myIcon" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
-      document.getElementById("team" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("myIcon" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon" + ".png";
+      document.getElementById("team" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon" + ".png";
 
       if ( party[i]["hp"] > 0 ) {
         document.getElementById("myHP" + String(i) + "Fill").style.width = String(party[i]["hp"] / party[i]["maxHP"] * 100) + "%"
@@ -783,10 +932,6 @@ function refreshDisplays() {
   for ( var i = 0; i < enemies.length; i++ ) {
 
     let code = enemies[i]["code"]
-
-    if ( i < 3 ) {
-      document.getElementById("enemySlot" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + ".webp";
-    }
 
     if ( enemies[i]["hp"] > 0 ) {
       document.getElementById("enemyHP" + String(i) + "Fill").style.width = String(enemies[i]["hp"] / enemies[i]["maxHP"] * 100) + "%"
@@ -820,16 +965,16 @@ function refreshDisplays() {
     let code = turnOrder[i]["code"]
 
     if ( turnOrder[i]["side"] == "my" ) {
-      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon" + ".png";
     } else {
-      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + ".png";
     }
     
   }
 
   // ----------------------------------------------------------
 
-  document.getElementById("imanaFill").style.height = String(imana) + "%"
+  document.getElementById("imanaFill").style.top = String(imana - 100) + "%"
 
   // ----------------------------------------------------------
 
@@ -1025,15 +1170,39 @@ function battlelog(message) {
 
 document.onkeypress = function (e) {
     e = e || window.event;
+
+    //console.log(e.key)
     
-    if ( e.key == "1" ) {
+    if ( e.key == "1" && !inCard ) {
+
       rnrMode = "recognition"
       document.getElementById("rnrModeText").innerHTML = "[Recognition] / Recall"
-    } else if ( e.key == "2" ) {
+
+    } else if ( e.key == "2" && !inCard ) {
+
       rnrMode = "recall"
       document.getElementById("rnrModeText").innerHTML = "Recognition / [Recall]"
+
     } else if ( e.key == "Enter" && inCard ) {
+
       recallSubmit()
+
+    } else if ( e.key == "q" && !inCard) {
+
+      initiateFlashcard('attack')
+      
+    } else if ( e.key == "e" && !inCard) {
+
+      techniqueTarget()
+
+    } else if ( e.key == "a" && !inCard) {
+
+      if ( document.getElementById("battlelog").style.display == "none" ) {
+        document.getElementById("battlelog").style.display = "block";
+      } else {
+        document.getElementById("battlelog").style.display = "none";
+      }
+
     }
 
 };
@@ -1143,3 +1312,4 @@ for ( var i = 0; i < bouncyButtons.length; i++ ) {
     document.getElementById(b).classList.remove('animate');
   });
 }
+

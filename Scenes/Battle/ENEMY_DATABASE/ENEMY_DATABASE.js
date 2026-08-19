@@ -22,8 +22,8 @@ const ENEMY_DB = {
         "TECHNIQUE" : {
             "name": "subscribe to hexatunes",
             "description": "play relapse on steam LMAO",
-            "stat": "strength",
-            "basePower": 45,
+            "stat": "magic",
+            "basePower": 120,
             "hits": 1,
             "accuracy": 0.9,
         },
