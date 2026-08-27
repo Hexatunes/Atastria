@@ -278,6 +278,7 @@ window.addEventListener("load", () => {
       
       var newSave = {
         "flashsets": [],
+        "story": {},
       };
 
 
@@ -315,4 +316,106 @@ function back() {
         editingSet = -1;
     }
     
+}
+
+
+
+
+
+
+
+
+const canvas = document.getElementById('trail');
+const ctx = canvas.getContext('2d');
+const cursorDot = document.getElementById('cursorDot');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ---- Gradient trail using a fading array of points ----
+const points = [];
+const MAX_POINTS = 5;
+
+// Hue cycles over time for a shifting rainbow-gradient trail
+let hue = 10;
+
+window.addEventListener('mousemove', (e) => {
+  points.push({ x: e.clientX, y: e.clientY, life: 1 });
+  if (points.length > MAX_POINTS) points.shift();
+
+  cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+
+  // occasionally spawn glitter
+  if (Math.random() < 0.6) spawnSparkle(e.clientX, e.clientY);
+});
+
+function drawTrail() {
+  // fade the whole canvas toward transparent (instead of toward a background color)
+  // by erasing a bit of alpha each frame rather than painting over it
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = 'source-over';
+
+  hue += 0.6;
+  if (hue > 360) hue -= 360;
+
+  for (let i = 1; i < points.length; i++) {
+    const p0 = points[i - 1];
+    const p1 = points[i];
+    const t = i / points.length; // 0 (old) -> 1 (new)
+
+    const grad = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y);
+    grad.addColorStop(0, `hsla(${(hue + i * 4) % 360}, 100%, 65%, ${t * 0.6})`);
+    grad.addColorStop(1, `hsla(${(hue + i * 4 + 20) % 360}, 100%, 70%, ${t})`);
+
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = t * 10;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(p0.x, p0.y);
+    ctx.lineTo(p1.x, p1.y);
+    ctx.stroke();
+  }
+
+  requestAnimationFrame(drawTrail);
+}
+drawTrail();
+
+// ---- Glitter sparkle particles (DOM based, twinkle + fall + fade) ----
+function spawnSparkle(x, y) {
+  const el = document.createElement('div');
+  el.className = 'sparkle';
+
+  const size = 3 + Math.random() * 5;
+  el.style.width = `${size}px`;
+  el.style.height = `${size}px`;
+
+  const hueVal = Math.floor(Math.random() * 360);
+  el.style.background = `radial-gradient(circle, hsl(${hueVal},100%,80%) 0%, rgba(255,255,255,0) 70%)`;
+
+  const offsetX = (Math.random() - 0.5) * 20;
+  const offsetY = (Math.random() - 0.5) * 20;
+  el.style.transform = `translate(${x + offsetX}px, ${y + offsetY}px)`;
+  el.style.opacity = '1';
+
+  document.body.appendChild(el);
+
+  const driftX = (Math.random() - 0.5) * 40;
+  const fallY = 20 + Math.random() * 40;
+  const duration = 600 + Math.random() * 500;
+
+  const animation = el.animate([
+    { transform: `translate(${x + offsetX}px, ${y + offsetY}px) scale(1)`, opacity: 1 },
+    { transform: `translate(${x + offsetX + driftX}px, ${y + offsetY + fallY}px) scale(0)`, opacity: 0 }
+  ], {
+    duration: duration,
+    easing: 'ease-out'
+  });
+
+  animation.onfinish = () => el.remove();
 }

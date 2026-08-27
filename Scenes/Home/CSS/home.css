@@ -1,10 +1,10 @@
 
-body {
-  background-image: url('../Sprites/BG.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  
+#bg {
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: -25%;
+    left: -10%;
 }
 
 #SplashImage {
@@ -35,7 +35,7 @@ body {
 
 #Logo {
     position: absolute;
-    top: 25%;
+    top: 35%;
     left: 30%;
     transform: translate(-50%, -50%);
     width: 50%;
@@ -66,15 +66,22 @@ button {
 
 #ToFlashcardBuilder {
     position: absolute;
-    left: 30%;
-    top: 65%;
+    left: 35%;
+    top: 78%;
     transform: translate(-50%, -50%);
 }
 
 #ToStudyMode {
     position: absolute;
     left: 30%;
-    top: 55%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+#ToStoryMode {
+    position: absolute;
+    left: 25%;
+    top: 62%;
     transform: translate(-50%, -50%);
 }
 
@@ -83,6 +90,14 @@ button {
     inset: 0;
     pointer-events: none;
     z-index: 9999;
+}
+
+#lullaby {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 5%;
+    top: 5%;
 }
 
 
@@ -192,4 +207,213 @@ button {
         transform: translate(-50%, -50%);
         opacity: 1;
     }
+}
+
+.hover-button {
+    padding: 12px 24px;
+    font-size: 18px;
+
+    /* Starting state */
+    transform: scale(0.95);
+    opacity: 0.8;
+
+    /* Animation */
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.hover-button:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+#back {
+    position: absolute;
+    width: 5%;
+    height: auto;
+    top: 0%;
+}
+
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+input {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+@property --sx { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --sy { syntax: '<length>'; inherits: false; initial-value: 0px; }
+
+.camera-rig {
+  position: absolute;
+  inset: 0;
+  transform: translate(0vmin, 0vmin);
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+
+/* .shake now ONLY adds motion — no position/top/left/centering assumptions */
+.shake {
+  --shake-amt: 1;
+  translate: var(--sx) var(--sy);
+  animation:
+    shake-x 7s cubic-bezier(.37,0,.63,1) infinite,
+    shake-y 7s cubic-bezier(.37,0,.63,1) infinite;
+  will-change: translate;
+}
+/* @keyframes shake-x / shake-y — unchanged */
+
+@keyframes shake-x {
+  0%   { --sx: calc(var(--shake-amt) * -0.15vmin); }
+  30%  { --sx: calc(var(--shake-amt) * 0.1vmin); }
+  55%  { --sx: calc(var(--shake-amt) * 0.18vmin); }
+  80%  { --sx: calc(var(--shake-amt) * -0.08vmin); }
+  100% { --sx: calc(var(--shake-amt) * -0.15vmin); }
+}
+
+@keyframes shake-y {
+  0%   { --sy: calc(var(--shake-amt) * 0.12vmin); }
+  25%  { --sy: calc(var(--shake-amt) * -0.16vmin); }
+  60%  { --sy: calc(var(--shake-amt) * 0.05vmin); }
+  85%  { --sy: calc(var(--shake-amt) * -0.1vmin); }
+  100% { --sy: calc(var(--shake-amt) * 0.12vmin); }
+}
+
+
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+}
+
+
+.elastic-button.animate {
+  animation: elastic-bounce 0.2s ease;
+}
+
+@keyframes elastic-bounce {
+  0% { transform: scale(1, 1); }
+  20% { transform: scale(0.5, 0.5); }
+  50% { transform: scale(1.1, 1.1); }
+  100% { transform: scale(1, 1); }
+}
+
+.hide-scrollbar {
+  /* Enables vertical scrolling */
+  overflow-y: auto; 
+  
+  /* Firefox */
+  scrollbar-width: none; 
+  
+  /* IE and Edge (Legacy) */
+  -ms-overflow-style: none; 
+}
+
+/* Chrome, Safari, and Opera (WebKit browsers) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+.squiggle {
+  filter: url(#squiggle-filter);
+}
+
+
+
+canvas#trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.25);
+    font-family: system-ui, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* glitter particle */
+  .sparkle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
+    mix-blend-mode: screen;
+    will-change: transform, opacity;
+  }
+
+  /* custom cursor dot */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px 3px rgba(255,255,255,0.8);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+  }
+
+.btn-grad {
+  background-image: linear-gradient(to right, #fcedff 0%, #fff 25%, #e6f9ff 51%, #fff 75%, #fde6ff 100%);
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(0, 0, 52);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #576498;
 }

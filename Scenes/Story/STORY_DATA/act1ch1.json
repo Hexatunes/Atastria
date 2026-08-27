@@ -1,0 +1,10 @@
+{
+    "parts": [
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "This is a test!"
+        }
+    ]
+}

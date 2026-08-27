@@ -20,7 +20,7 @@ function setUp() {
 
   console.log(battleInit)
 
-  // --- Instantiate members and generate their mutable live battle data ----
+  // --- Instantiate members and generate their mutable live battle data ---
 
   for ( var i = 0; i < battleInit["party"].length; i++ ) {
 
@@ -1202,6 +1202,12 @@ document.onkeypress = function (e) {
       } else {
         document.getElementById("battlelog").style.display = "none";
       }
+
+    }
+
+    else if ( e.key == "p" && !inCard) {
+
+      localStorage.clear()
 
     }
 

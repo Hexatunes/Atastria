@@ -14,17 +14,21 @@
 
 <body>
 
-    <div id = "LogoContainer"></div>
-    <img id = "Logo" src = "/UniversalSprites/AtastriaLogoWithBG.png">
+    <img id = "bg" src = "Scenes/Home/Sprites/home.png" class = "shake" style="--shake-amt: 3">
+
+    
+    <img id = "Logo" src = "/UniversalSprites/AtastriaLogo.png" >
 
 
+    <img id = "lullaby" src = "Scenes/Home/Sprites/lullaby.png" class = "shake squiggle" style="--shake-amt: 6">
 
 
-    <audio id = "BGM" loop src = "/Scenes/Home//Audio/Music/TitleBGM.mp3"></audio>
+    <audio id = "BGM" loop src = "/Scenes/Home/Audio/Music/home.mp3"></audio>
     <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
-    <button id = "ToStudyMode" onclick="switchToStudyMode()">Study Mode</button>
-    <button id = "ToFlashcardBuilder" onclick="switchToFlashcardBuilder()">Flashcard Builder</button>
+    <button id = "ToStoryMode" onclick="switchToStoryMode()" class = "btn-grad">Story Chapters</button>
+    <button id = "ToStudyMode" onclick="switchToStudyMode()" class = "btn-grad">Study Mode</button>
+    <button id = "ToFlashcardBuilder" onclick="switchToFlashcardBuilder()" class = "btn-grad">Flashcard Builder</button>
 
 
     <div id = "StartPrompt" onclick="startGame()">
@@ -32,12 +36,26 @@
         <p id = "StartText">Click to start!</p>
     </div>
 
+    <canvas id="trail"></canvas>
+    <div class="cursor-dot" id="cursorDot"></div>
+
     <div id="transition">
         <div class="layer dark"></div>
         <div class="layer white"></div>
         
         <img class="logo" src="/UniversalSprites/AtastriaLogoDark.png">
     </div>
+
+    <svg width="0" height="0" style="position:absolute">
+    <filter id="squiggle-filter" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="6s" repeatCount="indefinite" calcMode="discrete"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
+
+    
 
     <script src="/Scenes/Home/JS/home.js"></script>
 </body>

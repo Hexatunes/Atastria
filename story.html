@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Atastria</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/Scenes/favicon.ico">
+
+  <link rel="stylesheet" href="/Scenes/Story/CSS/story.css">
+
+</head>
+
+<body onload = "setUp()">
+
+    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+
+    <audio id = "BGM" loop src = "/Scenes/Home/Audio/Music/TitleBGM.mp3"></audio>
+    <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
+
+    <div id = "StoryHolder"></div>
+    <p id = "Header">Story Select</p>
+
+    <canvas id="trail"></canvas>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+
+
+    <div id="transition">
+        <div class="layer dark"></div>
+        <div class="layer white"></div>
+        
+        <img class="logo" src="/UniversalSprites/AtastriaLogoDark.png">
+    </div>
+
+    
+    <script src = "/Scenes/Story/JS/STORY_NODES.js"></script>
+    <script src="/Scenes/Story/JS/story.js"></script>
+</body>
+</html>

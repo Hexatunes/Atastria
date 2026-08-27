@@ -1,20 +1,86 @@
-function startGame() {
-    document.getElementById("StartPrompt").style.display = "none";
-    document.getElementById("BGM").volume = 0.3;
-    document.getElementById("BGM").play();
 
-    if ( localStorage.getItem("save") == null ) {
-      
-      var newSave = {
-        "flashsets": [],
-      };
+// ⸻ [ Global Data ] ⸻
+
+let save = JSON.parse(localStorage.getItem("save"));
+
+// ⸻⸻⸻⸻⸻
 
 
-      localStorage.setItem("save", JSON.stringify(newSave));
+// ⸻⸻⸻⸻⸻⸻ INITIAL SET UP ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
 
-      console.log("No save detected. Made a new one!")
+function setUp() {
+
+    // --- Generate list ---
+
+    for ( var i = STORY_DATA.length - 1; i >= 0; i-- ) {
+
+        let storyNode = STORY_DATA[i]
+
+        if ( storyNode["code"] in save["story"] || i == 0) {
+            let nodeDiv = document.createElement("div");
+            nodeDiv.className = "NodeDiv";
+
+            let nodeIcon = document.createElement("img")
+            nodeIcon.className = "NodeIcon"
+            
+            if ( storyNode["type"] == "story" ) {
+                nodeIcon.src = "Scenes/Story/Sprites/storyIcon.png"
+            } else {
+                nodeIcon.src = "Scenes/Story/Sprites/battleIcon.png"
+            }
+
+            let nodeButton = document.createElement("button");
+            nodeButton.className = "NodeButton"
+            nodeButton.innerHTML = storyNode["display"]
+
+            nodeDiv.appendChild(nodeIcon);
+            nodeDiv.appendChild(nodeButton);
+
+            document.getElementById("StoryHolder").appendChild(nodeDiv)
+            document.getElementById("StoryHolder").appendChild(document.createElement("br"))
+        } else if ( i > 0 && STORY_DATA[i - 1]["code"] in save["story"] ) {
+            let nodeDiv = document.createElement("div");
+            nodeDiv.className = "NodeDiv";
+
+            let nodeIcon = document.createElement("img")
+            nodeIcon.className = "NodeIcon"
+            
+            if ( storyNode["type"] == "story" ) {
+                nodeIcon.src = "Scenes/Story/Sprites/storyIcon.png"
+            } else {
+                nodeIcon.src = "Scenes/Story/Sprites/battleIcon.png"
+            }
+
+            let nodeButton = document.createElement("button");
+            nodeButton.className = "NodeButton"
+            nodeButton.innerHTML = storyNode["display"]
+
+            nodeDiv.appendChild(nodeIcon);
+            nodeDiv.appendChild(nodeButton);
+
+            document.getElementById("StoryHolder").appendChild(nodeDiv)
+            document.getElementById("StoryHolder").appendChild(document.createElement("br"))
+        }
+
+        
+
+        
+
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,40 +96,34 @@ function startGame() {
 // ---------- BOILER PLATE ----------
 
 
-function switchToStudyMode() {
+function back() {
     document.querySelector(".dark").classList.add("slide-in");
     document.querySelector(".white").classList.add("slide-in");
     document.querySelector(".logo").classList.add("slide-in");
 
     setTimeout(() => {
-        window.location.href = "/study.html";
+        window.location.href = "/index.html";
     }, 800);
 }
 
-function switchToStoryMode() {
-    document.querySelector(".dark").classList.add("slide-in");
-    document.querySelector(".white").classList.add("slide-in");
-    document.querySelector(".logo").classList.add("slide-in");
-
-    setTimeout(() => {
-        window.location.href = "/story.html";
-    }, 800);
-}
-
-function switchToFlashcardBuilder() {
-    document.querySelector(".dark").classList.add("slide-in");
-    document.querySelector(".white").classList.add("slide-in");
-    document.querySelector(".logo").classList.add("slide-in");
-
-    setTimeout(() => {
-        window.location.href = "/flashcardbuilder.html";
-    }, 800);
-}
 
 window.addEventListener("load", () => {
     document.querySelector(".dark").classList.add("slide-out");
     document.querySelector(".white").classList.add("slide-out");
     document.querySelector(".logo").classList.add("slide-out");
+
+    if ( localStorage.getItem("save") == null ) {
+      
+      var newSave = {
+        "flashsets": [],
+        "story": {},
+      };
+
+
+      localStorage.setItem("save", JSON.stringify(newSave));
+
+      console.log("No save detected. Made a new one!")
+    }
 });
 
 document.addEventListener('click', (event) => {
@@ -71,32 +131,7 @@ document.addEventListener('click', (event) => {
   document.getElementById("ClickSound").play();
 });
 
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const overlay = document.getElementById('StartPrompt');
 
-function checkAudioState() {
-  if (audioCtx.state === 'running') {
-    overlay.style.display = 'none';
-    document.getElementById("BGM").volume = 0.3
-    document.getElementById("BGM").play();
-  } else {
-    overlay.style.display = 'flex'; 
-  }
-}
-
-window.addEventListener('DOMContentLoaded', checkAudioState);
-
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    checkAudioState();
-  }
-});
-
-overlay.addEventListener('click', () => {
-  audioCtx.resume().then(() => {
-    overlay.style.display = 'none';
-  });
-});
 
 
 
@@ -197,4 +232,3 @@ function spawnSparkle(x, y) {
 
   animation.onfinish = () => el.remove();
 }
-
