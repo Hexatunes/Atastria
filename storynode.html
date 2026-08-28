@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Atastria</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="/Scenes/favicon.ico">
+
+  <link rel="stylesheet" href="/boilerplate.css">
+  <link rel="stylesheet" href="/Scenes/StoryNode/CSS/storynode.css">
+
+</head>
+
+<body onload = "setUp()">
+
+    <img src = "Scenes/StoryNode/Sprites/BGs/test.png" id = "Backdrop" class = "shake" style="--shake-amt: 3">
+
+    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+
+    
+
+    <audio id = "BGM" loop src = "/Scenes/Home/Audio/Music/TitleBGM.mp3"></audio>
+    <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
+
+
+
+
+    <img id = "Char1" src = "Scenes/StoryNode/Sprites/Portraits/Lullaby/test/neutral.png" class = "Portrait shake squiggle" style="--shake-amt: 5">
+    <img id = "Char2">
+    <img id = "Char3">
+
+    <div id = "Box1" class = "DialogueBox squiggle shake" style="--shake-amt: 7">
+        <img class = "BoxLayer2 gentle-tilt" src = "Scenes/StoryNode/Sprites/Shadow1.png">
+        <img class = "BoxLayer3 gentle-tilt2" src = "Scenes/StoryNode/Sprites/Shadow2.png">
+        <img class = "BoxLayer1" src = "Scenes/StoryNode/Sprites/DialogueBox.png">
+        <p id = "Dialogue1" class = "DialogueText">Heeeey! Sleepyhead! Are you gonna stop daydreaming and snap out of it~?</p>
+        <p id = "Name1" class = "DialogueName">Lullaby</p>
+    </div>
+
+
+
+
+
+    <img src = "Scenes/StoryNode/Sprites/NarrationBox.png" id = "NarrationBox" style="display: none;">
+    <p id = "NarrationText" style="display: none;"></p>
+
+
+
+    <svg width="0" height="0" style="position:absolute">
+    <filter id="squiggle-filter" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="6s" repeatCount="indefinite" calcMode="discrete"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
+
+    <canvas id="trail"></canvas>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <div id="transition">
+        <div class="layer dark"></div>
+        <div class="layer white"></div>
+        
+        <img class="logo" src="/UniversalSprites/AtastriaLogoDark.png">
+    </div>
+
+    <script src = "/boilerplate.js"></script>
+    <script src = "/Scenes/Story/JS/STORY_NODES.js"></script>
+    <script src="/Scenes/StoryNode/JS/storynode.js"></script>
+</body>
+</html>

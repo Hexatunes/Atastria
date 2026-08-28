@@ -24,7 +24,7 @@ const STORY_DATA = [
         "path": "Scenes/Story/STORY_DATA/act1ch1.json",
         "act": 1,
         "chapter": 1,
-        "part": 2
+        "part": 3
     },
     {
         "code": "act1-ch1-p4",
@@ -33,6 +33,6 @@ const STORY_DATA = [
         "path": "Scenes/Story/STORY_DATA/act1ch1.json",
         "act": 1,
         "chapter": 1,
-        "part": 2
+        "part": 4
     },
 ]

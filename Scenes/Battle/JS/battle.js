@@ -1205,12 +1205,6 @@ document.onkeypress = function (e) {
 
     }
 
-    else if ( e.key == "p" && !inCard) {
-
-      localStorage.clear()
-
-    }
-
 };
 
 // ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
@@ -1232,9 +1226,9 @@ function back() {
         document.querySelector(".white").classList.add("slide-in");
         document.querySelector(".logo").classList.add("slide-in");
 
-        setTimeout(() => {
-            window.location.href = "/index.html";
-        }, 800);
+        fadeAudio(bgm, bgm.volume, 0, 800, () => {
+            window.location.href = "/flashcardbuilder.html";
+        });
     }
     
 }

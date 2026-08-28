@@ -1,0 +1,126 @@
+#Backdrop {
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: -25%;
+    left: -10%;
+}
+
+#Box1 {
+    top: 75%;
+    left: 50%;
+    
+}
+
+.DialogueBox {
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.BoxLayer1 {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+}
+.BoxLayer2 {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+}
+.BoxLayer3 {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+}
+
+.DialogueText {
+    position: absolute;
+    font-size: 1.5vw;
+    top: 30%;
+    left: 10%;
+}
+.DialogueName {
+    position: absolute;
+    font-size: 2vw;
+    top: 0%;
+    left: 15%;
+    font-weight: bold;
+}
+
+
+.Portrait {
+    position: absolute;
+    width: auto;
+    height: 150%;
+    transform: translate(-50%, -50%);
+}
+
+#Char1 {
+    top: 75%;
+    left: 50%;
+}
+
+#NarrationBox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+#NarrationText {
+    position: absolute;
+    font-size: 2vw;
+    top: 82%;
+    left: 0%;
+}
+
+@keyframes gentleTilt {
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+.gentle-tilt {
+    animation: gentleTilt 10s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes gentleTilt2 {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+.gentle-tilt2 {
+    animation: gentleTilt2 10s ease-in-out infinite;
+    transform-origin: center;
+}
+
+
+.shake {
+  --shake-amt: 1;
+  translate: var(--sx) var(--sy);
+  animation:
+    shake-x 15s cubic-bezier(.37,0,.63,1) infinite,
+    shake-y 15s cubic-bezier(.37,0,.63,1) infinite;
+  will-change: translate;
+}

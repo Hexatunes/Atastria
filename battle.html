@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/x-icon" href="/Scenes/favicon.ico">
 
+  <link rel="stylesheet" href="/boilerplate.css">
   <link rel="stylesheet" href="/Scenes/Battle/CSS/battle.css">
 
 </head>
@@ -149,6 +150,9 @@
     <button id = "teammateTarget1" onclick="mySlotInput(1)"> 2</button>
     <button id = "teammateTarget2" onclick="mySlotInput(2)"> 3</button>
 
+    <canvas id="trail"></canvas>
+    <div class="cursor-dot" id="cursorDot"></div>
+
     <div id="transition">
         <div class="layer dark"></div>
         <div class="layer white"></div>
@@ -158,6 +162,8 @@
 
     <script src = "/Scenes/Battle/CHAR_DATABASE/CHAR_DATABASE.js"></script>
     <script src = "/Scenes/Battle/ENEMY_DATABASE/ENEMY_DATABASE.js"></script>
+
+    <script src="/boilerplate.js"></script>
     <script src="/Scenes/Battle/JS/battle.js"></script>
 </body>
 </html>
