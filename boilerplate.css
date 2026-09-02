@@ -196,6 +196,10 @@ input {
   filter: url(#squiggle-filter);
 }
 
+.squiggle2 {
+  filter: url(#squiggle2-filter);
+}
+
 #back {
     position: absolute;
     width: 5%;
@@ -262,11 +266,11 @@ canvas#trail {
     overflow: hidden;
   }
 
-.btn-grad {
+button {
   background-image: linear-gradient(to right, #fcedff 0%, #fff 25%, #e6f9ff 51%, #fff 75%, #fde6ff 100%);
 }
 
-.btn-grad {
+button {
   margin: 10px;
   padding: 15px 45px;
   text-align: center;
@@ -278,9 +282,10 @@ canvas#trail {
   display: block;
   outline: none;
   border: none;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
 }
 
-.btn-grad:hover {
+button:hover {
   background-position: right center;
   color: #576498;
 }

@@ -4,7 +4,69 @@
             "event": "dialogue", 
             "speaker": "lullaby",
             "emotion": "neutral",
-            "dialogue": "This is a test!"
+            "dialogue": "Hey! Heeeeeeey! Wake up, sleepyhead! Gosh, are you just gonna stare into space the WHOLE day?"
+        },
+        {
+            "event": "narration", 
+            "text": "The woman standing before you holds a smile through her playful concern. Her dress and ribbons flow along with the cool breeze."
+        },
+        {
+            "event": "narration", 
+            "text": "Each syllable in her words radiates a charm like the notes of a melody. She takes a step closer and gently flicks you on the forehead in an attempt to snap you out of your daze."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "Oh! Well that did it. Welcome back to ground level you little astronaut~ I was starting to get worried about you."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "What’s your name? I don’t think I’ve seen you around this part of Atastria before."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "Hexatunes, huh? Such an interesting name! I’ll be sure to commit it to memory."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "I’m Lullaby, nice to meet you! I’m a second year music major at the University of Cerulea."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "Are… you studying there too? You look like you’re kinda close to the same age as me."
+        },
+        {
+            "event":"option",
+            "text": "I’m completely new here, I really don’t know what’s going on."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "Oh! So are you like, a first year?"
+        },
+        {
+            "event":"option",
+            "text": "No, I mean I have no clue what this place is."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "neutral",
+            "dialogue": "…"
+        },
+        {
+            "event": "narration", 
+            "text": "Lullaby seems to freeze for a moment, stunned, as if you just told her you eat cereal with water."
         }
     ]
 }

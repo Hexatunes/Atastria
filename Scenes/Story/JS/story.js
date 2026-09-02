@@ -12,9 +12,9 @@ function setUp() {
 
     // --- Generate list ---
 
-    for ( let i = STORY_DATA.length - 1; i >= 0; i-- ) {
+    for ( let i = STORY_NODES.length - 1; i >= 0; i-- ) {
 
-        let storyNode = STORY_DATA[i]
+        let storyNode = STORY_NODES[i]
 
         if ( storyNode["code"] in save["story"] || i == 0) {
             let nodeDiv = document.createElement("div");
@@ -42,7 +42,7 @@ function setUp() {
             document.getElementById("StoryHolder").appendChild(nodeDiv)
             document.getElementById("StoryHolder").appendChild(document.createElement("br"))
 
-        } else if ( i > 0 && STORY_DATA[i - 1]["code"] in save["story"] ) {
+        } else if ( i > 0 && STORY_NODES[i - 1]["code"] in save["story"] ) {
 
             let nodeDiv = document.createElement("div");
             nodeDiv.className = "NodeDiv";
@@ -83,7 +83,7 @@ function setUp() {
 
 function loadNode(i) {
 
-  var node = STORY_DATA[i];
+  var node = STORY_NODES[i];
 
   if ( node["type"] == "story" ) {
     document.querySelector(".dark").classList.add("slide-in");

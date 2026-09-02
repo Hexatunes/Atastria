@@ -1,4 +1,4 @@
-const STORY_DATA = [
+const STORY_NODES = [
     {
         "code": "act1-ch1-p1",
         "display": 'Act 1 Chapter 1 - Welcome to Atastria',

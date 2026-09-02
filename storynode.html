@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload = "setUp()">
+<body onload="loadStory()">
 
     <img src = "Scenes/StoryNode/Sprites/BGs/test.png" id = "Backdrop" class = "shake" style="--shake-amt: 3">
 
@@ -21,39 +21,73 @@
 
     
 
-    <audio id = "BGM" loop src = "/Scenes/Home/Audio/Music/TitleBGM.mp3"></audio>
+    <audio id = "BGM" loop></audio>
+    <audio id = "SFX"></audio>
     <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
+    <audio id = "Boop" src = "/Scenes/StoryNode/Audio/SFX/boop.ogg"></audio>
 
 
 
-    <img id = "Char1" src = "Scenes/StoryNode/Sprites/Portraits/Lullaby/test/neutral.png" class = "Portrait shake squiggle" style="--shake-amt: 5">
-    <img id = "Char2">
-    <img id = "Char3">
+
+    <img id = "Char1" src = "Scenes/StoryNode/Sprites/Portraits/Lullaby/test/neutral.png" class = "Portrait shake squiggle2" style="--shake-amt: 5">
+    <img id = "Char2" class = "Portrait shake squiggle2" style="--shake-amt: 5">
+    <img id = "Char3" class = "Portrait shake squiggle2" style="--shake-amt: 5">
 
     <div id = "Box1" class = "DialogueBox squiggle shake" style="--shake-amt: 7">
         <img class = "BoxLayer2 gentle-tilt" src = "Scenes/StoryNode/Sprites/Shadow1.png">
         <img class = "BoxLayer3 gentle-tilt2" src = "Scenes/StoryNode/Sprites/Shadow2.png">
         <img class = "BoxLayer1" src = "Scenes/StoryNode/Sprites/DialogueBox.png">
-        <p id = "Dialogue1" class = "DialogueText">Heeeey! Sleepyhead! Are you gonna stop daydreaming and snap out of it~?</p>
+        <p id = "Dialogue1" class = "DialogueText"></p>
         <p id = "Name1" class = "DialogueName">Lullaby</p>
+    </div>
+
+    <div id = "Box2" class = "DialogueBox squiggle shake" style="--shake-amt: 7">
+        <img class = "BoxLayer2 gentle-tilt" src = "Scenes/StoryNode/Sprites/Shadow1.png">
+        <img class = "BoxLayer3 gentle-tilt2" src = "Scenes/StoryNode/Sprites/Shadow2.png">
+        <img class = "BoxLayer1" src = "Scenes/StoryNode/Sprites/DialogueBox.png">
+        <p id = "Dialogue2" class = "DialogueText"></p>
+        <p id = "Name2" class = "DialogueName">Lullaby</p>
+    </div>
+
+    <div id = "Box3" class = "DialogueBox squiggle shake" style="--shake-amt: 7">
+        <img class = "BoxLayer2 gentle-tilt" src = "Scenes/StoryNode/Sprites/Shadow1.png">
+        <img class = "BoxLayer3 gentle-tilt2" src = "Scenes/StoryNode/Sprites/Shadow2.png">
+        <img class = "BoxLayer1" src = "Scenes/StoryNode/Sprites/DialogueBox.png">
+        <p id = "Dialogue3" class = "DialogueText"></p>
+        <p id = "Name3" class = "DialogueName">Lullaby</p>
     </div>
 
 
 
 
+    <div id = "NarrationBox" style="opacity: 0;">
+        <img src = "Scenes/StoryNode/Sprites/NarrationBox.png" id = "NarrationBG">
+        <p id = "NarrationText" ></p>
+    </div>
 
-    <img src = "Scenes/StoryNode/Sprites/NarrationBox.png" id = "NarrationBox" style="display: none;">
-    <p id = "NarrationText" style="display: none;"></p>
+    <div id = "ProgressStory" onclick = "advance()"></div>
+
+    <button id = "PlayerOption" class = "squiggle shake" style="--shake-amt: 9" onclick="optionPicked()"></button>
+    
 
 
 
     <svg width="0" height="0" style="position:absolute">
-    <filter id="squiggle-filter" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="squiggle-filter" x="-30%" y="-30%" width="200%" height="200%">
         <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
         <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="6s" repeatCount="indefinite" calcMode="discrete"/>
         </feTurbulence>
         <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute">
+    <filter id="squiggle2-filter" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="6s" repeatCount="indefinite" calcMode="discrete"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
     </svg>
 

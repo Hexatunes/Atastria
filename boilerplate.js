@@ -156,3 +156,134 @@ function checkCookie() {
     }
   }
 }
+
+function tweenElement(id, duration, xPercent, yPercent) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    // Get the current CSS position
+    const style = getComputedStyle(element);
+
+    let startX = parseFloat(style.left);
+    let startY = parseFloat(style.top);
+
+    // If left/top aren't set, default to 0
+    if (isNaN(startX)) startX = 0;
+    if (isNaN(startY)) startY = 0;
+
+    // Convert pixel positions to percentages
+    const parent = element.offsetParent;
+
+    const parentWidth = parent ? parent.clientWidth : window.innerWidth;
+    const parentHeight = parent ? parent.clientHeight : window.innerHeight;
+
+    startX = (startX / parentWidth) * 100;
+    startY = (startY / parentHeight) * 100;
+
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+        const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+        );
+
+        // Expo-out
+        const eased = progress === 1
+            ? 1
+            : 1 - Math.pow(2, -10 * progress);
+
+        const x = startX + (xPercent - startX) * eased;
+        const y = startY + (yPercent - startY) * eased;
+
+        element.style.left = `${x}%`;
+        element.style.top = `${y}%`;
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+function fadeIn(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.style.opacity = "0";
+
+    setTimeout(() => {
+        element.style.transition = "opacity 500ms linear";
+        element.style.opacity = "1";
+    }, 10);
+}
+
+function fadeOut(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.style.transition = "opacity 500ms linear";
+    element.style.opacity = "0";
+}
+
+
+function shake(id, intensity) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.animate(
+        [
+            { "--shake-x": "0px" },
+            { "--shake-x": `-${intensity}%` },
+            { "--shake-x": `${intensity}%` },
+            { "--shake-x": `-${intensity}%` },
+            { "--shake-x": `${intensity}%` },
+            { "--shake-x": "0px" }
+        ],
+        {
+            duration: 500,
+            easing: "ease-in-out"
+        }
+    );
+}
+
+
+function hop(id, intensity, times) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const keyframes = [
+        { "--hop-y": "0px" }
+    ];
+
+    for (let i = 0; i < times; i++) {
+        keyframes.push(
+            { "--hop-y": `-${intensity}px` },
+            { "--hop-y": "0px" }
+        );
+    }
+
+    element.animate(keyframes, {
+        duration: times * 200,
+        easing: "ease-out"
+    });
+}
+
+
+function sink(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.animate(
+        [
+            { "--sink-y": "0px" },
+            { "--sink-y": "30px" },
+            { "--sink-y": "0px" }
+        ],
+        {
+            duration: 600,
+            easing: "ease-in-out"
+        }
+    );
+}
