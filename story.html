@@ -13,18 +13,62 @@
 
 </head>
 
-<body onload = "setUp()">
+<body>
 
-    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+    <img id = "bg" src = "Scenes/Story/Sprites/BG.png" class = "shake" style="--shake-amt: 3">
+
+    <img id = "lullaby" src = "Scenes/Story/Sprites/Lullaby.png" class = "shake squiggle" style="--shake-amt: 6">
+
+    <svg width="0" height="0" style="position:absolute">
+    <filter id="squiggle-filter" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="seed" values="1;7;13;22;4;18;9;1" dur="6s" repeatCount="indefinite" calcMode="discrete"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    </svg>
+    
 
     <audio id = "BGM" loop src = "/Scenes/Home/Audio/Music/TitleBGM.mp3"></audio>
     <audio id = "ClickSound" src = "/UniversalAudio/Click.ogg"></audio>
 
-    <div id = "StoryHolder"></div>
-    <p id = "Header">Story Select</p>
+    
+
+    <div id = "MainStory" style="opacity: 0;">
+        <div id = "StoryHolder"></div>
+        <p id = "Header">Story Select</p>
+        <button id = "CloseMainStory" onclick="closeMainStory()">X</button>
+    </div>
+
+    <button id = "MainStoryButton" onclick="openMainStory()" >Main Story</button>
+    
+
+    
+
+    <div id="SignedOutView">
+        <button id="SignInButton">Sign In With Google</button>
+        <img id = "GoogleLogo" src = "Scenes/Story/Sprites/Google.webp">
+    </div>
+
+    
+
+    <div id="SignedInView" style="display: none;">
+        <p id="UsernameDisplay">Player</p>
+        <button id="SignOutButton">Sign out</button>
+    </div>
+
+    <div id = "UsernameSetupDiv" style="display: none; opacity: 0;">
+        <input type="text" id = "UsernameInput" style="opacity: 1;" placeholder="Type here! Must be less than 12 characters." autocomplete="off">
+        <p id = "UsernameSetupText">Looks like you're new! Thank you for choosing my game ^^ <br> Let's get you a username! <br><br>You can only use letters, numbers, and underscores. Spaces or special characters are not allowed!</p>
+        <button id = "UsernameConfirm" onclick="requestUsername()">✓</button>
+    </div>
+
 
     <canvas id="trail"></canvas>
     <div class="cursor-dot" id="cursorDot"></div>
+
+    <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
+
 
 
 
@@ -36,7 +80,16 @@
     </div>
 
     <script src = "/boilerplate.js"></script>
-    <script src = "/Scenes/Story/JS/STORY_NODES.js"></script>
+    <script src = "/Scenes/Story/JS/MainStoryMap.js"></script>
     <script src="/Scenes/Story/JS/story.js"></script>
+
+
+    
+
+
+    <div id="hiddenGoogleBtn" style="position: absolute; top: -9999px;"></div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    
 </body>
 </html>

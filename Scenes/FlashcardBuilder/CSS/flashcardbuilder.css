@@ -119,11 +119,10 @@ button {
     transition: 0.5s;
     background-size: 200% auto;
     color: rgb(0, 0, 52);
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
     outline: none;
     border: none;
     font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-size: 2vw;
 }
 
 button:hover {
@@ -156,20 +155,7 @@ p {
     2px 2px 0 #ffffff; 
 }
 
-button {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    text-align: center;
-    font-size: 2vw;
-    cursor: pointer;
-    color: rgb(4, 5, 64);
-    font-family: 'Times New Roman', Times, serif, sans-serif;
-    border-radius: 8px;
-    text-shadow: 
-    1px 1px 0px #a2f0ffa2,
-    2px 2px 0px #ffbef4c1;
-    padding: 15px 32px;
-}
+
 
 input {
     color: rgb(4, 5, 64);

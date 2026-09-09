@@ -260,7 +260,6 @@ canvas#trail {
   }
 
   html, body {
-    margin: 0;
     height: 100%;
     background: transparent;
     overflow: hidden;
@@ -271,7 +270,6 @@ button {
 }
 
 button {
-  margin: 10px;
   padding: 15px 45px;
   text-align: center;
   transition: 0.5s;
@@ -279,7 +277,6 @@ button {
   color: rgb(0, 0, 52);
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  display: block;
   outline: none;
   border: none;
   font-family: 'Times New Roman', Times, serif, sans-serif;

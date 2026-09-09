@@ -227,6 +227,25 @@ function fadeOut(id) {
     element.style.opacity = "0";
 }
 
+function fadeInFast(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.style.opacity = "0";
+
+    setTimeout(() => {
+        element.style.transition = "opacity 200ms linear";
+        element.style.opacity = "1";
+    }, 10);
+}
+
+function fadeOutFast(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.style.transition = "opacity 200ms linear";
+    element.style.opacity = "0";
+}
 
 function shake(id, intensity) {
     const element = document.getElementById(id);

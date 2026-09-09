@@ -100,6 +100,8 @@ function advance() {
 
 }
 
+var lastCharsLength = 0
+
 function refreshDisplays() {
 
   part = story["parts"][idx]
@@ -110,19 +112,26 @@ function refreshDisplays() {
     fadeOut("Char2")
     fadeOut("Char3")
 
-    tweenElement("Char1", 2000, 50, 75)
-    tweenElement("Box1", 2000, 50, 75)
+    if ( chars.length != lastCharsLength ){
+      tweenElement("Char1", 2000, 50, 75)
+      tweenElement("Box1", 2000, 50, 75)
+    }
+    
   } else if ( chars.length == 2 ) {
   
     fadeIn("Char1")
     fadeOut("Char2")
     fadeOut("Char3")
 
-    tweenElement("Char1", 2000, 50, 75)
-    tweenElement("Box1", 2000, 50, 75)
+    if ( chars.length != lastCharsLength ){
 
-    tweenElement("Char2", 2000, 50, 75)
-    tweenElement("Box2", 2000, 50, 75)
+      tweenElement("Char1", 2000, 50, 75)
+      tweenElement("Box1", 2000, 50, 75)
+
+      tweenElement("Char2", 2000, 50, 75)
+      tweenElement("Box2", 2000, 50, 75)
+      
+    }
   }
 
 
@@ -149,7 +158,7 @@ function refreshDisplays() {
 
     for ( var i = 0; i < chars.length; i++ ) {
 
-      document.getElementById("Char" + String(i + 1)).src = "Scenes/StoryNode/Sprites/Portraits/" + part["speaker"] + "/" + setting + "/" + part["emotion"] + ".png"
+      document.getElementById("Char" + String(i + 1)).src = "/Scenes/StoryNode/Sprites/Portraits/" + part["speaker"] + "/" + setting + "/" + part["emotion"] + ".png"
 
     }
 
@@ -162,6 +171,8 @@ function refreshDisplays() {
     fadeIn("NarrationBox")
 
   }
+
+  lastCharsLength = chars.length
 
 }
 
@@ -292,7 +303,7 @@ async function loadJSON(path) {
 }
 
 async function loadStory() {
-    story = await loadJSON(STORY_NODES[nodeIDX]["path"]);
+    story = await loadJSON(MainStoryMap[nodeIDX]["path"]);
 
     // Story is now the actual JSON data
     console.log(story);

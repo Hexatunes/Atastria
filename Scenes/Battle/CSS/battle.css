@@ -48,7 +48,7 @@ body {
     height: 25%;
     top: 100%;
     left: 50%;
-    background-color: rgba(240, 248, 255, 0.375);
+    background-image: linear-gradient(to right, #f5ccfd97 0%, #ffffff95 25%, #e6f9ff96 61%, #ccebffab 75%, #fde6ffb7 100%);
     border-radius: 25px;
 }
 
@@ -286,7 +286,7 @@ body {
 
 #turnOrderHolder {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.611);
+    background-image: linear-gradient(to right, #f5ccfd97 0%, #ffffff95 25%, #e6f9ff96 61%, #ccebffab 75%, #fde6ffb7 100%);
     border-radius: 25px;
     width: 29%;
     height: 8%;
@@ -300,7 +300,7 @@ body {
 }
 
 .flashcard {
-    background-color: rgba(255, 255, 255, 0.783);
+    background-image: linear-gradient(to right, #fbe8ff 0%, #fff 25%, #e6f9ff 61%, #e0f3ff 75%, #fde6ff 100%);
     position: absolute;
     width: 50%;
     height: 50%;
@@ -309,6 +309,7 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 50px;
     align-items: center;
+    opacity: 0.9;
 }
 
 #answerHolder {
@@ -321,7 +322,7 @@ body {
 .recogAnswer {
     width: 50%;
     height: 50%;
-    border-radius: 50px;
+    font-size: 1.5vw;
 }
 
 
@@ -463,21 +464,6 @@ body {
 p {
     color: rgb(4, 5, 64);
     font-family: 'Times New Roman', Times, serif, sans-serif;
-}
-
-button {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    text-align: center;
-    font-size: 2vw;
-    cursor: pointer;
-    color: rgb(4, 5, 64);
-    font-family: 'Times New Roman', Times, serif, sans-serif;
-    border-radius: 8px;
-    text-shadow: 
-    1px 1px 0px #a2f0ffa2,
-    2px 2px 0px #ffbef4c1;
-    padding: 15px 32px;
 }
 
 

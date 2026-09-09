@@ -1,4 +1,4 @@
-let save = JSON.parse(localStorage.getItem("save"));
+let localSave = JSON.parse(localStorage.getItem("save"));
 let selectedSetIDX = -1
 
 function refreshSetList() {
@@ -6,7 +6,7 @@ function refreshSetList() {
 
     document.getElementById("FlashsetList").innerHTML = "";
 
-    var flashsets = save["flashsets"];
+    var flashsets = localSave["flashsets"];
 
     if ( flashsets.length == 0 ) {
         document.getElementById("NoSetsLabel").style.display = "block"
@@ -174,7 +174,6 @@ window.addEventListener("load", () => {
       
       var newSave = {
         "flashsets": [],
-        "story": {},
       };
 
 
