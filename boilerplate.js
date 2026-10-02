@@ -207,44 +207,33 @@ function tweenElement(id, duration, xPercent, yPercent) {
     requestAnimationFrame(animate);
 }
 
-function fadeIn(id) {
+
+function fadeIn(id, ms) {
     const element = document.getElementById(id);
     if (!element) return;
 
-    element.style.opacity = "0";
+    element.style.transition = "none";
+    //element.style.opacity = "0";
+    void element.offsetWidth;
 
-    setTimeout(() => {
-        element.style.transition = "opacity 500ms linear";
-        element.style.opacity = "1";
-    }, 10);
+    element.style.transition = "opacity " + ms + "ms linear";
+    element.style.opacity = "1";
+
+    element.addEventListener("transitionend", () => {
+        element.style.transition = "";
+    }, { once: true });
 }
 
-function fadeOut(id) {
+function fadeOut(id, ms) {
     const element = document.getElementById(id);
     if (!element) return;
 
-    element.style.transition = "opacity 500ms linear";
-    element.style.opacity = "0";
-}
-
-function fadeInFast(id) {
-    const element = document.getElementById(id);
-    if (!element) return;
-
+    element.style.transition = "opacity " + ms + "ms linear";
     element.style.opacity = "0";
 
-    setTimeout(() => {
-        element.style.transition = "opacity 200ms linear";
-        element.style.opacity = "1";
-    }, 10);
-}
-
-function fadeOutFast(id) {
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    element.style.transition = "opacity 200ms linear";
-    element.style.opacity = "0";
+    element.addEventListener("transitionend", () => {
+        element.style.transition = "";
+    }, { once: true });
 }
 
 function shake(id, intensity) {

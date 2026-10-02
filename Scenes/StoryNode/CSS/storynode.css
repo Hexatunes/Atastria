@@ -4,6 +4,7 @@
     height: 130%;
     top: -25%;
     left: -10%;
+    user-select: none;
 }
 
 
@@ -41,10 +42,11 @@
 }
 .DialogueName {
     position: absolute;
-    font-size: 2vw;
-    top: 0%;
-    left: 15%;
+    font-size: 1.8vw;
+    top: 7%;
+    left: 25%;
     font-weight: bold;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -75,6 +77,47 @@
     top: 50%;
     left: 50%;
     opacity: 0;
+    user-select: none;
+}
+
+#StoryNameInput {
+    position: absolute;
+    width: auto;
+    height: 7%;
+    font-size: 1.5vw;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: none;
+    background-image: linear-gradient(to right, #fcedff 0%, #fff 25%, #e6f9ff 51%, #fff 75%, #fde6ff 100%);
+    padding: 15px 45px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(0, 0, 52);
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;        /* Standard */
+}
+
+#BlackFade {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-color: black;
+    opacity: 1;
+    pointer-events: none;
+    left: 0%;
+    top: 0%;
 }
 
 #ProgressStory {
@@ -105,7 +148,7 @@
 #NarrationText {
     position: absolute;
     font-size: 2vw;
-    top: 82%;
+    top: 78%;
     margin-left: 15%;
     margin-right: 15%;
 }
@@ -157,3 +200,4 @@
     shake-y 15s cubic-bezier(.37,0,.63,1) infinite;
   will-change: translate;
 }
+

@@ -40,6 +40,13 @@ body {
     pointer-events: none;
 }
 
+#myDamage {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    pointer-events: none;
+}
+
 
 #teamData {
     position: absolute;
@@ -84,6 +91,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     overflow: hidden;
+    transition: 0.5s;
 }
 
 #myIcon0 {
@@ -142,6 +150,32 @@ body {
 
 
 
+#enemyDamage1 {
+    position: absolute;
+    top: 40%;
+    left: 52%;
+}
+#enemyDamage0 {
+    position: absolute;
+    top: 40%;
+    left: 66%;
+}
+#enemyDamage2 {
+    position: absolute;
+    top: 40%;
+    left: 82%;
+    
+}
+
+.damage {
+    font-size: 5vw;
+    color: #303584;
+    text-shadow: 
+    2px 2px 2px #ffffff,
+    2px 2px 2px #ffffff;
+    opacity: 0;
+    pointer-events: none;
+}
 
 
 #enemySlot1 {
@@ -221,6 +255,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     overflow: hidden;
+    transition: 0.5s;
 }
 
 

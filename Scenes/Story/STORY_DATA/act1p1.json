@@ -1,0 +1,974 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "fieldpink.png",
+            "lighting": "pink"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hey! Heeeeeeey! Wake up, sleepyhead! Gosh, are you just gonna stare into space the WHOLE day?"
+        },
+        {
+            "event": "narration", 
+            "text": "The woman standing before you holds a smile through her playful concern. Her dress and ribbons flow along with the cool breeze."
+        },
+        {
+            "event": "narration", 
+            "text": "Each syllable in her words radiates a charm like the notes of a melody. She takes a step closer and gently flicks you on the forehead in an attempt to snap you out of your daze."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh! Well that did it. Welcome back to ground level you little astronaut~ I was starting to get worried about you."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "What’s your name? I don’t think I’ve seen you around this part of Atastria before."
+        },
+        {
+            "event": "name"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "[p], huh? I’m Lullaby, nice to meet you!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I’m a second year music major at the University of Cerulea."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Are… you studying there too? You look like you’re kinda close to the same age as me."
+        },
+        {
+            "event":"option",
+            "text": "I’m completely new here, I really don’t know what’s going on."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh! So are you like, a first year?"
+        },
+        {
+            "event":"option",
+            "text": "No, I mean I have no clue what this place is."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "narration", 
+            "text": "Lullaby seems to freeze for a moment, stunned, as if you just told her you eat cereal with water."
+        },
+        {
+            "event":"option",
+            "text": "Did I say something wrong?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "No, no. It’s just… ever since the final battle against the Cacophony, Evelyn hasn’t let any new imaginary friends into Atastria."
+        },
+        {
+            "event":"option",
+            "text": "F-Final battle?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Right… you wouldn't know if you're new to this world."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We just got out of a massive war with this giant world ending demon lord thing. It's a long story, maybe another time."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "What's more important is that the borders won’t open again until the festival starts. It’s weird for you to have-"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "-you didn’t sneak in did you?"
+        },
+        {
+            "event":"option",
+            "text": "Nonononono! I don’t even know how I got here."
+        },
+        {
+            "event": "narration", 
+            "text": "She raises an eyebrow, mulling over her options and your story (or lack there of)."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We should go see Evelyn about this. I’ll schedule an appointment with her when I can."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Maybe she can figure out what's going on..."
+        },
+        {
+            "event":"option",
+            "text": "Who’s Evelyn?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Evelyn’s the princess of Atastria, and the one who guides everything around here!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "She's pretty busy with recovery efforts after the final battle, but if anyone can sort this out it's her!"
+        },
+        {
+            "event": "narration", 
+            "text": "Lullaby blinks."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Wait- isn’t this like, a security emergency or something…?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Uhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Actually, let’s talk to her as soon as we can!"
+        },
+        {
+            "event": "narration", 
+            "text": "Lullaby frantically pulls out her phone and taps on it rapidly until she finishes and puts it away again."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Okay, there."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "The earliest I can get a meeting with her is tomorrow."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I guess I'll have to watch over you in the meantime."
+        },
+        {
+            "event": "narration", 
+            "text": "Her eyes narrow, and the air becomes suffocatingly arid."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Don’t try sneaking off."
+        },
+        {
+            "event": "narration", 
+            "text": "As Lullaby’s expression softens and the cool air returns, she begins to discuss your living situation before you can meet Evelyn."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hopefully, if she deems you as not a threat, I can convince her to get you a spot in the university."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I think it's your best bet for housing, war recovery is making it hard to find places to live right now."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But until then, you can…"
+        },
+        {
+            "event": "narration", 
+            "text": "She hesitates."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…crash with me, just for tonight."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Don’t try anything funny! You got that?"
+        },
+        {
+            "event": "narration", 
+            "text": "You frantically nod, taken back by the proposal. You thank her for the hospitality, and Lullaby takes a breather after such a bold offer."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "No problem! What kind of imaginary friend would I be if I wasn’t, well, a good friend?"
+        },
+        {
+            "event": "narration", 
+            "text": "Once more, Lullaby seems to ponder your situation."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I'm also trying to think of ways to get you more comfortable here…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I know! My friend group's planning to grab takeout and hang out tonight. Maybe you could join us?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Don’t worry about money, just let me know what you want and I can pay for you."
+        },
+        {
+            "event": "option",
+            "text": "Thank you… I really appreciate it- all of this."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hehe~ don't mention it! Just because you're a security crisis doesn't mean I'm gonna leave you out to dry."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Besides, you’re a really adorable security crisis! I’m sure once you talk to Evelyn it’ll all be sorted out."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Don’t let it weigh too heavily on your mind for now. Just… enjoy what Atastria has to offer, okay? Welcome in~"
+        },
+        {
+            "event": "option",
+            "text": "Don’t you think you’re a bit trusting towards me?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Don’t you think you’re a bit too trusting of a girl you just met in a new world~?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I know how to keep myself safe, and I’m stronger than you think. I can’t have you unsupervised or get lost somewhere."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "So come on! We’ve got some time to burn, I can answer more of your questions while we walk and talk."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby grabs your wrist, her grasp is firm with a squeeze."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hehe~ follow the leader! Miss Lullaby’s here to guide you!"
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby continues to constrict your wrist with her hand as the two of you stroll around. Occasionally, you can see her glancing at you."
+        },
+        {
+            "event": "narration",
+            "text": "A moment of quiet passes. A leaf falls on your shoulder before Lullaby brushes it off with a giggle."
+        },
+        {
+            "event": "narration",
+            "text": "Closing your eyes, you can smell the fragrance of the flora around you two, carried by the cool breeze."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Atastria’s the world of abandoned imaginary friends."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "A substance called “Imanagination” flows through everything here. It’s what gives us our powers and keeps us alive without our original humans to imagine us."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Evelyn rescues our sentimental objects and transports us here when we’re forgotten or thrown away."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "That’s… why it’s so weird you’re new. The border's closing is a huge deal, if Evelyn made an exception we would’ve all known about it."
+        },
+        {
+            "event": "option",
+            "text": "I really don’t know anything."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Amnesia? That’s quite the cliche trope~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But I guess everything here in Atastria is kinda cliche. I don’t mind, I’ve always wanted to live in a fantasy story."
+        },
+        {
+            "event": "narration",
+            "text": "You both continue your walk. Lullaby points towards this and that. She excitedly nudges your face towards something interesting before turning it back to look at her smile."
+        },
+        {
+            "event": "narration",
+            "text": "More time passes until the sun finally starts to set. The chirping of the birds has quieted down a bit, the sound of crickets filling the space."
+        },
+        {
+            "event": "narration",
+            "text": "The last blades of grass brush against your ankle, replaced by your feet stepping on hard pavement. Arriving at a restaurant, lullaby asks you what you'd like and buys food for both of you."
+        },
+        {
+            "event": "narration",
+            "text": "Takeout bags in hand, you both start heading to the meet up spot."
+        },
+        {
+            "event": "environment",
+            "background": "hangout.png",
+            "lighting": "pink"
+        },
+        {
+            "event": "narration",
+            "text": "When you arrive, she finally lets go of your slightly blue wrist with a playful twirl, turning to face you. Her dress settles from swaying."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We’re here! The others are already waiting for us… I guess we really took our time~"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        
+        {
+            "event": "narration",
+            "text": "Everyone is sat down on the grass or picnic blanket, talking to each other and laughing. One by one, they start to notice you two."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Lullaby!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "You’re 2 minutes and 17 seconds late."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Hehe, we saved a seat for you!"
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "(Snore) H-huh?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Heya Lullaby! Who’s your new friend?"
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Everyone, this is [p]."
+        },
+        {
+            "event": "narration",
+            "text": "Each introduces themselves and their names to you one by one."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Nice to meet you, [p]!"
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing goes to shake your hands but her oversized sleeves get in the way, she tries her best anyways."
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Good evening, it's my pleasure to be in your company."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Always nice to meet another friend~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Ahoy! What's good, [p]?"
+        },
+        {
+            "event": "narration",
+            "text": "Syla and Lizzy both wave while Toki hands you a playful salute."
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Zzzzz"
+        },
+        {
+            "event": "narration",
+            "text": "Cuddle Fish gives you a lethargic hug, tail wrapped around you."
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "They say they just showed up here, no memory of how or why."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I see- WAIT. Isn’t the border closed?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Lullaby! This is serious, what did Evelyn say about this?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Ohh… uhhh… well all her appointments are booked today… I scheduled one for tomorrow."
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "TOMORROW?! And you just brought a security threat HERE?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Shh sh shh… not so loud. It’s fine, [p]’s chill. I’ve been with them all day, we’ll talk with Evelyn tomorrow, we’ll get things sorted out."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "We’re so expelled…"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Uuuuuu… I don’t like the sound of this. Are you sure they’re safe? What if they’re secretly evil, like in the bedtime stories?"
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "narration",
+            "text": "The group begins to erupt into chatter and clammer over your situation. Everyone giving their own opinions and feelings."
+        },
+        {
+            "event": "narration",
+            "text": "Despite the disagreements, nobody seems actually upset at each other. Regardless, being the center of debate isn’t exactly comfortable."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "GUYS. Guys. I have an idea."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "I say we all just take a fat nap after this."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Nap? Yaaaay!"
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "narration",
+            "text": "And just like that the tension subsides, the group collectively giggles. Though there's still lingering unease."
+        },
+        {
+            "event": "narration",
+            "text": "Judging by everyone's faces, it seems like opinions are mixed on keeping you around."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "If… Lullaby says you’re cool I guess we’re cool. Here, sit down. Our food's gonna get cold if we wait any longer~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "If this goes on our record you’re SO dead, Lullaby."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Well, my light of heart isn’t giving me back anything negative on [p]. I’m inclined to give them a chance."
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "It'll be okay, I'll take responsibility for everything. Trust me on this."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby guides you to sit down by her side on the grass, holding your hand this time rather than constricting your wrist. She still doesn’t let you out of her sights, though."
+        },
+        {
+            "event": "narration",
+            "text": "The night goes on, paper bags rustling, the clinking of drinks. Everyone’s chatting lively, seemingly moved on from your anomalous situation."
+        },
+        {
+            "event": "narration",
+            "text": "Despite only just meeting, you can’t help but feel like you’ve been intimately part of this group for ages."
+        },
+        {
+            "event": "narration",
+            "text": "When you get the chance, you look over to Lullaby."
+        },
+        {
+            "event": "option",
+            "text": "How does the princess of Atastria have time to do meetings with university students?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Well, she’s not the *only* person running all of Atastria. She has subordinates, her subjects, advisors, all that. The Royals are a huge government."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "That… and UCerulea is also the most prestigious uni in all of Atastria."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…started by Evelyn herself."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Even still, she’s a really busy lady. Only heads of the student council can easily make direct appointments with her. Like me~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Do we really need to go to Evelyn herself though? Like, personally?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "frown",
+            "dialogue": "Seriously, this seems like an urgent thing that we should deal with asap."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "frown",
+            "dialogue": "Waiting for an appointment with Evelyn feels like… not getting a heart attack treated until your yearly check up."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "frown",
+            "dialogue": "Why not just report [p] to the Royal Guard?"
+        },
+        {
+            "event": "option",
+            "text": "Woah woah woah, hey now."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "frown",
+            "dialogue": "…"
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby frowns and rubs her arm, looking down."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "frown",
+            "dialogue": "That's actually what I thought of doing immediately when [p] told me they showed up today."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "happy",
+            "dialogue": "Uhm, sorry~ no offense, [p]."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "frown",
+            "dialogue": "But then, I thought… I don’t know what they’d do with [p]. Evelyn is the only person who knows *anything* about letting in new imaginary friends."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "frown",
+            "dialogue": "The Royal Guard would probably just keep [p] in a detention center for ages until they’d eventually meet Evelyn anyways."
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing sighs, nodding. She finishes the last of her food and sets down her almost empty glass."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "frown",
+            "dialogue": "Yeah… I guess you do have a point."
+        },
+        {
+            "event":"removechar",
+            "char":"xiaoling"
+        },
+        {
+            "event":"removechar",
+            "char":"lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "Not soon later, everyone finishes and packs up the picnic. One by one they grab their backpacks and bags to leave."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Hey, where’s our new friend gonna stay? Do they have a place?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "They’re gonna bunk with me in my dorm."
+        },
+        {
+            "event":"removechar",
+            "char":"lullaby"
+        },
+        {
+            "event":"removechar",
+            "char":"lizzy"
+        },
+        {
+            "event": "narration",
+            "text": "Everyone freezes and stares at you two with a collective “WHAT?!”"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Uhm…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Is that against residence hall policy?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Try anything on Lullaby and you’re dead, [p]."
+        },
+        {
+            "event":"removechar",
+            "char":"cuddlefish"
+        },
+        {
+            "event":"removechar",
+            "char":"syla"
+        },
+        {
+            "event":"removechar",
+            "char":"xiaoling"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "You sure, Lullaby?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Guys guys, it’s okay. I know how to protect myself. Don’t forget the last guy."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Alright… we’ll see you around. Keep us updated on the meeting with Evelyn in the group chat."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Of course! Goodnight everyone, safe travels home!"
+        },
+        {
+            "event":"removechar",
+            "char":"lizzy"
+        },
+        {
+            "event":"removechar",
+            "char":"toki"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "frown",
+            "dialogue": "Come with me, [p]."
+        },
+        {
+            "event": "narration",
+            "text": "The group heads out on their own separate ways, leaving just you and Lullaby. She walks you back to her dorm, again, not letting you out of her gaze."
+        },
+        {
+            "event": "environment",
+            "background": "nightStreet.png",
+            "lighting": "pink"
+        },
+        {
+            "event": "narration",
+            "text": "There’s a slightly uncomfortable air between you two under the incandescent light of the street lamps and humming of cicadas."
+        },
+        {
+            "event": "narration",
+            "text": "With the buzz and afterglow of the lively dinner now faded, it’s finally dawned on you the gravity of the mess you’re in."
+        },
+        {
+            "event": "narration",
+            "text": "Maybe even Lullaby now realizes what she’s gotten herself into. A heavy anxiety blankets the space around you."
+        },
+        {
+            "event": "narration",
+            "text": "At last, you arrive at the building. Lullaby takes off a ribbon from her ankle and presses it to a scanner the door, unlocking it before tying the ribbon back on."
+        },
+        {
+            "event": "environment",
+            "background": "dorm.png",
+            "lighting": "pink"
+        },
+        {
+            "event": "narration",
+            "text": "She takes you to her dorm a few halls in. It’s well lived and cosy."
+        },
+        {
+            "event": "narration",
+            "text": "You sleep on the couch with some blankets. Not the most luxurious living arrangements, but for the night you can’t really complain."
+        },
+        {
+            "event": "narration",
+            "text": "Staring at the ceiling, you really can’t seem to remember even the slightest bit of how you got here."
+        },
+        {
+            "event": "narration",
+            "text": "It doesn’t seem like either of you are getting a good night’s sleep. The air is dry like a desert, and it feels like a pair of eyes are piercing through you even in the dark."
+        },
+        {
+            "event": "narration",
+            "text": "Inevitably, your eyes do grow heavy. You wonder what this Evelyn person is like… how lucky you are to have Lullaby be the first person who found you… maybe too lucky…"
+        },
+        {
+            "event": "narration",
+            "text": "Could it be that… that…"
+        },
+        {
+            "event": "narration",
+            "text": "You fall asleep."
+        }
+    ]
+}

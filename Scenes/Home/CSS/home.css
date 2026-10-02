@@ -91,8 +91,9 @@ button {
     position: absolute;
     width: auto;
     height: 100%;
-    left: 5%;
-    top: 5%;
+    left: 55%;
+    top: 55%;
+    transform: translate(-50%, -50%);
 }
 
 #VersionInfo {

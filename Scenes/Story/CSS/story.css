@@ -184,6 +184,7 @@ button:hover {
     transform: translate(-50%, -50%);
     top: 75%;
     left: 25%;
+    pointer-events: auto;
 }
 
 #CloseMainStory {
@@ -192,6 +193,14 @@ button:hover {
     transform: translate(-50%, -50%);
     top: 25.5%;
     left: 55%;
+}
+
+#StoryOptionsDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    pointer-events: none;
 }
 
 

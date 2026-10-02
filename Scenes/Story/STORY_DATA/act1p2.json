@@ -1,0 +1,77 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "dormDay.png",
+            "lighting": "light"
+        },
+        {
+            "event":"narration",
+            "text": "You wake up to your nasal passages feeling like you slept in front of a space heater all night."
+        },
+        {
+            "event":"narration",
+            "text": "Honestly, you might as well have. It stings from drought."
+        },
+        {
+            "event":"narration",
+            "text": "You rub your eyes and look around, the sun’s already out."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Couldn’t sleep well? Haha, me neither~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I guess all that excitement from last night’s dinner kept me up."
+        },
+        {
+            "event":"option",
+            "text": "The air was really dry."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh, my friends all say that happens whenever I get anxious. Sorry about that."
+        },
+        {
+            "event":"narration",
+            "text": "You get up and stretch. Seems like both of you slept in your normal clothes."
+        },
+        {
+            "event":"option",
+            "text": "When’s our appointment?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "12:15pm, 302 Simmons Building by Willard Road."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I had my natural sciences final there last semester, it’s a nice building. Renovated, too."
+        },
+        {
+            "event":"option",
+            "text": "Should we get something to eat beforehand? It’s right around lunch."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby gives you a funny look, tilting her head to the side with an amused smile."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Huh? I mean we *could*. But we should be focusing on the urgent matter of… *you* instead of fun things like getting lunch."
+        }
+    ]
+}

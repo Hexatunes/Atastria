@@ -32,7 +32,6 @@ function setUp() {
       "DISPLAY_NAME": CHAR_DB[code]["DISPLAY_NAME"],
       "code": code,
       "level": level,
-
       "maxHP": calculateStat(CHAR_DB[code]["BASE_HP"], level, 0),
       "hp": calculateStat(CHAR_DB[code]["BASE_HP"], level, 0),
       "strength": calculateStat(CHAR_DB[code]["BASE_STRENGTH"], level, 0),
@@ -158,6 +157,8 @@ function calculateStat(base, level, investment) {
 
 
 function advanceTurn() {
+
+  window.scroll(0, 0)
 
   var lowestAP = turnOrder[0]["ap"]
 
@@ -462,6 +463,8 @@ function attack() {
 
   var bp = attackInfo["basePower"]
 
+  var totalDamage = 0
+
   if ( lastRNR == "recall" ) {
     bp *= 1.5
   }
@@ -487,6 +490,7 @@ function attack() {
     let damage = damageCalc(bp, acting[attackInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
 
     target["hp"] -= damage
+    totalDamage += damage
 
     battlelog(acting["DISPLAY_NAME"] + " used " + attackInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
@@ -501,16 +505,20 @@ function attack() {
   if ( imana > 100 ) {
     imana = 100
   }
+  
 
   // ----------------------------------------------------------
 
   refreshDisplays()
+  displayEnemyDamage(totalDamage, "attack")
 
   setTimeout(() => {
 
     advanceTurn()
 
   }, 500);
+
+  
 
 
 }
@@ -527,12 +535,14 @@ function mySlotInput(idx) {
 
 }
 
+
 function techniqueTarget() {
 
   var acting = turnOrder[0]
   var code = acting["code"]
 
   var techniqueInfo = CHAR_DB[code]["TECHNIQUE"]
+
 
   if ( techniqueInfo["type"] == "heal" || (techniqueInfo["type"] == "status" && techniqueInfo["status"]["type"] == "positive") ) {
 
@@ -557,6 +567,8 @@ function technique() {
   var techniqueInfo = CHAR_DB[code]["TECHNIQUE"]
 
   var bp = techniqueInfo["basePower"]
+
+  var totalDamage = 0
 
   if ( lastRNR == "recall" ) {
     bp *= 1.5
@@ -589,6 +601,7 @@ function technique() {
       let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
 
       target["hp"] -= damage
+      totalDamage += damage
 
       battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
@@ -626,6 +639,8 @@ function technique() {
       target["hp"] -= damage
       acting["hp"] += Math.floor(damage * 0.5)
 
+      totalDamage += damage
+
       if ( acting["hp"] > acting["maxHP"] ) {
         acting["hp"] = acting["maxHP"]
       }
@@ -643,6 +658,7 @@ function technique() {
       let heal = damageCalc(bp, acting[techniqueInfo["stat"]], 100, acting["level"], 1, acc)
 
       target["hp"] += heal
+      totalDamage += damage
 
       if ( target["hp"] > target["maxHP"] ) {
         target["hp"] = target["maxHP"]
@@ -673,6 +689,7 @@ function technique() {
 
 
   refreshDisplays()
+  displayEnemyDamage(totalDamage, techniqueInfo["type"])
 
   setTimeout(() => {
 
@@ -680,6 +697,23 @@ function technique() {
 
   }, 500);
 
+}
+
+function displayEnemyDamage(totalDamage, type) {
+  document.getElementById("enemyDamage" + String(pinned)).innerHTML = totalDamage
+  document.getElementById("enemyDamage" + String(pinned)).style.opacity = "1";
+  document.getElementById("enemyDamage" + String(pinned)).classList.remove('animate');
+  void document.getElementById("enemyDamage" + String(pinned)).offsetWidth; // force reflow so the animation restarts if clicked again quickly
+  document.getElementById("enemyDamage" + String(pinned)).classList.add('animate');
+
+  shake("enemySlot" + String(pinned), 100)
+
+
+  setTimeout(() => {
+
+    fadeOut("enemyDamage" + String(pinned))
+
+  }, 1000);
 }
 
 
@@ -690,6 +724,8 @@ function enemyDecision() {
 
   var choices = ["attack", "technique"]
   var decision = choices[randiRange(0, 1)]
+
+  var totalDamage = 0
 
   if ( decision == "attack" ) {
     
@@ -702,6 +738,7 @@ function enemyDecision() {
       let damage = damageCalc(attackInfo["basePower"], acting["strength"], target["defence"], acting["level"], 1, attackInfo["accuracy"])
 
       target["hp"] -= damage
+      totalDamage += damage
 
       battlelog(acting["DISPLAY_NAME"] + " attacked " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
@@ -756,6 +793,7 @@ function enemyDecision() {
         let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
 
         target["hp"] -= damage
+        totalDamage += totalDamage
 
         battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
@@ -792,6 +830,8 @@ function enemyDecision() {
 
         target["hp"] -= damage
         acting["hp"] += Math.floor(damage * 0.5)
+
+        totalDamage += damage
 
         if ( acting["hp"] > acting["maxHP"] ) {
           acting["hp"] = acting["maxHP"]
@@ -847,7 +887,18 @@ function enemyDecision() {
 
   refreshDisplays()
 
+  document.getElementById("myDamage").innerHTML = totalDamage
+
+  document.getElementById("myDamage").style.opacity = "1";
+  document.getElementById("myDamage").classList.remove('animate');
+  void document.getElementById("myDamage").offsetWidth; // force reflow so the animation restarts if clicked again quickly
+  document.getElementById("myDamage").classList.add('animate');
+
+
+
   setTimeout(() => {
+
+    fadeOut("myDamage")
 
     advanceTurn()
 
@@ -1187,7 +1238,7 @@ document.onkeypress = function (e) {
 
       recallSubmit()
 
-    } else if ( e.key == "q" && !inCard) {
+    } else if ( e.key == "q" && !inCard && pendingAction != "chooseTeammateTechnique" ) {
 
       initiateFlashcard('attack')
       
@@ -1227,7 +1278,7 @@ function back() {
         document.querySelector(".logo").classList.add("slide-in");
 
         fadeAudio(bgm, bgm.volume, 0, 800, () => {
-            window.location.href = "/flashcardbuilder.html";
+            window.location.href = "/index.html";
         });
     }
     

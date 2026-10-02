@@ -15,7 +15,7 @@
 
 <body onload="loadStory()">
 
-    <img src = "Scenes/StoryNode/Sprites/BGs/test.png" id = "Backdrop" class = "shake" style="--shake-amt: 3">
+    <img src = "Scenes/StoryNode/Sprites/BGs/test.png" id = "Backdrop" class = "shake no-select" style="--shake-amt: 3">
 
     
 
@@ -30,9 +30,9 @@
 
 
 
-    <img id = "Char1" src = "Scenes/StoryNode/Sprites/Portraits/Lullaby/test/neutral.png" class = "Portrait shake squiggle2" style="--shake-amt: 5">
-    <img id = "Char2" class = "Portrait shake squiggle2" style="--shake-amt: 5">
-    <img id = "Char3" class = "Portrait shake squiggle2" style="--shake-amt: 5">
+    <img id = "Char1" src = "" class = "Portrait shake squiggle2" style="--shake-amt: 5">
+    <img id = "Char2" src = "" class = "Portrait shake squiggle2" style="--shake-amt: 5">
+    <img id = "Char3" src = "" class = "Portrait shake squiggle2" style="--shake-amt: 5">
 
     <div id = "Box1" class = "DialogueBox squiggle shake" style="--shake-amt: 7">
         <img class = "BoxLayer2 gentle-tilt" src = "Scenes/StoryNode/Sprites/Shadow1.png">
@@ -66,9 +66,11 @@
         <p id = "NarrationText" ></p>
     </div>
 
-    <div id = "ProgressStory" onclick = "advance()"></div>
+    <div id = "ProgressStory" onclick = "advance()" class = "no-select"></div>
 
     <button id = "PlayerOption" class = "squiggle shake" style="--shake-amt: 9" onclick="optionPicked()"></button>
+
+    <input type = "text" id = "StoryNameInput" class = "squiggle shake" style="--shake-amt: 9" placeholder="Press enter to accept">
     
     <input type = "image" src = "/UniversalSprites/BackArrow.png" id = "back" onclick = "back()">
 
@@ -90,6 +92,8 @@
         <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
     </svg>
+
+    <div id = "BlackFade"></div>
 
     <canvas id="trail"></canvas>
     <div class="cursor-dot" id="cursorDot"></div>

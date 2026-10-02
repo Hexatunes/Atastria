@@ -2,6 +2,7 @@
 // ⸻ [ Global Data ] ⸻
 
 let save = null
+let storyProgress = null
 var username = ""
 const CLIENT_ID = '10656282326-os8uk6lis03eurf8q72g6upn9frvc6pf.apps.googleusercontent.com';
 const SERVER_URL = 'http://localhost:3000';
@@ -13,7 +14,6 @@ let currentCredential = null;
 
 
 // ⸻⸻⸻⸻⸻⸻ GOOGLE AUTH ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
-
 
 
 window.onload = () => {
@@ -40,9 +40,9 @@ window.onload = () => {
       if ( username == "" ) {
 
         document.getElementById('UsernameSetupDiv').style.display = 'block';
-        fadeIn("UsernameSetupDiv")
-        fadeOut("SignInButton")
-        fadeOut("GoogleLogo")
+        fadeIn("UsernameSetupDiv", 500)
+        fadeOut("SignInButton", 500)
+        fadeOut("GoogleLogo", 500)
 
         document.getElementById('SignedInView').style.display = 'block';
 
@@ -80,9 +80,9 @@ function loginAndLoad() {
       if ( username == "" ) {
 
         document.getElementById('UsernameSetupDiv').style.display = 'block';
-        fadeIn("UsernameSetupDiv")
-        fadeOut("SignInButton")
-        fadeOut("GoogleLogo")
+        fadeIn("UsernameSetupDiv", 500)
+        fadeOut("SignInButton", 500)
+        fadeOut("GoogleLogo", 500)
 
       } else {
         setUp()
@@ -97,11 +97,33 @@ function setUp() {
   document.getElementById('SignedInView').style.display = 'block';
 
   document.getElementById("UsernameDisplay").innerHTML = username
+  document.getElementById("StoryOptionsDiv").style.display = "block";
+
+  
+
+  if ( getCookie("storyComplete") && getCookie("loadedNode") ) {
+
+    var key = MainStoryMap[JSON.parse(getCookie("loadedNode"))]["code"]
+
+    storyProgress["main"][key] = true
+
+    localStorage.setItem("storyProgress", JSON.stringify(storyProgress))
+   
+  }
+
+  console.log(storyProgress)
 
   generateList()
+
+  document.cookie = "loadedNode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "storyComplete=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+  
 }
 
 function generateList() {
+
+  console.log("Generating List")
 
   document.getElementById("StoryHolder").innerHTML = "";
 
@@ -111,7 +133,8 @@ function generateList() {
 
       let storyNode = MainStoryMap[i]
 
-      if ( storyNode["code"] in save["story"] || i == 0) {
+      if ( storyNode["code"] in storyProgress["main"] || i == 0) {
+
           let nodeDiv = document.createElement("div");
           nodeDiv.className = "NodeDiv";
 
@@ -137,7 +160,7 @@ function generateList() {
           document.getElementById("StoryHolder").appendChild(nodeDiv)
           document.getElementById("StoryHolder").appendChild(document.createElement("br"))
 
-      } else if ( i > 0 && MainStoryMap[i - 1]["code"] in save["story"] ) {
+      } else if ( i > 0 && MainStoryMap[i - 1]["code"] in storyProgress["main"] ) {
 
           let nodeDiv = document.createElement("div");
           nodeDiv.className = "NodeDiv";
@@ -189,13 +212,12 @@ function loadNode(i) {
 }
 
 function openMainStory() {
-  console.log("afj;a")
-  fadeInFast("MainStory")
+  fadeIn("MainStory", 200)
   document.getElementById("MainStoryButton").style.display = "none";
 }
 
 function closeMainStory() {
-  fadeOutFast("MainStory")
+  fadeOut("MainStory", 200)
   document.getElementById("MainStoryButton").style.display = "block";
 }
 
@@ -229,7 +251,7 @@ function requestUsername() {
         document.getElementById("UsernameSetupDiv").style.display = "none";
         document.getElementById("SignedOutView").style.display = "none";
         document.getElementById("SignedInView").style.display = "block";
-        fadeIn("SignedInView")
+        fadeIn("SignedInView", 500)
 
         document.getElementById("UsernameDisplay").innerHTML = username
       } else {
@@ -274,7 +296,20 @@ window.addEventListener("load", () => {
     document.querySelector(".white").classList.add("slide-out");
     document.querySelector(".logo").classList.add("slide-out");
 
-    document.cookie = "loadedNode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    if ( localStorage.getItem("storyProgress") == null ) {
+      
+      storyProgress = {
+        "main": {},
+      }
+      localStorage.setItem("storyProgress", JSON.stringify(storyProgress));
+      
+    } else {
+      storyProgress = JSON.parse(localStorage.getItem("storyProgress"))
+    }
+
+    if ( localStorage.getItem("name") == null ) {
+      localStorage.setItem("name", "");
+    }
 });
 
 document.getElementById('SignInButton').addEventListener('click', () => {
@@ -297,6 +332,7 @@ document.getElementById('SignOutButton').addEventListener('click', () => {
     document.getElementById("SignInButton").style.opacity = "1";
 
     document.getElementById("UsernameSetupDiv").style.display = "none";
+    document.getElementById("StoryOptionsDiv").style.display = "none";
 
     google.accounts.id.disableAutoSelect(); // stops it from silently re-signing them in
   });
