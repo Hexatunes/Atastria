@@ -72,6 +72,1021 @@
             "speaker": "lullaby",
             "emotion": "smile",
             "dialogue": "Huh? I mean we *could*. But we should be focusing on the urgent matter of… *you* instead of fun things like getting lunch."
+        },
+        {
+            "event":"option",
+            "text": "...? Lunch is pretty important."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Well, yes, it’s important to have fun, but don’t you think a security crisis is a bit more urgent~?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "My friends and I usually only eat once every month or two to celebrate our midterms."
+        },
+        {
+            "event":"option",
+            "text": "You only eat once a month?! Is eating just a thing you do for fun?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Y-yes?! Well, a lot of imaginary friends eat 3 times a day to feel more like they’re human, but I personally don’t have much time to."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Wait, why are you asking me this? You’re also an imaginary friend."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event":"option",
+            "text": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Let’s just go, we can’t be even a second late for our meeting or we risk it getting cancelled."
+        },
+        {
+            "event": "environment",
+            "background": "sunsetStreet.png",
+            "lighting": "pink"
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby grabs your wrist again and leads you out of the building. The two of you walk along the road, looking both ways for flying imaginary friends and carriages before crossing."
+        },
+        {
+            "event":"narration",
+            "text": "Every now and then a car passes, the only vehicles matching the modern architecture of the buildings around you."
+        },
+        {
+            "event":"narration",
+            "text": "If it weren’t for everyone looking so colorful and adorned in intricate outfits, you’d find it hard to believe you’re in another world and-"
+        },
+        {
+            "event":"narration",
+            "text": "-you almost get hit by a bike-"
+        },
+        {
+            "event":"narration",
+            "text": "-you’d find it hard to believe you’re in another world and not real life."
+        },
+        {
+            "event":"narration",
+            "text": "…"
+        },
+        {
+            "event": "environment",
+            "background": "black.png",
+            "lighting": "light"
+        },
+        {
+            "event":"removechar",
+            "char": "lullaby"
+        },
+        {
+            "event":"narration",
+            "text": "302 Simmons building… you both take the elevator and a receptionist asks you two to take a seat."
+        },
+        {
+            "event":"narration",
+            "text": "It feels like ages pass. You’re filled with an anxiety like that of waiting in a hospital lobby or a dentist’s office, waiting for someone to come out the door and call your name."
+        },
+        {
+            "event":"narration",
+            "text": "“Lullaby and [p]?”"
+        },
+        {
+            "event": "environment",
+            "background": "office.png",
+            "lighting": "light"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh, that’s us! Come on!"
+        },
+        {
+            "event":"option",
+            "text": "I’m nervous, is Evelyn nice?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "She’s super kind! You’ll love her!"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event":"narration",
+            "text": "The glass door slides open with a smooth, sleek glide. A rush of cool air conditioning hits your face, even cooler than the AC in the lobby. It smells like air freshener."
+        },
+        {
+            "event":"narration",
+            "text": "Before you is an elegant figure, sitting directly in front of you. Her lanyard confirms exactly what you’re thinking. You’ve gained an audience with the Princess of Atastria."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Have a seat."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hiya Eve!"
+        },
+        {
+            "event":"narration",
+            "text": "Evelyn smiles, amused. She does not say a word back but gestures for Lullaby to sit as well."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Nice to finally meet you, [p]. Lullaby sent many… enthusiastic… words to my *professional* *business* email last night telling me all about you."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "There’s no need to re-explain your situation. You entered Atastria yesterday, correct?"
+        },
+        {
+            "event":"option",
+            "text": "(Nod)"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "I’m sure you also understand why our first meeting being here is concerning, yes?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Given your vitals, you *are* an imaginary friend at least. That rules out some other foreign breach."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "I have already immediately dispatched a sector of my team into researching your appearance. Given that Lullaby has told me you claim you know nothing, interrogation may not be the most useful way forward."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby remains quiet throughout the entire meeting. When you get the chance to sneak a glance at her, you can see her thumb fidgeting with her other fingers."
+        },
+        {
+            "event":"narration",
+            "text": "However, your attention is immediately drawn back to Evelyn as she addresses you once more."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "It must be scary being in a new world with no knowledge of anything or anyone. I’m glad that Lullaby seems to have done a good job at explaining to you what Atastria and Imanagination is."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby smiles."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Her intuition to enroll you in UCerulea is a good call as well. Atastria is still in major recovery efforts from the final battle against the Cacophony."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Our resources are spread thin giving aid to areas impacted by the calamity. Even the legendary heroes’ party have their hands full providing relief."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Needless to say, residential areas are packed with refugees and displaced families. Finding you a place fairly would be a headache."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "That’s why a student dorm here would be a lot easier to get you set up with."
+        },
+        {
+            "event":"narration",
+            "text": "Evelyn nods and laughs softly."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Yes! Good job Lullaby. Very clever thinking, I wouldn’t expect anything less from you."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Are these arrangements agreeable, [p]? I would like to remind you that your alternative option is to stay housed in a detention center, as you are currently an anomaly."
+        },
+        {
+            "event":"option",
+            "text": "I’ll take a dorm over being in jail."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Good. And I will assign Lullaby to be your personal monitor and mentor for the time being. The Royal Guard is greatly strained at the moment."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But the festival, I signed up to volunteer-"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "You’ll get extra credit~"
+        },
+        {
+            "event":"option",
+            "text": "This festival sounds really important. Lullaby mentioned it yesterday."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Mhm, it is! It’s to celebrate the victory of the legendary heroes against the Cacophony."
+        },
+        {
+            "event":"option",
+            "text": "The final battle..."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "It’s almost hard to believe… for years that ruler of manifests ate away at us. And now… they finally did it. The final battle’s… over. It’s already been a month since we got our happily ever after."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "But even as the hero’s journey comes to an end and the happy ending is reached, the world goes on. All those buildings and lives lost don’t suddenly go away."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Don’t fret my precious, you and all the imaginary friends in Atastria are what keep this world alive. Recovering after the final battle is just another challenge we’ll overcome."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hehe, kinda makes me jealous I wasn’t a part of that legendary party. Sounds fun to be the protagonists of some epic story, defeating the big evil villain or whatever."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Your presence in the lives of your loved ones is more than enough. You don’t need to be a legendary hero for that."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Besides, what you don’t see is all the grueling training, hard work, and anxiety behind the scenes. It’s easy to forget what it took for those heroes to get there."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "But we’re getting off topic. Lullaby, watch over [p] for the time being. I will continue my investigation in the background."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Since they don’t seem like a major threat, I’ll have to allocate more resources to the recovery efforts. Watch your email if anything comes up."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Who knows, maybe [p] can even help with setting up the festival. It’s going to be a massive event, with imaginary friends coming from all over Atastria. We could use all the hands we can get."
+        },
+        {
+            "event":"narration",
+            "text": "The two of you both nod, wrapping up the meeting with a bit more small talk before heading out. This time, Lullaby walks alongside you without making contact."
+        },
+        {
+            "event": "removechar",
+            "char": "evelyn"
+        },
+        {
+            "event": "environment",
+            "background": "sunsetStreet.png",
+            "lighting": "pink"
+        },
+        {
+            "event":"narration",
+            "text": "With the entire rest of the day to spare, you both decide to check out the festival grounds and lend a hand."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby leads you there, and upon arriving you’re greeted by Syla who was running schematic calculations."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Syla! I didn’t see your name on the sign up sheet for this time slot."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "They offered me a free grade drop if I came in."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby laughs, hand covering her mouth."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Uh huh, well, let me know if I can help with anything."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "It’s quite complex geometry, it might not be your cup of tea. I’m in charge of designing the renovated stage for the ceremony speech."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Woah, that’s a huge deal! Good luck on that~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "[p] and I will go work on our planned assignment then, but my offer’s still there!"
+        },
+        {
+            "event":"narration",
+            "text": "Syla nods, and Lullaby takes you to a quiet, hidden corner away from the rest of the workers and volunteers."
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Alright, just cut the noise. Be dead honest with me, are you really an imaginary friend?"
+        },
+        {
+            "event":"option",
+            "text": "Where did this come from? Didn’t Evelyn say herself that I’m one?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "And she’s never wrong, yet you ask me questions no actual imaginary friend would ask. You act like you actually need food like a human."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I don’t know, it’s weird, sorry if this… comes off as weird GAHHH I don’t know, okay?!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "It’s just, I’m not dumb. I can tell something’s up. So tell me the truth, are you *actually* an imaginary friend?"
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby presses the palm of her hand on your chest, it’s extremely warm."
+        },
+        {
+            "event":"option",
+            "text": "I… really don’t know. I swear."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby lets go, sighing."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Whatever, who am I to question Evelyn’s judgement."
+        },
+        {
+            "event":"narration",
+            "text": "Suddenly, a scream is heard in the distance- but not one of panic. A huge crowd seems to gather around an area. You and Lullaby both nod at each other to check it out."
+        },
+        {
+            "event":"narration",
+            "text": "As you get closer to the hoard of imaginary friends, you can better make out some of the words being yelled: “IT’S HER!” “SIGN MY SHIRT!” “LIMERENCE I LOVE YOU!”"
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby’s eyes widen."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "L-Limerence…?"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event":"narration",
+            "text": "In the center of the crowd is a strange woman in a lab coat, eyes blood red with strange black distortion on the irises. Above her head is a glowing, radiant halo and on her back is a pair of two black angel wings."
+        },
+        {
+            "event":"narration",
+            "text": "This Limerence person tries to calm the crowd, eventually yelling:"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "ENOUGH!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Thank you, everyone. I, like my fellow heroes, deeply appreciate your support and love. But I’m here on official business. I ask you please do not disrupt my work."
+        },
+        {
+            "event":"narration",
+            "text": "One by one the crowd slowly disperses. As a result, you can catch a glimpse of Syla in the crowd, looking completely star struck."
+        },
+        {
+            "event": "removechar",
+            "char": "limerence"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "That’s… Limerence. One of the six legendary heroes that slayed the Cacophony. She’s the analyst of the party, the brains."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Syla’s like a mega turbo fan of hers haha. I bet she’s absolutely freaking out right now."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We… probably shouldn’t bother her. Let’s get to our work."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event":"narration",
+            "text": "Hours pass, you help Lullaby with managing workers, setting up stalls, and all sorts of chores here and there."
+        },
+        {
+            "event":"narration",
+            "text": "Until eventually, Limerence seems to be approaching you two."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "H-hey… is she coming towards us?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Hello."
+        },
+        {
+            "event":"narration",
+            "text": "Limerence shoots you a funny look."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "U-uhm h-hi! I’m… Lullaby. This is-"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Are you two the UCerulea students who volunteered for today?"
+        },
+        {
+            "event":"narration",
+            "text": "You both nod."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Good. How’s the knowledge infusion going? No side effects? No symptoms?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Nope! And I’m feeling stronger than ever."
+        },
+        {
+            "event":"option",
+            "text": "Knowledge infusion?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Remember when I said that Imanagination is like the lifeblood of everything Atastria?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Normally, it’s a mixture of imagination, mana, and happiness. But it was Limerence’s idea to infuse knowledge into the recipe to make it ever stronger."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Stronger Imanagination means stronger magic, giving us better ways to fight any stragglers leftover from the Cacophony."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Learning provides more inspiration and enlightenment, two things that directly benefit imagination."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "And what better guinea pigs than the brightest students in Atastria?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Okay, maybe don’t call us guinea pigs…"
+        },
+        {
+            "event":"narration",
+            "text": "Limerence chuckles."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Anyways, it’s a very new hypothesis. They all signed wavers."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "If the infused Imanagination ever causes any side effects, let your advisor know immediately. We’ll switch you back to regular Imana."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Oh. And one more thing."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Can you please ask your friend-"
+        },
+        {
+            "event":"narration",
+            "text": "She gestures to Syla, shyly glistening at you all in the distance."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "-to stop staring at me?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Y-Yeah sure, one moment."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event":"narration",
+            "text": "…"
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby comes back, dragging Syla by the ear."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Ow, ow, ow! Okay! Sorry!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hehe~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Young lady, it’s rude to stare at others."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "A a a uh uhm uh a uhm wh wha uh"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event":"narration",
+            "text": "Limerence crosses her arms and raises an eyebrow."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "She’s just super star struck, that’s all~ she’s like, your super mega fan!"
+        },
+        {
+            "event":"narration",
+            "text": "Limerence’s expression softens, slightly amused. Her arms lower, no longer crossed."
+        },
+        
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Is that so? Well, pleasure to meet a fan."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Heh, usually it’s my friends who get the spotlight. I prefer to take a backseat. Though, I guess getting some attention is inevitable."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby quietly hums something into Syla’s ear. It seems to have a strange effect on her, as immediately after-"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "OH MY GOSH, I’M SUCH A HUGE FAN OH MY GOODNESS"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I- I- I READ EVERY PUBLICATION OF YOUR RESEARCH PAPERS! EVERY THESIS!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "YOUR ANALYSIS ON IMANAGINATION SYNTHESIS AND KNOWLEDGE INFUSION WAS SO INSIGHTFUL AND- AND-"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Haha, thank you, thank you. I’m quite flattered. I hope my research has helped you to build upon your own. That’s one of the beauties of science, after all."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Soon, one day, you can be an incredible hero yourself, a renowned researcher too."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Y-yeah…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Hm? What’s that look for?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "It’s okay Syla, you don’t have to share if you don’t want to…"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "removechar",
+            "char": "limerence"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "… It’s just…"
+        },
+        {
+            "event":"narration",
+            "text": "Syla hesitates, but upon seeing Limerence glance at the time, she panics."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I- I…. I don’t go to Cerulea, okay?! There, I said it!"
+        },
+        {
+            "event":"narration",
+            "text": "…"
+        },
+        {
+            "event":"narration",
+            "text": "The four of you fall dead silent."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Syla-"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I never did, I got rejected. I studied with 1,300 practice book pages, 48 mock exams, 200 hours of reading, and I got a perfect score on the entrance exam!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I did everything! I started my own club, I had a perfect GPA, I volunteered everywhere! And I still got rejected!"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Even when my parents comforted me I felt like such a failure… I felt like I let everyone down. I let myself down."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "When I met Lullaby and she told me she’s from UCerulea, I got so ashamed. I made up a lie on the spot, I told her I was also a student."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "And that lie kept going, and going. I dug further and further. Before you know it, I was sneaking into lectures and buying textbooks just so I wouldn’t give myself away."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I thought… “how could I ever be a hero, a scholar if I can’t even get into my one dream college?”"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I can’t be like you, Limerence…"
+        },
+        {
+            "event":"narration",
+            "text": "Limerence sighs and wraps her bitter angel wings around Syla, enveloping her with an embrace."
+        },
+        {
+            "event":"narration",
+            "text": "Syla begins to tear up, turning into sobbing and involuntary gasps."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Look, college admissions can be stupid, don’t be so hard on yourself."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Clearly you’ve proved you’re more than capable, someone else’s whim of a decision doesn’t just nullify that."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "And don’t even for a second think you need to be a UCerulea alumni to be a hero like me."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I graduated from my local district community college. I know people who never went to college. Who cares?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "As long as you know the right path for you to be successful, that’s not something someone else decides for you."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Syla… I’m so sorry… you don’t have to keep putting on a facade for us. I’m sure the rest of the group will understand."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We… we love you for *you.* It wouldn’t make the slightest difference if you were a student or not."
+        },
+        {
+            "event":"narration",
+            "text": "Limerence wipes the tears off Syla’s face with her wings."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Look at me, embarrassing myself in front of my hero…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Well, honesty and vulnerability are excellent traits to have in a scholar. And… in general I guess."
+        },
+        {
+            "event":"option",
+            "text": "I know we just met, Syla, but I care about you for *you* too."
+        },
+        {
+            "event":"option",
+            "text": "Lullaby and Limerence are right."
+        },
+        {
+            "event": "removechar",
+            "char": "limerence"
+        },
+        {
+            "event":"narration",
+            "text": "Eventually, Limerence has to depart for her next work. You and Lullaby take over comforting Syla, with Lullaby dropping her usual playful teasing."
+        },
+        {
+            "event":"narration",
+            "text": "Lullaby sings another melody to Syla, seemingly calming her down. It even has an effect on you. For once since you’ve arrived, the anxiety and stress of being interrogated in a new world seems to dissipate, even if only for a brief moment."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Thank you… I’m a mess… haha…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "You’re *our* mess, ya goof~"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I’d rather you show Limerence your honest self than try to put on a cool guy act."
+        },
+        {
+            "event":"narration",
+            "text": "The crew wraps up for the day, everyone packs up and starts to leave. Lullaby does one final check in on Syla before waving her off."
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event":"narration",
+            "text": "She then turns her attention to you, gesturing to go with her back to your dorms."
         }
     ]
 }

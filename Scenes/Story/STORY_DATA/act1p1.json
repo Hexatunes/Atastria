@@ -350,13 +350,19 @@
             "event": "dialogue", 
             "speaker": "lullaby",
             "emotion": "smile",
+            "dialogue": "We were all left behind after our humans didn't need us anymore. But thanks to Atastria, we have a second chance at growing up and having a future."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
             "dialogue": "A substance called “Imanagination” flows through everything here. It’s what gives us our powers and keeps us alive without our original humans to imagine us."
         },
         {
             "event": "dialogue", 
             "speaker": "lullaby",
             "emotion": "smile",
-            "dialogue": "Evelyn rescues our sentimental objects and transports us here when we’re forgotten or thrown away."
+            "dialogue": "Evelyn's the one who rescues our sentimental objects and transports us here when we’re forgotten or thrown away."
         },
         {
             "event": "dialogue", 
@@ -918,7 +924,7 @@
         },
         {
             "event": "environment",
-            "background": "nightStreet.png",
+            "background": "nightStreetGrassy.png",
             "lighting": "pink"
         },
         {
@@ -935,7 +941,7 @@
         },
         {
             "event": "narration",
-            "text": "At last, you arrive at the building. Lullaby takes off a ribbon from her ankle and presses it to a scanner the door, unlocking it before tying the ribbon back on."
+            "text": "At last, you arrive at the building. Lullaby takes off a ribbon from her ankle and presses it to a scanner on the door, unlocking it before tying the ribbon back on."
         },
         {
             "event": "environment",

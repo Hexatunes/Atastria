@@ -1,4 +1,4 @@
-let localSave = JSON.parse(localStorage.getItem("save"));
+let savedFlashsets = JSON.parse(localStorage.getItem("flashsets"));
 let selectedSetIDX = -1
 
 function refreshSetList() {
@@ -6,7 +6,7 @@ function refreshSetList() {
 
     document.getElementById("FlashsetList").innerHTML = "";
 
-    var flashsets = localSave["flashsets"];
+    var flashsets = savedFlashsets["flashsets"];
 
     if ( flashsets.length == 0 ) {
         document.getElementById("NoSetsLabel").style.display = "block"
@@ -59,7 +59,7 @@ function standardBattle() {
     var battleInit = JSON.stringify({
 
         "selectedSetIDX": selectedSetIDX,
-        "mode": "study_standard",
+        "mode": "study",
         "enemies": [
           {
             "code": "testdummy",
@@ -109,6 +109,8 @@ function standardBattle() {
           },
           
         ],
+        "scene": "study",
+        "lighting": "study",
     })
 
     setCookie("battleInit", battleInit, 1)
@@ -170,14 +172,14 @@ window.addEventListener("load", () => {
     document.querySelector(".white").classList.add("slide-out");
     document.querySelector(".logo").classList.add("slide-out");
 
-    if ( localStorage.getItem("save") == null ) {
+    if ( localStorage.getItem("flashsets") == null ) {
       
-      var newSave = {
+      savedFlashsets = {
         "flashsets": [],
       };
 
 
-      localStorage.setItem("save", JSON.stringify(newSave));
+      localStorage.setItem("save", JSON.stringify(savedFlashsets));
 
       console.log("No save detected. Made a new one!")
     }

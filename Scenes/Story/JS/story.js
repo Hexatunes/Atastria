@@ -27,6 +27,7 @@ window.onload = () => {
     { theme: 'outline', size: 'large' }
   );
   
+  // Check if already logged in
   fetch(SERVER_URL + '/auth/me', {
     credentials: 'include'
   })
@@ -108,18 +109,66 @@ function setUp() {
     storyProgress["main"][key] = true
 
     localStorage.setItem("storyProgress", JSON.stringify(storyProgress))
+
+    openMainStory()
    
   }
 
   console.log(storyProgress)
 
   generateList()
+  refreshSetList()
 
   document.cookie = "loadedNode=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   document.cookie = "storyComplete=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
   
 }
+
+
+function refreshSetList() {
+
+
+    document.getElementById("FlashsetList").innerHTML = "";
+
+    var flashsets = JSON.parse(localStorage.getItem("flashsets")).flashsets;
+
+    console.log("Flashsets: ", flashsets)
+
+    if ( flashsets.length == 0 ) {
+        document.getElementById("NoSetsLabel").style.display = "block"
+        return
+    } 
+
+    for ( let i = 0; i < flashsets.length; i++ ) {
+
+        var set = flashsets[i]
+
+        if ( set["cards"].length >= 5 ) {
+            const flashsetDiv = document.createElement("div");
+            flashsetDiv.className = "FlashsetDiv";
+
+            const openButton = document.createElement("button");
+            openButton.className = "FlashsetOpenButton";
+            openButton.innerHTML = set["name"];
+            openButton.addEventListener("click", () => {
+                selectSet(i);
+            });
+
+            flashsetDiv.appendChild(openButton);
+
+            document.getElementById("FlashsetList").appendChild(flashsetDiv);
+        }
+        
+        
+
+    }
+    
+    document.getElementById("NoSetsLabel").style.display = "none";
+
+}
+
+
 
 function generateList() {
 
@@ -149,7 +198,7 @@ function generateList() {
 
           let nodeButton = document.createElement("button");
           nodeButton.className = "NodeButton"
-          nodeButton.innerHTML = storyNode["display"]
+          nodeButton.innerHTML = storyNode["display"] + " ✔"
           nodeButton.addEventListener("click", () => {
               loadNode(i);
           });
@@ -176,7 +225,7 @@ function generateList() {
 
           let nodeButton = document.createElement("button");
           nodeButton.className = "NodeButton"
-          nodeButton.innerHTML = storyNode["display"]
+          nodeButton.innerHTML = storyNode["display"] 
           nodeButton.addEventListener("click", () => {
               loadNode(i);
           });
@@ -193,11 +242,15 @@ function generateList() {
 
 }
 
+var pendingNodeLoad = -1
+
 function loadNode(i) {
 
   var node = MainStoryMap[i];
 
+
   if ( node["type"] == "story" ) {
+
     document.querySelector(".dark").classList.add("slide-in");
     document.querySelector(".white").classList.add("slide-in");
     document.querySelector(".logo").classList.add("slide-in");
@@ -207,9 +260,49 @@ function loadNode(i) {
     });
 
     setCookie("loadedNode", i, 1)
+
+  } else if ( node["type"] == "battle" ) {
+    
+    document.getElementById("FlashsetList").style.display = "block";
+    document.getElementById("TitleInfo").style.display = "block";
+    document.getElementById("CancelBattle").style.display = "block";
+
+    document.getElementById("MainStory").style.display = "none";
+    
+    pendingNodeLoad = i
+
   }
 
 }
+
+function cancelBattle() {
+  document.getElementById("FlashsetList").style.display = "none";
+  document.getElementById("TitleInfo").style.display = "none";
+  document.getElementById("CancelBattle").style.display = "none";
+
+  document.getElementById("MainStory").style.display = "block";
+  pendingNodeLoad = -1
+}
+
+function selectSet(idx) {
+
+    var battleInit = MainStoryMap[pendingNodeLoad]["data"];
+
+    battleInit["selectedSetIDX"] = idx
+
+    document.querySelector(".dark").classList.add("slide-in");
+    document.querySelector(".white").classList.add("slide-in");
+    document.querySelector(".logo").classList.add("slide-in");
+
+    fadeAudio(bgm, bgm.volume, 0, 800, () => {
+        window.location.href = "/battle.html";
+    });
+
+    setCookie("battleInit", JSON.stringify(battleInit), 1)
+    setCookie("loadedNode", pendingNodeLoad, 1)
+
+}
+
 
 function openMainStory() {
   fadeIn("MainStory", 200)
@@ -301,6 +394,7 @@ window.addEventListener("load", () => {
       storyProgress = {
         "main": {},
       }
+
       localStorage.setItem("storyProgress", JSON.stringify(storyProgress));
       
     } else {

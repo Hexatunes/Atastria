@@ -1,0 +1,175 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "festivalNight.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh, oh! The closing speech is about to start! [p], hurry up!"
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby grabs you by the hand, gentle but still guiding. Some sprinkles from your triple double mega ultra super sundae fall off."
+        },
+        {
+            "event": "environment",
+            "background": "festivalSpeech.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "Crowds begin to gather by the giant center, larger than imaginary life."
+        },
+        {
+            "event": "narration",
+            "text": "Your eyes are glued to the center spotlights, seems like it’ll be a few minutes before-"
+        },
+        {
+            "event": "narration",
+            "text": "-wait… who’s…"
+        },
+        {
+            "event": "narration",
+            "text": "Crowd Goer: “I heard Evelyn herself is speaking! Can you believe it?!”"
+        },
+        {
+            "event": "narration",
+            "text": "That person looks-"
+        },
+        {
+            "event": "narration",
+            "text": "“Ohmygosh, and Limerence is making a guest appearance too!”"
+        },
+        {
+            "event": "narration",
+            "text": "-weren’t they- ugh, it’s too hard to"
+        },
+        {
+            "event": "narration",
+            "text": "“When’s it starting?! I can’t wait any longer!”"
+        },
+        {
+            "event": "narration",
+            "text": "-focus. Everyone’s so loud…"
+        },
+        {
+            "event": "option",
+            "text": "Lullaby, doesn’t that person-"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Oh, huh? Sorry, did you say something?"
+        },
+        {
+            "event": "option",
+            "text": "Doesn’t that person look familiar?"
+        },
+        {
+            "event": "narration",
+            "text": "You point at a strange imaginary friend in the far left corner of the crowd."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "The… cloak…"
+        },
+        {
+            "event": "option",
+            "text": "Crap."
+        },
+        {
+            "event": "narration",
+            "text": "Both your hearts sink as you realize what’s happening. The two of you immediately start pushing through the crowd to the other side, trying to confirm for sure."
+        },
+        {
+            "event": "narration",
+            "text": "After many “sorry”s and “excuse us!”s you finally get a close look at the figure, and she gets a close look at you."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hey! Get back here!"
+        },
+        {
+            "event": "environment",
+            "background": "starryField.png",
+            "lighting": "starry"
+        },
+        {
+            "event": "narration",
+            "text": "The two of you make chase, tailing right behind as the sounds of the crowd grow quieter and quieter."
+        },
+        {
+            "event": "narration",
+            "text": "The roars of excitement dim to sounds of footsteps on gravel and grass, heavy breaths, and Lullaby’s shouts."
+        },
+        {
+            "event": "narration",
+            "text": "Finally, *finally*, you get the figure pinned to a dead end."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "AAARGH, stop running already you’re insufferable!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "There, nowhere to go."
+        },
+        {
+            "event": "narration",
+            "text": "The sheer vitriol in the tone of Lullaby’s voice catches you off guard, it’s completely out of pocket from how she usually sounds."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "What? Still not gonna talk?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Why were you stealing earlier?! Give back what you took."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Nothing? Do we have to beat it out of you?"
+        },
+        {
+            "event": "option",
+            "text": "L-Lullaby…"
+        },
+        {
+            "event": "narration",
+            "text": "The figure readies herself, drawing forward one hand which is now glowing bright with imanagination and energy."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby pushes you away with her water magic, forcing you to watch from a distance once more."
+        }
+    ]
+}

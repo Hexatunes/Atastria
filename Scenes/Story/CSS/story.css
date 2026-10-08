@@ -27,11 +27,12 @@ body {
     position: absolute;
     background-color: rgba(240, 248, 255, 0.628);
     width: 50%;
-    height: 85%;
+    height: 80%;
     left: 27%;
-    top: 65%;
+    top: 62%;
     border-radius: 10px;
     transform: translate(-50%, -50%);
+    overflow-y: scroll;
 }
 
 #Header {
@@ -203,6 +204,54 @@ button:hover {
     pointer-events: none;
 }
 
+#FlashsetList {
+    position: absolute;
+    translate: calc(-50%, -50%);
+    width: 75%;
+    height: 65%;
+    left: 12.5%;
+    top: 25%;
+    background-color: rgba(255, 255, 255, 0.856);
+    border-radius: 25px;
+    overflow-y: auto;
+    display: none;
+}
+
+#TitleInfo {
+    position: absolute;
+    font-size: 3vw;
+    top: 5%;
+    left: 34%;
+    text-shadow: 2px 2px 0px #fff;
+    display: none;
+}
+
+.FlashsetDiv {
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
+
+.FlashsetOpenButton {
+    width: 100%;
+    font-size: 2vw;
+}
+
+#NoSetsLabel {
+    font-size: 2vw;
+    position: absolute;
+    top: 50%;
+    left: 26%;
+    display: none;
+}
+
+#CancelBattle {
+    position: absolute;
+    top: 12%;
+    left: 75%;
+    font-size: 2vw;
+    display: none;
+}
 
 
 

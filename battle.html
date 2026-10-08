@@ -148,8 +148,8 @@
     <p id = "rnrModeText">[Recognition] / Recall</p>
     
 
-    <input id = "attackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')" tabindex="-1">
-    <input id = "techniqueButton" type="image" src="/Scenes/Battle/Sprites/TechniqueButton.png" class="hover-button elastic-button" onclick="techniqueTarget() "tabindex="-1">
+    <input id = "AttackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')" tabindex="-1">
+    <input id = "TechniqueButton" type="image" src="/Scenes/Battle/Sprites/TechniqueButton.png" class="hover-button elastic-button" onclick="techniqueTarget() "tabindex="-1">
 
     <img id = "teamFocus" src = "/Scenes/Battle/Sprites/TeamFocus.png" style="display: none;">
     <p id = "focusText" style="display: none;">Choose a party member!</p>
@@ -157,6 +157,11 @@
     <button id = "teammateTarget0" onclick="mySlotInput(0)"> 1</button>
     <button id = "teammateTarget1" onclick="mySlotInput(1)"> 2</button>
     <button id = "teammateTarget2" onclick="mySlotInput(2)"> 3</button>
+
+    <div id = "ResultsScreen">
+        <p id = "ResultsTitle">Victory!</p>
+        <button id = "ReturnButton" onclick = "exitBattle()">Return</button>
+    </div>
 
     <canvas id="trail"></canvas>
     <div class="cursor-dot" id="cursorDot"></div>

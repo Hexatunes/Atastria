@@ -20,10 +20,14 @@ var storyName = ""
 
 // ⸻⸻⸻⸻⸻
 
+var voiceoverPlaying = false
+
 
 function advance() {
 
   window.scrollTo(0, 0);
+
+  
 
   if ( inOption ) {
     return
@@ -34,7 +38,7 @@ function advance() {
     if ( story["parts"][idx]["event"] == "dialogue") {
       document.getElementById("Dialogue" + String(speakerID)).innerHTML = currentText.replaceAll("[p]", storyName)
     } else {
-      document.getElementById("NarrationText").innerHTML = story["parts"][idx]["text"]
+      document.getElementById("NarrationText").innerHTML = currentText.replaceAll("[p]", storyName)
     }
     
     talking = false
@@ -57,6 +61,14 @@ function advance() {
   switch ( part["event"] ) {
 
     case "dialogue":
+
+      if ( voiceoverPlaying ) {
+        voiceoverPlaying = false;
+      } else {
+        document.getElementById("Voiceover").pause();
+        document.getElementById("Voiceover").currentTime = 0;
+      }
+    
 
       var found = false
 
@@ -84,9 +96,6 @@ function advance() {
 
       tickDialogue()
 
-      console.log(chars)
-      console.log(speakerID)
-
       refreshDisplays()
 
       lastCharsLength = chars.length
@@ -95,9 +104,13 @@ function advance() {
     
     case "narration":
 
+      currentText = part["text"].replaceAll("[p]", storyName);
+
       tickNarration()
 
       refreshDisplays()
+
+      lastCharsLength = chars.length
 
       break;
       
@@ -133,7 +146,7 @@ function advance() {
 
       setTimeout(() => {
         fadeOut("BlackFade", 500)
-        document.getElementById("Backdrop").src = "Scenes/StoryNode/SPrites/BGs/" + pendingBG
+        document.getElementById("Backdrop").src = "Scenes/StoryNode/Sprites/BGs/" + pendingBG
       }, 500)
 
 
@@ -152,8 +165,42 @@ function advance() {
       }
       
 
+      advance()
+
+      break;
+    
+    case "voiceover":
+
+      document.getElementById("Voiceover").src = "Scenes/StoryNode/Audio/VO/" + part["file"];
+      document.getElementById("Voiceover").load()
+      document.getElementById("Voiceover").play()
+
+      document.getElementById("Boop").volume = 0;
+
+      voiceoverPlaying = true
+      advance()
+
+      break;
+
+    case "bgm":
+
+      document.getElementById("BGM").src = "Scenes/StoryNode/Audio/BGM/" + part["file"];
+      document.getElementById("BGM").load()
+      document.getElementById("BGM").play()
 
       advance()
+
+      break;
+    
+    case "ambience":
+
+      document.getElementById("Ambience").src = "Scenes/StoryNode/Audio/Ambience/" + part["file"];
+      document.getElementById("Ambience").load()
+      document.getElementById("Ambience").play()
+
+      advance()
+
+      break;
 
   }
 
@@ -212,7 +259,7 @@ function refreshDisplays() {
   
     fadeIn("Char1", 500)
     fadeIn("Char2", 500)
-    fadeOut("Char3, 500")
+    fadeOut("Char3", 500)
 
     if ( chars.length != lastCharsLength ){
 
@@ -268,6 +315,7 @@ function refreshDisplays() {
     for ( var i = 0; i < chars.length; i++ ) {
 
       document.getElementById("Char" + String(i + 1)).src = "/Scenes/StoryNode/Sprites/Portraits/" + chars[i]["char"] + "/" + lighting + "/" + chars[i]["emotion"] + ".png"
+      
 
     }
 
@@ -278,6 +326,12 @@ function refreshDisplays() {
     fadeOut("Box3", 500)
 
     fadeIn("NarrationBox", 500)
+
+    for ( var i = 0; i < chars.length; i++ ) {
+
+      document.getElementById("Char" + String(i + 1)).src = "/Scenes/StoryNode/Sprites/Portraits/" + chars[i]["char"] + "/" + lighting + "/" + chars[i]["emotion"] + ".png"
+
+    }
 
   }
 
@@ -333,10 +387,10 @@ function tickNarration() {
 
   part = story["parts"][idx]
 
-  document.getElementById("NarrationText").innerHTML = part["text"].substring(0, visibleChars)
+  document.getElementById("NarrationText").innerHTML = currentText.substring(0, visibleChars)
 
   var waitTime = 25
-  let lastChar = part["text"].substring(visibleChars - 1, visibleChars)
+  let lastChar = currentText.substring(visibleChars - 1, visibleChars)
 
   if ( lastChar == "," ) {
     waitTime = 400
@@ -344,7 +398,7 @@ function tickNarration() {
     waitTime = 700
   }
 
-  if ( visibleChars < part["text"].length && talking ) {
+  if ( visibleChars < currentText.length && talking ) {
     ticker = setTimeout(() => {
       tickNarration()
     }, waitTime);

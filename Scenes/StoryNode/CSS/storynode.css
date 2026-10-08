@@ -37,7 +37,7 @@
 .DialogueText {
     position: absolute;
     font-size: 1.5vw;
-    top: 30%;
+    top: 23%;
     left: 10%;
 }
 .DialogueName {
@@ -55,14 +55,7 @@
     width: auto;
     height: 150%;
     transform:
-        translate(-50%, -50%)
-        translateX(var(--shake-x, 0px))
-        translateY(
-            calc(
-                var(--hop-y, 0px) +
-                var(--sink-y, 0px)
-            )
-        );
+        translate(-50%, -50%);
     opacity: 0;
     top: 75%;
     left: 50%;
@@ -148,7 +141,7 @@
 #NarrationText {
     position: absolute;
     font-size: 2vw;
-    top: 78%;
+    top: 75%;
     margin-left: 15%;
     margin-right: 15%;
 }
@@ -194,10 +187,10 @@
 
 .shake {
   --shake-amt: 1;
-  translate: var(--sx) var(--sy);
   animation:
-    shake-x 15s cubic-bezier(.37,0,.63,1) infinite,
-    shake-y 15s cubic-bezier(.37,0,.63,1) infinite;
+    cam-shake-x 15s cubic-bezier(.37,0,.63,1) infinite,
+    cam-shake-y 15s cubic-bezier(.37,0,.63,1) infinite;
+  animation-composition: add, add;
   will-change: translate;
 }
 

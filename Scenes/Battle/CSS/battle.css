@@ -64,14 +64,17 @@ body {
 #myHP0 {
     top: 45%;
     left: 18%;
+    display: none;
 }
 #myHP1 {
     top: 45%;
     left: 50%;
+    display: none;
 }
 #myHP2 {
     top: 45%;
     left: 82%;
+    display: none;
 }
 
 .myHP {
@@ -228,14 +231,17 @@ body {
 #enemyHP1 {
     top: 45%;
     left: 55%;
+    display: none;
 }
 #enemyHP0 {
     top: 45%;
     left: 70%;
+    display: none;
 }
 #enemyHP2 {
     top: 45%;
     left: 85%;
+    display: none;
 }
 
 .enemyHP {
@@ -260,7 +266,7 @@ body {
 
 
 
-#attackButton {
+#AttackButton {
     position: absolute;
     width: 10%;
     height: auto;
@@ -268,7 +274,7 @@ body {
     left: 80%;
 }
 
-#techniqueButton {
+#TechniqueButton {
     position: absolute;
     width: 9%;
     height: auto;
@@ -494,6 +500,35 @@ body {
     2px 2px 2px #ffffff91;
 }
 
+#ResultsScreen {
+    background-image: linear-gradient(to right, #fbe8ff 0%, #fff 25%, #e6f9ff 61%, #e0f3ff 75%, #fde6ff 100%);
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    align-items: center;
+    opacity: 0.9;
+    display: none;
+}
+
+#ResultsTitle {
+    position: absolute;
+    font-size: 10vh;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ReturnButton {
+    position: absolute;
+    font-size: 5vh;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* ------------------------------------- */
 p {

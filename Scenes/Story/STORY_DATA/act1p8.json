@@ -1,0 +1,340 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "starryField.png",
+            "lighting": "starry"
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby fires one large burst of water at the figure, who dodges out of the way. However, the blast hits a tree instead, causing it to snap from its trunk and come tipping over."
+        },
+        {
+            "event": "narration",
+            "text": "Its path goes straight for the figure’s sentimental object, or what seems to be it. Lullaby bolts to shove the figure out of the way and both luckily avoid the fall."
+        },
+        {
+            "event": "narration",
+            "text": "Now, she’s finally close enough to take off the cloak revealing an otherwise ordinary looking imaginary friend."
+        },
+        {
+            "event": "narration",
+            "text": "Red hair, messy from the fighting."
+        },
+        {
+            "event": "narration",
+            "text": "Some sort of toy flashlight on her belt decorated with stickers."
+        },
+        {
+            "event": "narration",
+            "text": "A pin on her shirt from the dance club’s stall at last year’s involvement fair."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Imana supplements… that’s all you stole…?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Just… some supplements…?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "You… you could’ve asked us… asked anyone… we would’ve been more than happy to…"
+        },
+        {
+            "event": "narration",
+            "text": "Neither side seems to have the energy for words, both fall into an exacerbated quiet, only interrupted with deep sighs."
+        },
+        {
+            "event": "narration",
+            "text": "…"
+        },
+        {
+            "event": "narration",
+            "text": "Then, the shared silence is broken by the sound of another pair of footsteps. Everyone freezes."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "What is the meaning of this?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "L-Limerence?"
+        },
+        {
+            "event": "option",
+            "text": "Limerence?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "You."
+        },
+        {
+            "event": "narration",
+            "text": "Limerence gives a sharp look at the thief."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Come with me, you have a lot of explaining to do."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Lullaby, [p], thank you for your work."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "But please, do enjoy the festival. It’s a once in a lifetime experience. No need to waste it chasing down some petty thief."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Besides, you could’ve gotten seriously hurt."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I know… it’s just… any form of stealing or crimes is… unheard of. And… I don’t know… I guess I just really wanted to help. I got carried away, I dug myself deeper and deeper into investigating."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But, she doesn’t seem that bad! Really, it was just some medicine, maybe she really needs it and-"
+        },
+        {
+            "event": "removechar",
+            "char": "limerence"
+        },
+        {
+            "event": "narration",
+            "text": "Limerence shakes her head without a word. She snaps her fingers and seems to force the thief to levitate towards her. The two disappear into the woods."
+        },
+        {
+            "event": "narration",
+            "text": "Nothing remains now but you, Lullaby, and the ambience of the cold, dark forest."
+        },
+        {
+            "event": "option",
+            "text": "How’re you holding up?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "A bit shaken… but I guess fine otherwise."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I just…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "She looked so… so much like *us.*"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I recognized that pin… I know the president of that club."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "She looked like our age."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "And… all of that… for some pharmacy meds…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "How bad is her situation at home that she had to… to…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "environment",
+            "background": "festivalSpeech.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "narration",
+            "text": "After taking a breather to calm down, the both of you head back. The sounds of the crowd begin to re-emerge from the hollow silence of the woods."
+        },
+        {
+            "event": "narration",
+            "text": "Soon, you’re flooded by the festival lights once more, and your eyes take a moment to readjust from being so dilated."
+        },
+        {
+            "event": "narration",
+            "text": "One more voice is in the mix, a familiar one. It seems you made it back just in time to at least catch the latter half of the speech."
+        },
+        {
+            "event": "environment",
+            "background": "speech.png",
+            "lighting": "hidden"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Truly, it’s a blessing that we are all here today to celebrate the courageous efforts of our legendary heroes."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Straight out of a fairytale, they managed to defeat the Cacophony, ruler of manifests, once and for all."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "After years of plaguing Atastria, we can finally rest knowing we’ve finally reached our happily ever after."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "But this happy ending was not achieved without consequence."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "As you know, there are many manifests leftover from the final battle. The Royal Guards, legendary heroes, even students from UCerulea are all pitching in to help."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "And to you, those listening who feel they cannot provide aid…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "…you do not have to be a legendary hero, nor even a college student to make a difference."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Bring water to places without it, check in on your loved ones who you haven’t spoken to in a while. Volunteer at relief efforts."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "All of you can contribute, no matter where you stand or your background."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "I would like to thank all the brave heroes, not just our legendary party, who fought in that battle. And the lives that were lost."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Each were valiant, and will be remembered for as long as Atastria stands."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "evelyn",
+            "emotion": "smile",
+            "dialogue": "Thank you. Truly. Everyone here, everyone who was, and everyone to come. You all matter so much to me."
+        },
+        {
+            "event": "environment",
+            "background": "festivalNight.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "removechar",
+            "char": "evelyn"
+        },
+        {
+            "event": "narration",
+            "text": "The rest of the festival is mostly a blur. As people slowly trickle home one by one, you, Lullaby, and the rest of the group all reconvene at a stall nearby the stage."
+        },
+        {
+            "event": "narration",
+            "text": "Each of you sit together on the grass, chatting the last hours of the night away."
+        },
+        {
+            "event": "narration",
+            "text": "Syla thanks Lullaby again in a private whisper, Toki and Lizzy recount all the adventures they had at the festival, and Cuddle Fish… falls asleep on XiaoLing."
+        },
+        {
+            "event": "narration",
+            "text": "As you look up into the dawning new morning, your heart fills with a sense of warmth. Finally, at least in this brief moment, you feel like you belong here."
+        },
+        {
+            "event": "narration",
+            "text": "You look down to each one of your new friends who sit surrounding you. The afterglow of the event still radiates in their banter until the group collectively enjoys the silence between each other."
+        },
+        {
+            "event": "narration",
+            "text": "Some fall asleep from the long day and night of festivities, others look into the distance."
+        },
+        {
+            "event": "narration",
+            "text": "If only every day could be like this, to feel the high of being with people close to you after such an eventful experience."
+        },
+        {
+            "event": "narration",
+            "text": "To live in the start of this happily ever after."
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "black.png",
+            "lighting": "light"
+        },
+        {
+            "event": "narration",
+            "text": "Have you ever heard of imaginary friends?"
+        },
+        {
+            "event": "narration",
+            "text": "Maybe you even had one yourself when you were a child."
+        },
+        {
+            "event": "narration",
+            "text": "They’re such fascinating beings, born from sentimental objects that receive enough love and memories."
+        },
+        {
+            "event": "narration",
+            "text": "Have you ever had a sentimental object?"
+        },
+        {
+            "event": "narration",
+            "text": "A favorite toy your parents bought you, a blanket you always snuggled with, a plushie that helped you through hard times?"
+        },
+        {
+            "event": "narration",
+            "text": "Sentimental objects, imagination, and an identity. These are the basis of all imaginary friends. Without them, their lives cease to exist."
+        },
+        {
+            "event": "narration",
+            "text": "Where are your sentimental objects now?"
+        },
+        {
+            "event": "narration",
+            "text": "Were they donated or given away? Are they collecting dust in your closet?"
+        },
+        {
+            "event": "narration",
+            "text": "Are they rotting in a landfill?"
+        },
+        {
+            "event": "narration",
+            "text": "If you had an imaginary friend, how do you think they’re doing?"
+        },
+        {
+            "event": "narration",
+            "text": "Where do they go once you’ve grown up and no longer need them?"
+        },
+        {
+            "event": "narration",
+            "text": "What happens…"
+        },
+        {
+            "event": "narration",
+            "text": "…when an imaginary friend is truly forgotten?"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 
-let localSave = JSON.parse(localStorage.getItem("save"));
+let savedFlashsets = JSON.parse(localStorage.getItem("flashsets"));
 
 function promptNewSetName() {
     var setName = prompt("Give your new set a name!");
@@ -9,7 +9,7 @@ function promptNewSetName() {
         return
     }
 
-    var flashsets = localSave["flashsets"];
+    var flashsets = savedFlashsets["flashsets"];
 
     console.log(flashsets)
 
@@ -29,7 +29,7 @@ function promptNewSetName() {
 function refreshSetList() {
     document.getElementById("FlashsetList").innerHTML = "";
 
-    var flashsets = localSave["flashsets"];
+    var flashsets = savedFlashsets["flashsets"];
 
     if ( flashsets.length == 0 ) {
         document.getElementById("NoSetsLabel").style.display = "block"
@@ -81,7 +81,7 @@ function refreshSetList() {
 var editingSet = -1
 
 function openSet(idx) {
-    var fs = localSave["flashsets"][idx];
+    var fs = savedFlashsets["flashsets"][idx];
 
     editingSet = idx
 
@@ -155,7 +155,7 @@ function openSet(idx) {
 
 function newCard() {
 
-    let fs = localSave["flashsets"][editingSet]["cards"];
+    let fs = savedFlashsets["flashsets"][editingSet]["cards"];
 
     fs.push({
         "question": "",
@@ -207,7 +207,7 @@ function newCard() {
 }
 function updateCard(cardIDX, toUpdate, text) {
 
-    var fs = localSave["flashsets"][editingSet]["cards"];
+    var fs = savedFlashsets["flashsets"][editingSet]["cards"];
 
     fs[cardIDX][toUpdate] = text
 
@@ -217,7 +217,7 @@ function updateCard(cardIDX, toUpdate, text) {
 }
 function deleteCard(cardIDX) {
 
-    var fs = localSave["flashsets"][editingSet]["cards"];
+    var fs = savedFlashsets["flashsets"][editingSet]["cards"];
     fs.splice(cardIDX, 1)
 
     openSet(editingSet)
@@ -228,7 +228,7 @@ function deleteCard(cardIDX) {
 // -----------------------------------------
 
 function deleteSet(idx) {
-    localSave["flashsets"].splice(idx, 1);
+    savedFlashsets["flashsets"].splice(idx, 1);
 
     save_data()
 
@@ -239,7 +239,7 @@ function deleteSet(idx) {
 function renameSet(idx) {
 
     var newName = prompt("Rename set to...");
-    localSave["flashsets"][idx]["name"] = newName;
+    savedFlashsets["flashsets"][idx]["name"] = newName;
 
     save_data()
 
@@ -263,7 +263,7 @@ function renameSet(idx) {
 // ---------- BOILER PLATE ----------
 function save_data() {
     console.log("Saving... ")
-    localStorage.setItem("save", JSON.stringify(localSave))
+    localStorage.setItem("flashsets", JSON.stringify(savedFlashsets))
 }
 
 window.addEventListener("load", () => {
@@ -274,14 +274,15 @@ window.addEventListener("load", () => {
     document.getElementById("BGM").volume = 0.3;
     document.getElementById("BGM").play()
 
-    if ( localStorage.getItem("save") == null ) {
+    if ( localStorage.getItem("flashsets") == null ) {
       
-      var localSave = {
+      savedFlashsets = {
         "flashsets": [],
       };
 
 
-      localStorage.setItem("save", JSON.stringify(newSave));
+      localStorage.setItem("flashsets", JSON.stringify(savedFlashsets));
+
 
       console.log("No save detected. Made a new one!")
     } else {

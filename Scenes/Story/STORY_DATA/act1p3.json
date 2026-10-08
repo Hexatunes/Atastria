@@ -1,0 +1,221 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "festivalDay.png",
+            "lighting": "light"
+        },
+        {
+            "event": "narration",
+            "text": "More and more days pass as work is done. Finally, the day of the festival comes. Everywhere you go it seems there are people buzzing about it."
+        },
+        {
+            "event": "narration",
+            "text": "Streets adorned with colorful decorations, everything seems to feel livelier than ever. Every corner of the surrounding town seems to be bustling with chatter, and all the students have the day off."
+        },
+        {
+            "event": "narration",
+            "text": "Couples taking photos in scenic spots, goofballs seeing how many deep fried pickles they can eat without getting sick, and workers rushing desperately for volunteer credits."
+        },
+        {
+            "event": "narration",
+            "text": "As you and Lullaby walk through the street, a thought comes to your mind from last week."
+        },
+        {
+            "event": "option",
+            "text": "Hey, Lullaby?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Yeah? What’s up?"
+        },
+        {
+            "event": "option",
+            "text": "That “Knowledge Infusion” Limerence mentioned…"
+        },
+        {
+            "event": "option",
+            "text": "Is it worth all the possible side effects?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hm…"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Well, I definitely feel stronger. The imana flowing through my body and magic just… *feels* different."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Some of the students help out by defeating leftover manifests from the Cacophony. Even after the final battle there’s a lot of them leftover. This infusion is a huge help with that."
+        },
+        {
+            "event": "option",
+            "text": "Manifests… you’ve mentioned those before. What are they?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Think of them like the opposite of imaginary friends."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "We’re born from love and imagination, but manifests are born from pure hatred and negative emotions."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Grief, sorrow, greed, anger… when enough of it pools in one place, a mindless husk is “manifested” and finds its way into Atastria."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "The Cacophony was the ruler of all manifests, the worst of the worst. It was made from the pain and suffering of many tragedies over history."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hopefully you can see why it took 6 legendary heroes to defeat it."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But for us UCerulea students, we just help deal with the small fry~"
+        },
+        {
+            "event": "option",
+            "text": "So you guys can cast spells and stuff?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Hehe, yep~! Every imaginary friend can use magic, but how good you are at it depends on your practice and how much imanagination flows through your body."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "The more you practice and train, the more your body is able to handle it, and your magic gets stronger!"
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby playfully boops your nose."
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "If you ever get tired of saying imanagination all the time, you can just call it imana for short~"
+        },
+        {
+            "event": "option",
+            "text": "What’s your magic then?"
+        },
+        {
+            "event": "dialogue", 
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I use water magic, though I’m still learning. The knowledge infusion helps a lot, but I still need more practice casting spells."
+        },
+        {
+            "event": "narration",
+            "text": "She makes some bubbles appear from her hands, they float up to your face and tickle slightly."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "Suddenly, a voice is heard screaming in the distance, and every bubble pops at once."
+        },
+        {
+            "event": "narration",
+            "text": "“HELP, THIEF!”"
+        },
+        {
+            "event": "narration",
+            "text": "At the turn of a corner, a mysterious figure wearing a cloak darts out- dashing haphazardly."
+        },
+        {
+            "event": "narration",
+            "text": "Crowds move out of the way, like a body of water being split down the middle, frantic chatter and turning heads."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby snipes the figure’s feet with a carefully aimed water shot, causing them to trip."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Come on!"
+        },
+        {
+            "event": "narration",
+            "text": "Bystanders gather around the scene, some pulling out their phones, others calling for the Royal Guards."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "…"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "!"
+        },
+        {
+            "event": "narration",
+            "text": "Out of nowhere, Lullaby stops you with her arm, making you take cover behind her."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "GET DOWN!"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "She tackles you to the ground, barely making the both of you dodge a beam of concentrated energy from the figure, who is now getting back up."
+        },
+        {
+            "event": "narration",
+            "text": "Others in the crowd dodge the collateral as well."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I saw someone call the guards, I just have to hold this person here for as long as I can."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "[p], this guy looks dangerous, stay behind me. You haven’t learned how to fight yet."
+        }
+    ]
+}

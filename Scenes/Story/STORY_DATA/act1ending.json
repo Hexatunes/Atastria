@@ -1,0 +1,388 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "lab.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "narration",
+            "text": "Limerence enters her lab, running through the usual routines, turning on lights."
+        },
+        {
+            "event": "narration",
+            "text": "…"
+        },
+        {
+            "event": "environment",
+            "background": "act1closing1.png",
+            "lighting": "dynamiclight"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/1.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Dear.. I'm hooooome~"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/2.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "How has my darling been?"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/3.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Is the anti septic comfortable? It's not too irritating, is it?"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/4.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I know I shouldn't, but I just can't help but spoil my precious when he's not comfy."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/5.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I can lower the concentration if it's bothering you too much."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/6.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Not… too much though… I'm sorry baby."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/7.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I know… I know... I've been coming home later and later. I'm sorry love, it's just- all the work has been piling up lately… and…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/8.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Well, it's all worth it in the end when I can see you after a hard day's work. Hehe~"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/9.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I got to run by the market though on the way back! Blueberries, your favorite."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/10.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Would that make it all better~?"
+        },
+        {
+            "event": "narration",
+            "text": "…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/11.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Look at me…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/12.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "talking to a dead corpse like an insane person."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/13.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "But they're the insane ones for thinking I'll just give up on you. "
+        },
+        {
+            "event": "voiceover",
+            "file": "1/14.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Every “I'm sorry”… every “my condolences for your loss…” UGH, IT DRIVES ME INSANE."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/15.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I- I'm sorry for yelling love… I… I don't want you to ever feel a fraction of what they put me through… "
+        },
+        {
+            "event": "voiceover",
+            "file": "1/16.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Telling me all those platitudes… Evelyn would never approve of this."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/17.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "If she found out I gave them a fake body and kept yours in secret… "
+        },
+        {
+            "event": "voiceover",
+            "file": "1/18.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "…no. I don't want to think of what would happen if anyone found out."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/19.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "*Nobody* can find out about this… not until you're alive again."
+        },
+        
+        {
+            "event": "voiceover",
+            "file": "1/20.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Why… why did you have to try saving them?"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/21.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "It was just *one* imaginary friend, we had it under control."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/22.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "You could still *be* here… but you ran in to help without a second thought."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/23.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "That… heart. That damn heart of yours."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/24.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "It's what made me fall in love with you…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/25.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "and it's what got you killed."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/26.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Stupid… stupid… STUPID. You're so stupid you know that?!"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/27.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Making me drag your dead body back to the others, making me lie about burying you…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/28.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "making me pick up the pieces of your shattered object."
+        },
+        {
+            "event": "narration",
+            "text": "…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/29.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Imanagination… It's such a strange yet powerful substance."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/30.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I've been trying to inject you with it, but maybe I've been going about it all wrong this whole time."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/31.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Maybe… if I use it on myself instead…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/32.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "Love… I promise…"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/33.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I'll make this right… we'll be together again soon."
+        },
+        {
+            "event": "voiceover",
+            "file": "1/34.ogg"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "limerence",
+            "emotion": "smile",
+            "dialogue": "I just… need…"
+        },
+        {
+            "event": "environment",
+            "background": "black.png",
+            "lighting": "hidden"
+        },
+        {
+            "event": "removechar",
+            "char": "limerence"
+        },
+        {
+            "event": "voiceover",
+            "file": "1/35.ogg"
+        },
+        {
+            "event": "narration",
+            "text": "More."
+        }
+    ]
+}

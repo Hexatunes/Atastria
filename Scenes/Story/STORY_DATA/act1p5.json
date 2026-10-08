@@ -1,0 +1,651 @@
+{
+    "parts": [
+        {
+            "event": "environment",
+            "background": "festivalDay.png",
+            "lighting": "light"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Stay down."
+        },
+        {
+            "event": "narration",
+            "text": "The cloaked figure seems to have been subdued. It’s hard to tell, you’ve been taking cover behind a nearby building the entire time."
+        },
+        {
+            "event": "narration",
+            "text": "Yeahhhh Lullaby’s got this."
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "As Lullaby turns her head to check on you, another beam is fired by surprise at her ankle, and she falls to the ground with a yelp."
+        },
+        {
+            "event": "narration",
+            "text": "The figure takes the opportunity to flee as you rush in to help her. Others also stop standing by and come to check as well."
+        },
+        {
+            "event": "option",
+            "text": "Are you okay?!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I’m fine, I’m fine. I’ve been hurt worse by manifests."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I’m just mad that person got away…"
+        },
+        {
+            "event": "option",
+            "text": "Let’s worry about you for now, we should find someone to heal you."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby musters a smile with a soft giggle. After the crowd disperses, she reassures you and pulls you down to sit down beside her."
+        },
+        {
+            "event": "narration",
+            "text": "She gestures for you to watch her ankle as she puts both hands near it. A faint blue glow radiates from her palms as the burn marks slowly fade away."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Told you I can take care of myself~"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "But… thank you… for the concern. Really."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby pulls you into a hug."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "If anything, I’d be more worried about you being scared. That was the first time you’ve seen me fight, huh?"
+        },
+        {
+            "event": "narration",
+            "text": "The Royal Guards arrive in a surprisingly timely manner, though by now the suspect has already fled."
+        },
+        {
+            "event": "narration",
+            "text": "They question you and Lullaby before letting you both go. You can’t help but notice a hint of disappointment in Lullaby’s expression."
+        },
+        {
+            "event": "option",
+            "text": "Don’t be too hard on yourself, you fought them well."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Haha, I know, I know."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I just… can’t help but feel a bit… uneasy about that whole thing."
+        },
+        {
+            "event": "option",
+            "text": "Are people like that common in Atastria?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "No, not at all. The Royal Guard usually responds to calls on manifests terrorizing people, but not other imaginary friends."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "I bet those officers were just as surprised as we were."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Everyone is so kind to each other here… I don’t get it."
+        },
+        {
+            "event": "option",
+            "text": "Whoever it was, let’s let the officials deal with it before we get hurt even more."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Yeah, I was kinda reckless, wasn’t I? I guess we should just be glad it didn’t go any worse."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "My ankle’s feeling better, let’s just try to enjoy the festival, alright?"
+        },
+        {
+            "event": "narration",
+            "text": "You nod, trying to shake off the adrenaline from what just happened."
+        },
+        {
+            "event": "narration",
+            "text": "What a change of atmosphere, you think to yourself. Just a week ago you were so lost in a completely new world with absolutely nothing, and now you’re enjoying this hyped up festival with your “personal monitor.”"
+        },
+        {
+            "event": "environment",
+            "background": "festivalNight.png",
+            "lighting": "dynamicLight"
+        },
+        {
+            "event": "narration",
+            "text": "The day goes by as you two enjoy the festival. Time zooms with the fun, and the sun's gone before you know it."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby points towards this and that. She excitedly nudges your face towards something interesting before turning it back to look at her smile."
+        },
+        {
+            "event": "narration",
+            "text": "She buys you some food, treats here and there. They’re all human food, yet some took… creative liberties. Regardless, you can’t help but just be glad to soak in all the energy."
+        },
+        {
+            "event": "narration",
+            "text": "Lullaby pulls out her phone and types a bit. You’re tempted to peek at her screen but decide otherwise."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Looks like our friends are over by the game stalls. Let’s go!"
+        },
+        {
+            "event": "narration",
+            "text": "In a swift motion she grabs your hand and runs with you to the rest of the group. The two of you can’t help but giggle along the way, zooming past crowds."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Lullaby, over here!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Heya! And you brought [p] too!"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Hmph, if you’re going to be this late I fear for your homework deadlines~"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Haha, it’s okay Syla, they look like they had a lot of fun still."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Without us? Hmph…"
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "narration",
+            "text": "Everyone stops their current games to all come together and greet you both. You and Lullaby exchange fist bumps with the gang."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "Lullaby, Lullaby!"
+        },
+        {
+            "event": "narration",
+            "text": "Cuddle Fish tugs on Lullaby’s sleeve with pleading eyes."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "cuddlefish",
+            "emotion": "smile",
+            "dialogue": "You’re a really good shot, right? Can you help me with this shooting game, pleeeeeease? I want the squish plushie!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Haha, sure sure, I’ll win it for you-"
+        },
+        {
+            "event": "narration",
+            "text": "Cuddle Fish starts to pull Lullaby away, cheering and smiling."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Ah- uhm, see you guys in a bit! Looks like I’m needed- woah!"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "removechar",
+            "char": "cuddlefish"
+        },
+        {
+            "event": "narration",
+            "text": "Toki laughs and gives you a playful nudge with his elbow."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Eh, who needs ‘em? You’ve got good ‘ol Toki to play with!"
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing pouts and grabs your arm, her large sleeves brushing against you as they sway around."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Don’t forget about me! Let’s win even more prizes than those two!"
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "narration",
+            "text": "Behind you, Lizzy and Syla observe amused."
+        },
+        
+        {
+            "event": "dialogue",
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "Guess it’s just me and you, huh Syla?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "Seems so, but we’ll have the last laugh with prizes. With my brains and your guiding light, we’ve got this."
+        },
+        {
+            "event": "narration",
+            "text": "Lizzy chuckles, her finger shines a flicker of light towards a stall slightly far away."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "You wanna start with the one giving anime figure prizes~?"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "YES!! LET’S GO LET’S GO LET’S-!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "syla",
+            "emotion": "smile",
+            "dialogue": "I mean uhm… well, even such frivolous indulgences may be needed for the rejuvenation of a genius such as myself."
+        },
+        {
+            "event": "narration",
+            "text": "You watch as Syla’s face turns red, stammering over her words. Lizzy bursts into laughter, but hugs Syla tightly and walks with her to the stall."
+        },
+        {
+            "event": "removechar",
+            "char": "syla"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "narration",
+            "text": "As the two of them fade into the distance, Toki and XiaoLing lean at you from both sides with smiles."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Heeeeyyy~"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "We’re still here you know, you aren’t thinking of cheating on us, are you?"
+        },
+        {
+            "event": "option",
+            "text": "Haha, oh nonono"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "I guess this somehow became a race to get the most prizes, hope you’re good at festival games!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Alright first mate [p] and quartermaster XiaoLing, let’s go!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Yeah! Let’s go rub their faces in- wait why does [p] get to be first mate?!"
+        },
+        {
+            "event": "option",
+            "text": "Sorry XiaoLing, maybe next time!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "But I was quartermaster last time. no fair!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Sorry, I want [p] to feel special, it’s their first time playing pirates with us."
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing pouts at Toki before sighing and smiling. The three of you make your way to a balancing game- a thin tightrope stands above an inflatable bouncy floor to cushion any falls."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Wanna bet how long XiaoLing lasts, [p]? I’ll give her like 2 minutes~"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "I heard that! Watch me, I’ll make you eat those words!"
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing tries to brute force the game with raw body strength, grasping onto the rope as hard as possible. She makes it roughly halfway before falling and bouncing on the floor with a laugh."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Hey, lasted longer than I thought!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Yeah yeah, well let’s see you do it, pirate boy!"
+        },
+        {
+            "event": "narration",
+            "text": "Toki does a speed approach, trying to go as fast as possible before losing balance. Unfortunately, he only makes it a quarter of the way before landing face first into the inflatable below."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Pfft~ better luck next time"
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing walks over to Toki, wobbling a bit as someone else fails nearby and sends waves through the floor. She extends a hand out to Toki with a smug look of satisfaction on her face."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Alright [p], your turn! Show us how it’s done."
+        },
+        {
+            "event": "option",
+            "text": "I’ll try my best…"
+        },
+        {
+            "event": "narration",
+            "text": "You make it a bit farther than both of them, yet you couldn’t reach the end either. Falling down from the rope, you land on your back."
+        },
+        {
+            "event": "narration",
+            "text": "You lay facing up on the soft floor after your attempt. Toki and XiaoLing both lean over you with smiles, offering their hands in sync to hoist you up."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Woah, newbie’s kinda got this! Good job!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "See? I knew I should’ve made them first mate!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Yeah, well aren’t you the captain? Maybe [p] should take over, I say we throw a coup!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Nope! Not if I have anything to say about it!"
+        },
+        {
+            "event": "narration",
+            "text": "Once more, another festival goer falls off the rope, landing nearby and sending ripples through the bouncy floor beneath the three of you."
+        },
+        {
+            "event": "narration",
+            "text": "You each lose your balance and fall over, the three of you giggling like a bunch of idiots."
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "narration",
+            "text": "Eventually everyone regroups, some with more prizes in hand than others. You, Toki, and XiaoLing return mostly empty handed, but Syla and Lizzy come back holding bags of anime figures."
+        },
+        {
+            "event": "narration",
+            "text": "Well, it’s mostly Syla with them."
+        },
+        {
+            "event": "narration",
+            "text": "Just as you’re about to open your mouth to say something, Lullaby comes back carrying a gigantic plushie the size of half her body, in addition to Cuddle Fish sitting on her shoulders."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Did you guys have fun without us~? Hope we weren’t gone for too long, those games were kinda rigged haha."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Ugh, tell me about it- woah! You definitely won the jackpot!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lizzy",
+            "emotion": "smile",
+            "dialogue": "My goodness, look at the size of that thing! And you even won a Cuddle Fish!"
+        },
+        {
+            "event": "removechar",
+            "char": "lizzy"
+        },
+        {
+            "event": "narration",
+            "text": "Cuddle Fish sleeps peacefully carried on Lullaby’s shoulders. Lullaby sets her down on the grass and XiaoLing takes over carrying her."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Phew, thanks XiaoLing, owe you one."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Nah nah it’s cool, I’ll go take her home. I think she’s had enough excitement for one day."
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "toki",
+            "emotion": "smile",
+            "dialogue": "Dang, were we the only ones who didn’t win anything?"
+        },
+        {
+            "event": "narration",
+            "text": "Even with Cuddle Fish on her back, XiaoLing effortlessly moves to give Toki a hug."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "smile",
+            "dialogue": "Nope! We all won one big group hug!"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Awww, alright, bring it in. You too, [p], you’re one of us now!"
+        },
+        {
+            "event": "removechar",
+            "char": "toki"
+        },
+        {
+            "event": "removechar",
+            "char": "xiaoling"
+        },
+        {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
+            "event": "narration",
+            "text": "After a long, tight group hug, everyone slowly pulls away. A sense of warmth washes over you."
+        },
+        {
+            "event": "narration",
+            "text": "You’re also glad you saved money on a visit to the chiropractor."
+        },
+        {
+            "event": "narration",
+            "text": "XiaoLing goes to take Cuddle Fish home. The rest of the group splits into their own little adventures, leaving just you and Lullaby together once more."
+        },
+        {
+            "event": "dialogue",
+            "speaker": "lullaby",
+            "emotion": "smile",
+            "dialogue": "Come on, [p], if I beat you in a race to that stall you have to buy me ice cream~!"
+        },
+        {
+            "event": "option",
+            "text": "No fair, you got a head start!"
+        },
+        {
+            "event": "narration",
+            "text": "Living in the moment of such a bustling festival makes you forget all the stress of your situation, even if only for just a moment."
+        },
+        {
+            "event": "narration",
+            "text": "The lights, the crowds, the sounds of everyone having fun…"
+        },
+        {
+            "event": "narration",
+            "text": "…Lullaby’s hand wiping ice cream off your face…"
+        },
+        {
+            "event": "narration",
+            "text": "…it all feels… nice."
+        },
+        {
+            "event": "narration",
+            "text": "Whenever the lights and bustle become a blur, Lullaby’s voice and her playful teasing pull you back down to Earth- I mean, Atastria."
+        }
+    ]
+}
