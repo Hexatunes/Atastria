@@ -73,7 +73,7 @@ button {
     transform: translate(-50%, -50%);
 }
 
-#ToStoryMode {
+#ToMainMode {
     position: absolute;
     left: 25%;
     top: 62%;

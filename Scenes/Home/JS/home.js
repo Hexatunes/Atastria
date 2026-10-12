@@ -42,13 +42,13 @@ function switchToStudyMode() {
     });
 }
 
-function switchToStoryMode() {
+function switchToMainMode() {
     document.querySelector(".dark").classList.add("slide-in");
     document.querySelector(".white").classList.add("slide-in");
     document.querySelector(".logo").classList.add("slide-in");
 
     fadeAudio(bgm, bgm.volume, 0, 800, () => {
-        window.location.href = "/story.html";
+        window.location.href = "/main.html";
     });
 }
 

@@ -121,6 +121,7 @@ function spawnSparkle(x, y) {
 document.addEventListener('click', (event) => {
   document.getElementById("ClickSound").currentTime = 0;
   document.getElementById("ClickSound").play();
+  window.scrollTo(0,0);
 });
 
 function setCookie(cname, cvalue, exdays) {

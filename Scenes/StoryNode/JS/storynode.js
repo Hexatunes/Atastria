@@ -446,7 +446,7 @@ function back() {
     document.querySelector(".logo").classList.add("slide-in");
 
     fadeAudio(bgm, bgm.volume, 0, 800, () => {
-        window.location.href = "/story.html";
+        window.location.href = "/main.html";
     });
 }
 
