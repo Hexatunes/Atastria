@@ -221,13 +221,13 @@
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Truly, it’s a blessing that we are all here today to celebrate the courageous efforts of our legendary heroes."
         },
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Straight out of a fairytale, they managed to defeat the Cacophony, ruler of manifests, once and for all."
         },
         {
@@ -239,19 +239,19 @@
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "But this happy ending was not achieved without consequence."
         },
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "As you know, there are many manifests leftover from the final battle. The Royal Guards, legendary heroes, even students from UCerulea are all pitching in to help."
         },
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "And to you, those listening who feel they cannot provide aid…"
         },
         {
@@ -275,20 +275,14 @@
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I would like to thank all the brave heroes, not just our legendary party, who fought in that battle. And the lives that were lost."
         },
         {
             "event": "dialogue",
             "speaker": "evelyn",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Each were valiant, and will be remembered for as long as Atastria stands."
-        },
-        {
-            "event": "dialogue",
-            "speaker": "evelyn",
-            "emotion": "smile",
-            "dialogue": "Thank you. Truly. Everyone here, everyone who was, and everyone to come. You all matter so much to me."
         },
         {
             "event": "environment",

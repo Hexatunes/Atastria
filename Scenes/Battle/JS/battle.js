@@ -332,7 +332,7 @@ function exitBattle() {
     }
     
     fadeAudio(bgm, bgm.volume, 0, 800, () => {
-      window.location.href = "/story.html";
+      window.location.href = "/main.html";
     });
     
   }

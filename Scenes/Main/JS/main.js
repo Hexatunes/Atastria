@@ -352,6 +352,10 @@ function requestUsername() {
         fadeIn("SignedInView", 500)
 
         document.getElementById("UsernameDisplay").innerHTML = username
+        document.getElementById("StoryOptionsDiv").style.display = "block";
+        fadeIn("StoryOptionsDiv", 500)
+
+        generateList()
       } else {
         console.warn('Update rejected:', data.error);
         document.getElementById("UsernameSetupText").innerHTML = data.error

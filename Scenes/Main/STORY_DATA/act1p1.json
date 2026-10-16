@@ -6,6 +6,10 @@
             "lighting": "pink"
         },
         {
+            "event": "ambience",
+            "file": "Field.mp3"
+        },
+        {
             "event": "dialogue", 
             "speaker": "lullaby",
             "emotion": "happy",

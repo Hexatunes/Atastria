@@ -8,7 +8,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "unamused",
             "dialogue": "Stay down."
         },
         {
@@ -38,13 +38,13 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I’m fine, I’m fine. I’ve been hurt worse by manifests."
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I’m just mad that person got away…"
         },
         {
@@ -62,7 +62,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Told you I can take care of myself~"
         },
         {
@@ -102,7 +102,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I just… can’t help but feel a bit… uneasy about that whole thing."
         },
         {
@@ -112,19 +112,19 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "No, not at all. The Royal Guard usually responds to calls on manifests terrorizing people, but not other imaginary friends."
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I bet those officers were just as surprised as we were."
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Everyone is so kind to each other here… I don’t get it."
         },
         {
@@ -140,7 +140,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "My ankle’s feeling better, let’s just try to enjoy the festival, alright?"
         },
         {
@@ -175,7 +175,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Looks like our friends are over by the game stalls. Let’s go!"
         },
         {
@@ -185,7 +185,7 @@
         {
             "event": "dialogue",
             "speaker": "toki",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Lullaby, over here!"
         },
         {
@@ -209,19 +209,19 @@
         {
             "event": "dialogue",
             "speaker": "syla",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Hmph, if you’re going to be this late I fear for your homework deadlines~"
         },
         {
             "event": "dialogue",
             "speaker": "lizzy",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Haha, it’s okay Syla, they look like they had a lot of fun still."
         },
         {
             "event": "dialogue",
             "speaker": "cuddlefish",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Without us? Hmph…"
         },
         {
@@ -243,7 +243,7 @@
         {
             "event": "dialogue",
             "speaker": "cuddlefish",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Lullaby, Lullaby!"
         },
         {
@@ -253,13 +253,13 @@
         {
             "event": "dialogue",
             "speaker": "cuddlefish",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "You’re a really good shot, right? Can you help me with this shooting game, pleeeeeease? I want the squish plushie!"
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Haha, sure sure, I’ll win it for you-"
         },
         {
@@ -316,7 +316,7 @@
         {
             "event": "dialogue",
             "speaker": "lizzy",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Guess it’s just me and you, huh Syla?"
         },
         {
@@ -339,12 +339,12 @@
             "event": "dialogue",
             "speaker": "syla",
             "emotion": "smile",
-            "dialogue": "YES!! LET’S GO LET’S GO LET’S-!"
+            "dialogue": "YES!!"
         },
         {
             "event": "dialogue",
             "speaker": "syla",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I mean uhm… well, even such frivolous indulgences may be needed for the rejuvenation of a genius such as myself."
         },
         {
@@ -383,19 +383,25 @@
             "event": "dialogue",
             "speaker": "toki",
             "emotion": "smile",
-            "dialogue": "I guess this somehow became a race to get the most prizes, hope you’re good at festival games!"
+            "dialogue": "Let's pretend we're pirates looking for festival prize treasure!"
         },
         {
             "event": "dialogue",
             "speaker": "toki",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Alright first mate [p] and quartermaster XiaoLing, let’s go!"
         },
         {
             "event": "dialogue",
             "speaker": "xiaoling",
-            "emotion": "smile",
-            "dialogue": "Yeah! Let’s go rub their faces in- wait why does [p] get to be first mate?!"
+            "emotion": "happy",
+            "dialogue": "Yeah! Let’s go rub their faces in-"
+        },
+        {
+            "event": "dialogue",
+            "speaker": "xiaoling",
+            "emotion": "unamused",
+            "dialogue": "wait why does [p] get to be first mate?!"
         },
         {
             "event": "option",
@@ -404,14 +410,14 @@
         {
             "event": "dialogue",
             "speaker": "xiaoling",
-            "emotion": "smile",
-            "dialogue": "But I was quartermaster last time. no fair!"
+            "emotion": "unamused",
+            "dialogue": "But I was quartermaster last time, no fair!"
         },
         {
             "event": "dialogue",
             "speaker": "toki",
             "emotion": "smile",
-            "dialogue": "Sorry, I want [p] to feel special, it’s their first time playing pirates with us."
+            "dialogue": "Sorry, I want [p] to be more included, it’s their first time playing pirates with us."
         },
         {
             "event": "narration",
@@ -442,7 +448,7 @@
         {
             "event": "dialogue",
             "speaker": "xiaoling",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Yeah yeah, well let’s see you do it, pirate boy!"
         },
         {
@@ -452,7 +458,7 @@
         {
             "event": "dialogue",
             "speaker": "xiaoling",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Pfft~ better luck next time"
         },
         {
@@ -481,7 +487,7 @@
             "event": "dialogue",
             "speaker": "xiaoling",
             "emotion": "smile",
-            "dialogue": "Woah, newbie’s kinda got this! Good job!"
+            "dialogue": "Woah, newbie’s kinda got this!"
         },
         {
             "event": "dialogue",
@@ -532,7 +538,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Did you guys have fun without us~? Hope we weren’t gone for too long, those games were kinda rigged haha."
         },
         {
@@ -564,7 +570,7 @@
         {
             "event": "dialogue",
             "speaker": "xiaoling",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Nah nah it’s cool, I’ll go take her home. I think she’s had enough excitement for one day."
         },
         {
@@ -572,9 +578,13 @@
             "char": "xiaoling"
         },
         {
+            "event": "removechar",
+            "char": "lullaby"
+        },
+        {
             "event": "dialogue",
             "speaker": "toki",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Dang, were we the only ones who didn’t win anything?"
         },
         {
