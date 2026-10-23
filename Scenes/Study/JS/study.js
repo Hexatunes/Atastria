@@ -75,8 +75,9 @@ function standardBattle() {
           },
         ],
         "party": [
+          
           {
-            "code": "lizzy",
+            "code": "cuddlefish",
             "level": 50,
             "items": [],
           },
@@ -92,7 +93,7 @@ function standardBattle() {
           },
           
           {
-            "code": "cuddlefish",
+            "code": "lizzy",
             "level": 50,
             "items": [],
           },

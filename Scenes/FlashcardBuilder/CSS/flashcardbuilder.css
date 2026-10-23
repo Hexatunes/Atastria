@@ -30,10 +30,16 @@ body {
     overflow-y: auto;
 }
 
-#NewCard {
+#StandardCard {
     position: absolute;
     top: 70%;
     left: 12.5%;
+}
+
+#MultiCard {
+    position: absolute;
+    top: 70%;
+    left: 35.5%;
 }
 
 #CardAmountWarning {
@@ -89,6 +95,12 @@ body {
     align-items: center;
 }
 
+.MultiCardDiv {
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+
 #back {
     position: absolute;
     width: 5%;
@@ -107,6 +119,25 @@ body {
     height: 100%;
     font-size: 1.5vw;
 }
+
+.MultiQuestionInput {
+    width: 40%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
+.MultiAnswerInput {
+    width: 12.15%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
+.IncorrectInput {
+    width: 12.15%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
 
 .DeleteCard {
     width: 5%;

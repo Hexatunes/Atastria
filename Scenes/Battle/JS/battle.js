@@ -374,7 +374,7 @@ function initiateFlashcard(action) {
 
 }
 
-var correctAnswer = -1
+let correctAnswer = -1
 
 
 function recognition() {
@@ -393,24 +393,48 @@ function recognition() {
 
   var answerPool = []
 
-  for ( var i = 0; i < fs["cards"].length; i++ ) {
-    if ( fs["cards"][i]["answer"] != card["answer"] ){
-      answerPool.push(fs["cards"][i]["answer"]);
+  if ( card["type"] == "standard" ) {
+
+    for ( var i = 0; i < fs["cards"].length; i++ ) {
+      if ( fs["cards"][i]["answer"] != card["answer"] ){
+        answerPool.push(fs["cards"][i]["answer"]);
+      }
     }
+
+    for ( var i = 1; i <= 4; i++ ) {
+      let randomAnswerIDX = randiRange(0, answerPool.length - 1);
+      document.getElementById("recognitionAnswer" + String(i)).innerHTML = answerPool[randomAnswerIDX]
+      answerPool.splice(randomAnswerIDX, 1)
+    }
+
+    correctAnswer = randiRange(1, 4)
+
+    document.getElementById("recognitionAnswer" + String(correctAnswer)).innerHTML = card["answer"]
+
+
+  } else {
+
+    answerPool = [card["answer"], card["incorrect"][0], card["incorrect"][1], card["incorrect"][2]]
+
+    
+
+    for ( var i = 1; i <= 4; i++ ) {
+      let randomAnswerIDX = randiRange(0, answerPool.length - 1);
+      document.getElementById("recognitionAnswer" + String(i)).innerHTML = answerPool[randomAnswerIDX]
+
+      console.log("aaa", answerPool[randomAnswerIDX])
+
+      if ( answerPool[randomAnswerIDX] == card["answer"] ) {
+        correctAnswer = i
+        console.log("aaa", correctAnswer)
+      }
+      
+      answerPool.splice(randomAnswerIDX, 1)
+    }
+
   }
-
-  for ( var i = 1; i <= 4; i++ ) {
-    let randomAnswerIDX = randiRange(0, answerPool.length - 1);
-    document.getElementById("recognitionAnswer" + String(i)).innerHTML = answerPool[randomAnswerIDX]
-    answerPool.splice(randomAnswerIDX, 1)
-  }
-
-  // ----------------------------------------------------------
-
-  correctAnswer = randiRange(1, 4)
-
-  document.getElementById("recognitionAnswer" + String(correctAnswer)).innerHTML = card["answer"]
-
+  
+  
   // ----------------------------------------------------------
 
   document.getElementById("recognitionAnswer1").style.display = "block";
@@ -1062,8 +1086,8 @@ function refreshDisplays() {
     let code = party[i]["code"]
     
     if ( i < 3 ) {
-      document.getElementById("myIcon" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon" + ".png";
-      document.getElementById("team" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon" + ".png";
+      document.getElementById("myIcon" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
+      document.getElementById("team" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
 
       if ( party[i]["hp"] > 0 ) {
         document.getElementById("myHP" + String(i) + "Fill").style.width = String(party[i]["hp"] / party[i]["maxHP"] * 100) + "%"
@@ -1116,9 +1140,9 @@ function refreshDisplays() {
     let code = turnOrder[i]["code"]
 
     if ( turnOrder[i]["side"] == "my" ) {
-      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + "Icon.png";
+      document.getElementById("turn" + String(i)).src = "/UniversalSprites/" + code + "Icon.png";
     } else {
-      document.getElementById("turn" + String(i)).src = "/Scenes/Battle/ENEMY_DATABASE/" + code + "/" + code + "Icon.png";
+      document.getElementById("turn" + String(i)).src = "/UniversalSprites/" + code + "Icon.png";
     }
     
   }

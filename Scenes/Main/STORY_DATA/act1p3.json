@@ -104,13 +104,13 @@
         {
             "event": "dialogue", 
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "Hehe, yep~! Every imaginary friend can use magic, but how good you are at it depends on your practice and how much imanagination flows through your body."
         },
         {
             "event": "dialogue", 
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "The more you practice and train, the more your body is able to handle it, and your magic gets stronger!"
         },
         {
@@ -120,7 +120,7 @@
         {
             "event": "dialogue", 
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "happy",
             "dialogue": "If you ever get tired of saying imanagination all the time, you can just call it imana for short~"
         },
         {
@@ -164,7 +164,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "Come on!"
         },
         {
@@ -174,13 +174,13 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "…"
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "!"
         },
         {
@@ -190,7 +190,7 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "GET DOWN!"
         },
         {
@@ -208,13 +208,13 @@
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "I saw someone call the guards, I just have to hold this person here for as long as I can."
         },
         {
             "event": "dialogue",
             "speaker": "lullaby",
-            "emotion": "smile",
+            "emotion": "frown",
             "dialogue": "[p], this guy looks dangerous, stay behind me. You haven’t learned how to fight yet."
         }
     ]

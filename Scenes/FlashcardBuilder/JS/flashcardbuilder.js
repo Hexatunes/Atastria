@@ -86,7 +86,8 @@ function openSet(idx) {
     editingSet = idx
 
     document.getElementById("FlashcardEditor").style.display = "block"
-    document.getElementById("NewCard").style.display = "block"
+    document.getElementById("StandardCard").style.display = "block"
+    document.getElementById("MultiCard").style.display = "block"
 
     document.getElementById("FlashcardEditor").innerHTML = ""
 
@@ -108,7 +109,7 @@ function openSet(idx) {
         cardDiv.className = "CardDiv"
 
         let questionInput = document.createElement("input")
-        questionInput.className = "QuestionInput"
+        
         questionInput.addEventListener("input", () => {
             updateCard(i, "question", questionInput.value);
         });
@@ -120,7 +121,7 @@ function openSet(idx) {
         
 
         let answerInput = document.createElement("input");
-        answerInput.className = "AnswerInput";
+        
         answerInput.addEventListener("input", () => {
             updateCard(i, "answer", answerInput.value);
         });
@@ -128,6 +129,32 @@ function openSet(idx) {
             answerInput.value = card["answer"];
         }
         answerInput.placeholder = "Answer"
+
+        if ( card["type"] == "multi" ) {
+            answerInput.className = "MultiAnswerInput";
+            questionInput.className = "MultiQuestionInput"
+        } else {
+            answerInput.className = "AnswerInput";
+            questionInput.className = "QuestionInput"
+        }
+
+        cardDiv.appendChild(questionInput);
+        
+        cardDiv.appendChild(answerInput);
+
+        if ( card["type"] == "multi" ) {
+            for ( let j = 0; j < 3; j ++ ) {
+                let incorrectInput = document.createElement("input");
+                incorrectInput.className = "IncorrectInput";
+                incorrectInput.addEventListener("input", () => {
+                    updateMultiCard(i, "incorrect", incorrectInput.value, j);
+                });
+                incorrectInput.placeholder = "Incorrect Choice"
+                incorrectInput.value = card["incorrect"][j]
+                cardDiv.appendChild(incorrectInput)
+            }
+            
+        } 
 
         let deleteCardButton = document.createElement("input");
         deleteCardButton.className = "DeleteCard";
@@ -137,8 +164,7 @@ function openSet(idx) {
             deleteCard(i);
         });
 
-        cardDiv.appendChild(questionInput);
-        cardDiv.appendChild(answerInput);
+        
         cardDiv.appendChild(deleteCardButton);
 
         document.getElementById("FlashcardEditor").appendChild(cardDiv)
@@ -158,6 +184,7 @@ function newCard() {
     let fs = savedFlashsets["flashsets"][editingSet]["cards"];
 
     fs.push({
+        "type": "standard",
         "question": "",
         "answer": "",
     });
@@ -205,6 +232,76 @@ function newCard() {
     }
 
 }
+
+function newMultiCard() {
+
+    let fs = savedFlashsets["flashsets"][editingSet]["cards"];
+
+    fs.push({
+        "type": "multi",
+        "question": "",
+        "answer": "",
+        "incorrect": ["", "", ""],
+    });
+
+    var newLength = fs.length - 1
+
+    let cardDiv = document.createElement("div")
+    cardDiv.className = "CardDiv"
+
+    let questionInput = document.createElement("input")
+    questionInput.className = "MultiQuestionInput"
+    questionInput.addEventListener("input", () => {
+        updateCard(newLength, "question", questionInput.value);
+    });
+    questionInput.placeholder = "Question"
+
+    let answerInput = document.createElement("input");
+    answerInput.className = "MultiAnswerInput";
+    answerInput.addEventListener("input", () => {
+        updateMultiCard(newLength, "answer", answerInput.value);
+    });
+    answerInput.placeholder = "Answer"
+
+    cardDiv.appendChild(questionInput);
+    cardDiv.appendChild(answerInput);
+
+    for ( let i = 0; i < 3; i ++ ) {
+        
+        let incorrectInput = document.createElement("input");
+        incorrectInput.className = "IncorrectInput";
+        incorrectInput.addEventListener("input", () => {
+            updateMultiCard(newLength, "incorrect", incorrectInput.value, i);
+        });
+        incorrectInput.placeholder = "Incorrect Choice"
+        cardDiv.appendChild(incorrectInput);
+    }
+    
+
+    let deleteCardButton = document.createElement("input");
+    deleteCardButton.className = "DeleteCard";
+    deleteCardButton.type = "image";
+    deleteCardButton.src = "/Scenes/FlashcardBuilder/Sprites/trashIcon.png";
+    deleteCardButton.addEventListener("click", () => {
+        deleteCard(newLength);
+    });
+
+    
+    cardDiv.appendChild(deleteCardButton);
+
+    document.getElementById("FlashcardEditor").appendChild(cardDiv);
+    document.getElementById("FlashcardEditor").appendChild(document.createElement("br"))
+
+    save_data()
+
+    if ( fs.length < 5 ) {
+        document.getElementById("CardAmountWarning").style.display = "block";
+    } else {
+        document.getElementById("CardAmountWarning").style.display = "none";
+    }
+
+}
+
 function updateCard(cardIDX, toUpdate, text) {
 
     var fs = savedFlashsets["flashsets"][editingSet]["cards"];
@@ -215,6 +312,18 @@ function updateCard(cardIDX, toUpdate, text) {
 
     save_data()
 }
+
+function updateMultiCard(cardIDX, toUpdate, text, idx) {
+
+    var fs = savedFlashsets["flashsets"][editingSet]["cards"];
+
+    fs[cardIDX][toUpdate][idx] = text
+
+    console.log(idx, toUpdate, text)
+
+    save_data()
+}
+
 function deleteCard(cardIDX) {
 
     var fs = savedFlashsets["flashsets"][editingSet]["cards"];
@@ -306,7 +415,8 @@ function back() {
         });
     } else {
         document.getElementById("FlashcardEditor").style.display = "none";
-        document.getElementById("NewCard").style.display = "none";
+        document.getElementById("StandardCard").style.display = "none";
+        document.getElementById("MultiCard").style.display = "none";
         document.getElementById("CardAmountWarning").style.display = "none";
 
         document.getElementById("FlashsetList").style.display = "block";
