@@ -244,7 +244,7 @@ function newMultiCard() {
         "incorrect": ["", "", ""],
     });
 
-    var newLength = fs.length - 1
+    let newLength = fs.length - 1
 
     let cardDiv = document.createElement("div")
     cardDiv.className = "CardDiv"
@@ -259,7 +259,7 @@ function newMultiCard() {
     let answerInput = document.createElement("input");
     answerInput.className = "MultiAnswerInput";
     answerInput.addEventListener("input", () => {
-        updateMultiCard(newLength, "answer", answerInput.value);
+        updateCard(newLength, "answer", answerInput.value);
     });
     answerInput.placeholder = "Answer"
 

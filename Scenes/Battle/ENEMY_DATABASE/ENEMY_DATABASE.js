@@ -26,6 +26,7 @@ const ENEMY_DB = {
             "basePower": 120,
             "hits": 1,
             "accuracy": 0.9,
+            "type": "damage",
         },
     }
 }

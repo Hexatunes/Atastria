@@ -395,9 +395,12 @@ function recognition() {
 
   if ( card["type"] == "standard" ) {
 
+    console.log("Standard")
+
     for ( var i = 0; i < fs["cards"].length; i++ ) {
       if ( fs["cards"][i]["answer"] != card["answer"] ){
         answerPool.push(fs["cards"][i]["answer"]);
+        console.log("Push standard answer ", fs["cards"][i])
       }
     }
 
@@ -421,8 +424,6 @@ function recognition() {
     for ( var i = 1; i <= 4; i++ ) {
       let randomAnswerIDX = randiRange(0, answerPool.length - 1);
       document.getElementById("recognitionAnswer" + String(i)).innerHTML = answerPool[randomAnswerIDX]
-
-      console.log("aaa", answerPool[randomAnswerIDX])
 
       if ( answerPool[randomAnswerIDX] == card["answer"] ) {
         correctAnswer = i
@@ -644,7 +645,7 @@ function attack() {
 
 function mySlotInput(idx) {
 
-  if ( pendingAction = "chooseTeammateTechnique" ) {
+  if ( pendingAction == "chooseTeammateTechnique" ) {
     pinnedSelf = idx;
     initiateFlashcard("technique")
 
@@ -777,7 +778,7 @@ function technique() {
       let heal = damageCalc(bp, acting[techniqueInfo["stat"]], 100, acting["level"], 1, acc)
 
       target["hp"] += heal
-      totalDamage += damage
+      totalDamage += heal
 
       if ( target["hp"] > target["maxHP"] ) {
         target["hp"] = target["maxHP"]
@@ -819,11 +820,23 @@ function technique() {
 }
 
 function displayEnemyDamage(totalDamage, type) {
-  document.getElementById("enemyDamage" + String(pinned)).innerHTML = totalDamage
-  document.getElementById("enemyDamage" + String(pinned)).style.opacity = "1";
-  document.getElementById("enemyDamage" + String(pinned)).classList.remove('animate');
-  void document.getElementById("enemyDamage" + String(pinned)).offsetWidth; // force reflow so the animation restarts if clicked again quickly
-  document.getElementById("enemyDamage" + String(pinned)).classList.add('animate');
+
+  if ( type != "heal" ) {
+    document.getElementById("enemyDamage" + String(pinned)).style.opacity = "1";
+    document.getElementById("enemyDamage" + String(pinned)).classList.remove('animate');
+    void document.getElementById("enemyDamage" + String(pinned)).offsetWidth; // force reflow so the animation restarts if clicked again quickly
+    document.getElementById("enemyDamage" + String(pinned)).classList.add('animate');
+  }
+
+  if ( totalDamage > 0 ) {
+    document.getElementById("enemyDamage" + String(pinned)).innerHTML = totalDamage
+  } else if (type == "heal" || type == "status") {
+    document.getElementById("enemyDamage" + String(pinned)).innerHTML = ""
+  }else {
+    document.getElementById("enemyDamage" + String(pinned)).innerHTML = "Miss!"
+  }
+  
+  
 
   shake("enemySlot" + String(pinned), 100)
 
@@ -849,8 +862,23 @@ function enemyDecision() {
   if ( decision == "attack" ) {
     
     var attackInfo = ENEMY_DB[code]["ATTACK"]
-    var targetIDX = randiRange(0, party.length - 1)
-    var target = party[targetIDX]
+
+    var targetPool = []
+
+    if ( party[0]["hp"] > 0 ) {
+      targetPool.push(party[0])
+    }
+
+    if ( party[1]["hp"] > 0 ) {
+      targetPool.push(party[1])
+    }
+
+    if ( party[2]["hp"] > 0 ) {
+      targetPool.push(party[2])
+    }
+
+    var targetIDX = randiRange(0, targetPool.length - 1)
+    var target = targetPool[targetIDX]
 
     for ( var i = 0; i < attackInfo["hits"]; i++ ) {
 
@@ -863,18 +891,18 @@ function enemyDecision() {
 
     }
 
-    if ( targetIDX == 0 ) {
+    if ( target["code"] == party[0]["code"] ) {
       setCameraAnchor("right");
 
       document.getElementById("mySlot0").classList.add("visible")
       document.getElementById("mySlot1").classList.remove("visible")
       document.getElementById("mySlot2").classList.remove("visible")
-    } else if ( targetIDX == 1 ) {
+    } else if ( target["code"] == party[1]["code"] ) {
       setCameraAnchor("center");
       document.getElementById("mySlot0").classList.remove("visible")
       document.getElementById("mySlot1").classList.add("visible")
       document.getElementById("mySlot2").classList.remove("visible")
-    } else if ( targetIDX == 2 ) {
+    } else if ( target["code"] == party[2]["code"] ) {
       setCameraAnchor("left");
       document.getElementById("mySlot0").classList.remove("visible")
       document.getElementById("mySlot1").classList.remove("visible")
@@ -884,8 +912,34 @@ function enemyDecision() {
   } else if ( decision == "technique" ) {
     
     var techniqueInfo = ENEMY_DB[code]["TECHNIQUE"]
-    var targetIDX = randiRange(0, party.length - 1)
-    var target = party[targetIDX]
+    var targetPool = []
+
+    if ( techniqueInfo["type"] == "heal" || ( techniqueInfo["type"] == "status" && techniqueInfo["status"]["type"] == "positive")) {
+      if ( enemies[0]["hp"] > 0 ) {
+        targetPool.push(enemies[0])
+      }
+      if ( enemies[1]["hp"] > 0 ) {
+        targetPool.push(enemies[1])
+      }
+      if ( enemies[2]["hp"] > 0 ) {
+        targetPool.push(enemies[2])
+      }
+    } else {
+      if ( party[0]["hp"] > 0 ) {
+        targetPool.push(party[0])
+      }
+      if ( party[1]["hp"] > 0 ) {
+        targetPool.push(party[1])
+      }
+      if ( party[2]["hp"] > 0 ) {
+        targetPool.push(party[2])
+      }
+    }
+
+    
+
+    var targetIDX = randiRange(0, targetPool.length - 1)
+    var target = targetPool[targetIDX]
 
     var defendingStat = "defence"
 
@@ -894,6 +948,7 @@ function enemyDecision() {
     }
 
     var acc = techniqueInfo["accuracy"]
+    var bp = techniqueInfo["basePower"]
 
     if ( !correct ) {
       acc = 0
@@ -912,7 +967,7 @@ function enemyDecision() {
         let damage = damageCalc(bp, acting[techniqueInfo["stat"]], target[defendingStat], acting["level"], 1, acc)
 
         target["hp"] -= damage
-        totalDamage += totalDamage
+        totalDamage += damage
 
         battlelog(acting["DISPLAY_NAME"] + " used " + techniqueInfo["name"] + " on " + target["DISPLAY_NAME"] + " for " + String(damage) + "!");
 
@@ -982,18 +1037,18 @@ function enemyDecision() {
     
     }
 
-    if ( targetIDX == 0 ) {
+    if ( target["code"] == party[0]["code"] ) {
       setCameraAnchor("right");
 
       document.getElementById("mySlot0").classList.add("visible")
       document.getElementById("mySlot1").classList.remove("visible")
       document.getElementById("mySlot2").classList.remove("visible")
-    } else if ( targetIDX == 1 ) {
+    } else if ( target["code"] == party[1]["code"] ) {
       setCameraAnchor("center");
       document.getElementById("mySlot0").classList.remove("visible")
       document.getElementById("mySlot1").classList.add("visible")
       document.getElementById("mySlot2").classList.remove("visible")
-    } else if ( targetIDX == 2 ) {
+    } else if ( target["code"] == party[2]["code"] ) {
       setCameraAnchor("left");
       document.getElementById("mySlot0").classList.remove("visible")
       document.getElementById("mySlot1").classList.remove("visible")
@@ -1006,7 +1061,14 @@ function enemyDecision() {
 
   refreshDisplays()
 
-  document.getElementById("myDamage").innerHTML = totalDamage
+  if ( totalDamage > 0 ) {
+    document.getElementById("myDamage").innerHTML = totalDamage
+  } else if ( decision == "technique" && (ENEMY_DB[code]["TECHNIQUE"]["type"] == "status") || ENEMY_DB[code]["TECHNIQUE"]["type"] == "heal") {
+    document.getElementById("myDamage").innerHTML = ""
+  }else {
+    document.getElementById("myDamage").innerHTML = "Miss!"
+  }
+  
 
   document.getElementById("myDamage").style.opacity = "1";
   document.getElementById("myDamage").classList.remove('animate');
@@ -1042,7 +1104,9 @@ function damageCalc(power, stat, defence, level, mods, acc) {
   var part1 = ( (2 * level) / 5 ) + 2;
   var final = part1 * power * (stat / defence) * 0.02 + 2;
 
-  return Math.floor(final * mods);
+  var variance = randiRange(70, 100) / 100
+
+  return Math.floor(final * mods * variance);
 
 }
 
@@ -1324,6 +1388,9 @@ function removeStatus(char, effect) {
 
 }
 
+// ⸻⸻⸻⸻⸻⸻ EXTRA HELPER FUNCTIONS ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
+
+
 function battlelog(message) {
   const m = document.createElement("p")
   m.innerHTML = String(message)
@@ -1335,6 +1402,32 @@ function battlelog(message) {
     behavior: 'smooth'
   });
 }
+
+function displayAttackInfo() {
+  var attackData = CHAR_DB[turnOrder[0]["code"]]["ATTACK"]
+  document.getElementById("AttackName").innerHTML = attackData["name"]
+  document.getElementById("AttackDescription").innerHTML = attackData["description"] + "<br> | Base Power: " + attackData["basePower"] + " | Acc: " + attackData["accuracy"] * 100  + "% |";
+  
+  fadeIn("AttackInfo", 200)
+}
+
+function displayTechniqueInfo() {
+  var techniqueData = CHAR_DB[turnOrder[0]["code"]]["TECHNIQUE"]
+  document.getElementById("TechniqueName").innerHTML = techniqueData["name"]
+  document.getElementById("TechniqueDescription").innerHTML = techniqueData["description"] + "<br> | Base Power: " + techniqueData["basePower"] + " | Acc: " + techniqueData["accuracy"] * 100 + "% |";
+  
+  fadeIn("TechniqueInfo", 200)
+}
+
+function hideAttackInfo() {
+  fadeOut("AttackInfo", 200);
+  
+}
+
+function hideTechniqueInfo() {
+  fadeOut("TechniqueInfo", 200);
+}
+
 // ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
 
 

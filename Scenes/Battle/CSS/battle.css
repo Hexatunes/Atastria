@@ -530,6 +530,58 @@ body {
     transform: translate(-50%, -50%);
 }
 
+#AttackInfo {
+    background-image: linear-gradient(to right, #fbe8ff 0%, #fff 25%, #e6f9ff 61%, #e0f3ff 75%, #fde6ff 100%);
+    position: absolute;
+    width: 25%;
+    height: 10%;
+    top: 81%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    opacity: 0;
+}
+
+#AttackName {
+    position: absolute;
+    font-size: 2vh;
+    top: 5%;
+    left: 5%;
+}
+
+#AttackDescription {
+    position: absolute;
+    font-size: 1.5vh;
+    top: 15%;
+    left: 5%;
+}
+
+#TechniqueInfo {
+    background-image: linear-gradient(to right, #fbe8ff 0%, #fff 25%, #e6f9ff 61%, #e0f3ff 75%, #fde6ff 100%);
+    position: absolute;
+    width: 25%;
+    height: 10%;
+    top: 81%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    opacity: 0;
+}
+
+#TechniqueName {
+    position: absolute;
+    font-size: 2vh;
+    top: 5%;
+    left: 5%;
+}
+
+#TechniqueDescription {
+    position: absolute;
+    font-size: 1.5vh;
+    top: 15%;
+    left: 5%;
+}
+
 /* ------------------------------------- */
 p {
     color: rgb(4, 5, 64);
