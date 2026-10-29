@@ -187,6 +187,8 @@ function newCard() {
         "type": "standard",
         "question": "",
         "answer": "",
+        "stability": 600,
+        "lastSeen": 0,
     });
 
     const newLength = fs.length - 1
@@ -242,6 +244,8 @@ function newMultiCard() {
         "question": "",
         "answer": "",
         "incorrect": ["", "", ""],
+        "stability": 600,
+        "lastSeen": 0,
     });
 
     let newLength = fs.length - 1

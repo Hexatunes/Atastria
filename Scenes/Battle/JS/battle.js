@@ -1,4 +1,5 @@
 
+
 // ⸻ [ Global Data ] ⸻
 var battleInit = {};           //
 var party = [];                //
@@ -12,6 +13,7 @@ var rnrMode = "recognition";   //
 
 var scene = "Sunset";          //
 var lighting = "Sunset";       //
+
 // ⸻⸻⸻⸻⸻
 
 
@@ -20,6 +22,9 @@ var lighting = "Sunset";       //
 function setUp() {
 
   console.log(battleInit)
+
+  cards = JSON.parse(localStorage.getItem("flashsets")).flashsets[battleInit["selectedSetIDX"]]["cards"]
+  console.log(cards)
 
   scene = battleInit["scene"]
   lighting = battleInit["lighting"]
@@ -183,12 +188,16 @@ function calculateStat(base, level, investment) {
 // ⸻⸻⸻⸻⸻⸻ TURN ENGINE ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
 
 var victory = true
-var victory = true
+
+var cards = []
+
 
 
 function advanceTurn() {
 
   window.scroll(0, 0)
+
+  
 
   var lowestAP = turnOrder[0]["ap"]
 
@@ -202,6 +211,36 @@ function advanceTurn() {
 
   //-------------------------------------------
 
+  // --------------------Check for Fallen Party Members---------------------------
+
+  for ( var i = 0; i < 3; i++ ) {
+
+    if ( i >= party.length ) {
+      break
+    }
+
+    if ( party[i]["hp"] <= 0 ) {
+
+      for ( var j = 3; j < 6; j++ ) {
+        if ( party[j]["hp"] > 0 ) {
+
+          const temp = party[j];
+          party[j] = party[i]
+          party[i] = temp
+
+          turnOrder.push(temp)
+          break;
+        }
+      }
+
+    }
+
+  }
+
+  turnOrder = turnOrder.filter(checkAlive)
+
+  // ----------------------------------------------------------
+
   turnOrder.sort((a, b) => a.ap - b.ap)
 
   //-------------------------------------------
@@ -214,6 +253,7 @@ function advanceTurn() {
 
     document.getElementById("AttackButton").style.display = "block";
     document.getElementById("TechniqueButton").style.display = "block";
+    document.getElementById("SwitchButton").style.display = "block";
 
     inCard = false
     pendingAction = "none"
@@ -268,7 +308,8 @@ function advanceTurn() {
 
   console.log("-------------")
   console.log("Advanced turn!")
-  console.log(turnOrder)
+  console.log("Turn order: ", turnOrder)
+  console.log("Card weights: ", cards)
   console.log("-------------")
 
   // --------------Check Victory-----------------
@@ -350,6 +391,8 @@ var lastRNR = "recognition"
 var pinned = 0
 var pinnedSelf = 0
 
+var currentCard = {}
+
 function initiateFlashcard(action) {
 
   if ( inCard ) {
@@ -361,6 +404,8 @@ function initiateFlashcard(action) {
   inCard = true
 
   pendingAction = action
+
+  document.getElementById("SwitchButton").style.display = "none"
 
   if ( rnrMode == "recognition" ) {
     recognition()
@@ -374,33 +419,29 @@ function initiateFlashcard(action) {
 
 }
 
+
 let correctAnswer = -1
 
 
 function recognition() {
 
-  var fs = JSON.parse(localStorage.getItem("flashsets")).flashsets[battleInit["selectedSetIDX"]]
-  var cardIDX = randiRange(0, fs["cards"].length - 1)
-  var card = fs["cards"][cardIDX]
+  currentCard = drawCard(cards, Date.now() / 1000);
 
   // ----------------------------------------------------------
 
   document.getElementById("recognitionFlashcard").style.display = "block";
 
-  document.getElementById("recognitionQuestion").innerHTML = card["question"]
+  document.getElementById("recognitionQuestion").innerHTML = currentCard["question"]
 
   // ----------------------------------------------------------
 
   var answerPool = []
 
-  if ( card["type"] == "standard" ) {
+  if ( currentCard["type"] == "standard" ) {
 
-    console.log("Standard")
-
-    for ( var i = 0; i < fs["cards"].length; i++ ) {
-      if ( fs["cards"][i]["answer"] != card["answer"] ){
-        answerPool.push(fs["cards"][i]["answer"]);
-        console.log("Push standard answer ", fs["cards"][i])
+    for ( var i = 0; i < cards.length; i++ ) {
+      if ( cards[i]["answer"] != currentCard["answer"] ){
+        answerPool.push(cards[i]["answer"]);
       }
     }
 
@@ -412,12 +453,12 @@ function recognition() {
 
     correctAnswer = randiRange(1, 4)
 
-    document.getElementById("recognitionAnswer" + String(correctAnswer)).innerHTML = card["answer"]
+    document.getElementById("recognitionAnswer" + String(correctAnswer)).innerHTML = currentCard["answer"]
 
 
   } else {
 
-    answerPool = [card["answer"], card["incorrect"][0], card["incorrect"][1], card["incorrect"][2]]
+    answerPool = [currentCard["answer"], currentCard["incorrect"][0], currentCard["incorrect"][1], currentCard["incorrect"][2]]
 
     
 
@@ -425,7 +466,7 @@ function recognition() {
       let randomAnswerIDX = randiRange(0, answerPool.length - 1);
       document.getElementById("recognitionAnswer" + String(i)).innerHTML = answerPool[randomAnswerIDX]
 
-      if ( answerPool[randomAnswerIDX] == card["answer"] ) {
+      if ( answerPool[randomAnswerIDX] == currentCard["answer"] ) {
         correctAnswer = i
         console.log("aaa", correctAnswer)
       }
@@ -446,19 +487,17 @@ function recognition() {
 
 function recall() {
 
-  var fs = JSON.parse(localStorage.getItem("flashsets")).flashsets[battleInit["selectedSetIDX"]]
-  var cardIDX = randiRange(0, fs["cards"].length - 1)
-  var card = fs["cards"][cardIDX]
+  currentCard = drawCard(cards, Date.now() / 1000);
 
   // ----------------------------------------------------------
 
   document.getElementById("recallFlashcard").style.display = "block";
 
-  document.getElementById("recallQuestion").innerHTML = card["question"]
+  document.getElementById("recallQuestion").innerHTML = currentCard["question"]
 
   // ----------------------------------------------------------
 
-  correctAnswer = card["answer"]
+  correctAnswer = currentCard["answer"]
 
   document.getElementById("recallAnswer").style.display = "block";
 
@@ -488,8 +527,12 @@ function recognitionSubmit(idx) {
       technique()
     }
 
+    onAnswer(currentCard, true, Date.now() / 1000)
+
     return
   }
+
+  onAnswer(currentCard, false, Date.now() / 1000)
 
   // ----------------------------------------------------------
   
@@ -524,7 +567,7 @@ function recallSubmit() {
 
   // ----------------------------------------------------------
   
-  if ( document.getElementById("recallAnswer").value == correctAnswer ) {
+  if ( normalize(document.getElementById("recallAnswer").value) == normalize(correctAnswer) ) {
 
     document.getElementById("flashcardFeedback").style.display = "none";
     document.getElementById("recallFlashcard").style.display = "none";
@@ -539,9 +582,43 @@ function recallSubmit() {
       technique()
     }
 
+    onAnswer(currentCard, true, Date.now() / 1000)
+
+    return
+
+  } else if ( isCorrect(document.getElementById("recallAnswer").value, correctAnswer, 0.2)) {
+
+    document.getElementById("recallAnswer").value = "";
+  
+    document.getElementById("flashcardFeedback").innerHTML = "Close enough, the correct answer was: " + correctAnswer
+
+    correct = true
+
+    document.getElementById("OverruleButton").style.display = "block";
+
+    onAnswer(currentCard, true, Date.now() / 1000)
+
+    setTimeout(() => {
+
+      if ( pendingAction == "attack" ) {
+        attack()
+      } else if ( pendingAction == "technique" ) {
+        technique()
+      }
+
+      document.getElementById("recallFlashcard").style.display = "none";
+      document.getElementById("flashcardFeedback").style.display = "none";
+      document.getElementById("OverruleButton").style.display = "none";
+
+    }, 3000);
 
     return
   }
+
+  // Answered Incorrectly
+
+
+  onAnswer(currentCard, false, Date.now() / 1000)
 
   // ----------------------------------------------------------
 
@@ -1075,15 +1152,27 @@ function enemyDecision() {
   void document.getElementById("myDamage").offsetWidth; // force reflow so the animation restarts if clicked again quickly
   document.getElementById("myDamage").classList.add('animate');
 
+  var waitTime = 1500
+
+  if ( party[targetIDX]["hp"] <= 0 ) {
+    waitTime = 3000
+
+    setTimeout(() => {
+      refreshDisplays()
+    }, 2000)
+  }
+
 
 
   setTimeout(() => {
+    
 
     fadeOut("myDamage")
 
+    
     advanceTurn()
 
-  }, 1500);
+  }, waitTime);
 
   imana += 1
 
@@ -1139,29 +1228,26 @@ function setCameraAnchor(name, durationMs = 900) {
 
 function refreshDisplays() {
 
-  // --------------------Check for Fallen Party Members---------------------------
-
-  turnOrder = turnOrder.filter(checkAlive)
-
-  // ----------------------------------------------------------
+  
 
   for ( var i = 0; i < party.length; i++ ) {
 
     let code = party[i]["code"]
-    
-    if ( i < 3 ) {
-      document.getElementById("myIcon" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
-      document.getElementById("team" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
 
-      if ( party[i]["hp"] > 0 ) {
-        document.getElementById("myHP" + String(i) + "Fill").style.width = String(party[i]["hp"] / party[i]["maxHP"] * 100) + "%"
-      } else {
-        document.getElementById("myHP" + String(i) + "Fill").style.width = "0%"
-      }
-      
+    document.getElementById("myIcon" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
+
+    if ( party[i]["hp"] > 0 ) {
+      document.getElementById("myHP" + String(i) + "Fill").style.width = String(party[i]["hp"] / party[i]["maxHP"] * 100) + "%"
+      document.getElementById("myIcon" + String(i)).style.opacity = 1
     } else {
-      document.getElementById("sub" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + code + "/" + code + ".webp";
+      document.getElementById("myHP" + String(i) + "Fill").style.width = "0%"
+      document.getElementById("myIcon" + String(i)).style.opacity = 0.5
     }
+  
+    if ( i < 3 ) {
+      document.getElementById("team" + String(i)).src = "/UniversalSprites/" + code + "Icon" + ".png";
+      document.getElementById("mySlot" + String(i)).src = "/Scenes/Battle/CHAR_DATABASE/" + party[i]["code"] + "/" + lighting + "/idle.png";    
+    } 
 
     
   }
@@ -1197,17 +1283,10 @@ function refreshDisplays() {
     document.getElementById("turn" + String(i)).src = ""
   }
 
-  console.log(turnOrder.length)
-
   for ( var i = 0; i < turnOrder.length; i++ ) {
 
     let code = turnOrder[i]["code"]
-
-    if ( turnOrder[i]["side"] == "my" ) {
-      document.getElementById("turn" + String(i)).src = "/UniversalSprites/" + code + "Icon.png";
-    } else {
-      document.getElementById("turn" + String(i)).src = "/UniversalSprites/" + code + "Icon.png";
-    }
+    document.getElementById("turn" + String(i)).src = "/UniversalSprites/" + code + "Icon.png";
     
   }
 
@@ -1388,6 +1467,116 @@ function removeStatus(char, effect) {
 
 }
 
+function switchMember(idx) {
+
+  if ( party[idx]["hp"] <= 0 ) {
+    alert(party[idx]["DISPLAY_NAME"] + " is too tired to switch in!")
+    return
+  }
+
+  if ( party.length < idx ) {
+    return
+  }
+
+
+
+  fadeOut("SwitchMenu", 100)
+  document.getElementById("myIcon3").style.display = "none";
+  document.getElementById("myIcon4").style.display = "none";
+  document.getElementById("myIcon5").style.display = "none";
+  
+
+  var actingIDX = -1
+
+  for ( var i = 0; i < 3; i++ ) {
+    if ( turnOrder[0]["code"] == party[i]["code"] ) {
+      actingIDX = i;
+    }
+  }
+
+  turnOrder.splice(0, 1)
+  console.log("before", party[idx]["ap"])
+  party[idx]["ap"] = party[idx]["BASE_AP"]
+  console.log("after", party[idx]["ap"])
+  turnOrder.push(party[idx])
+  turnOrder.sort((a, b) => a.ap - b.ap)
+
+  document.getElementById("mySlot" + actingIDX).src = "/Scenes/Battle/CHAR_DATABASE/" + party[idx]["code"] + "/" + lighting + "/idle.png";
+  document.getElementById("myIcon" + actingIDX).src = "/UniversalSprites/" + party[idx]["code"] + "Icon.png"
+
+  
+  console.log("Switching ", party[actingIDX], " with ", party[idx])
+
+  const temp = party[idx];
+  party[idx] = party[actingIDX]
+  party[actingIDX] = temp
+
+
+  
+
+  setTimeout(() => {
+    refreshDisplays()
+    closeSwitch()
+    advanceTurn()
+  }, 1000);
+}
+
+
+// ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
+
+
+
+
+
+
+
+
+
+
+// ⸻⸻⸻⸻⸻⸻ SRS ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
+
+const FLOOR = 0.05;      // minimum weight, keeps mastered cards possible as refreshers
+const MIN_STAB = 45;     // seconds, lower bound on stability after a miss
+
+function weight(card, now) {
+  const t = now - card.lastSeen;               // seconds since seen
+  const recall = Math.exp(-t / card.stability); // 1.0 = fresh, → 0 = forgotten
+  return FLOOR + (1 - recall);                 // FLOOR ~0.05 keeps refreshers possible
+}
+
+const MAX_STAB = 60 * 60 * 24 * 60;  // cap at ~60 days
+
+function onAnswer(card, correct, now) {
+  const lastRecall = Math.exp(-(now - card.lastSeen) / card.stability);
+  if (correct) {
+    // recall ~1 (just seen) → almost no growth; recall ~0 (overdue) → full 2.2x
+    card.stability *= 1 + 1.2 * (1 - lastRecall);
+    card.stability = Math.min(card.stability, MAX_STAB);
+  } else {
+    card.stability = Math.max(MIN_STAB, card.stability * 0.3);
+  }
+  card.lastSeen = now;
+}
+
+function drawCard(cards, now) {
+  const weights = cards.map(c => weight(c, now));
+  let r = Math.random() * weights.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < cards.length; i++) {
+    if ((r -= weights[i]) <= 0) return cards[i];
+  }
+}
+
+// ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
+
+
+
+
+
+
+
+
+
+
 // ⸻⸻⸻⸻⸻⸻ EXTRA HELPER FUNCTIONS ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
 
 
@@ -1428,7 +1617,79 @@ function hideTechniqueInfo() {
   fadeOut("TechniqueInfo", 200);
 }
 
+function promptSwitch() {
+  fadeIn("SwitchMenu", 200)
+
+  document.getElementById("myIcon3").style.display = "block";
+  document.getElementById("myIcon4").style.display = "block";
+  document.getElementById("myIcon5").style.display = "block";
+
+  document.getElementById("AttackButton").style.display = "none";
+  document.getElementById("TechniqueButton").style.display = "none";
+}
+
+function closeSwitch() {
+  fadeOut("SwitchMenu", 200)
+
+  document.getElementById("myIcon3").style.display = "none";
+  document.getElementById("myIcon4").style.display = "none";
+  document.getElementById("myIcon5").style.display = "none";
+
+
+  document.getElementById("AttackButton").style.display = "block";
+  document.getElementById("TechniqueButton").style.display = "block";
+}
+
+
+
+// Fuzzy Grading for Recall Flashcards
+
+function normalize(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // strip accents: é → e
+    .replace(/[^\p{L}\p{N}\s]/gu, '')                  // drop punctuation
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function editDistance(a, b) {
+  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,                                   // deletion
+        dp[i][j - 1] + 1,                                   // insertion
+        dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)  // substitution
+      );
+    }
+  }
+  return dp[a.length][b.length];
+}
+
+function isCorrect(input, answer, strictness = 0.2) {
+  const a = normalize(input);
+  const b = normalize(answer);
+  if (a === b) return true;
+
+  // allowed typos scale with length; short answers get zero slack
+  const allowed = Math.floor(b.length * strictness);
+  return editDistance(a, b) <= allowed;
+}
+
+function overruleRecall() {
+  correct = false
+  document.getElementById("OverruleButton").style.display = "none";
+}
+
 // ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
+
+
+
+
+
+
 
 
 
@@ -1444,12 +1705,12 @@ document.onkeypress = function (e) {
     if ( e.key == "1" && !inCard ) {
 
       rnrMode = "recognition"
-      document.getElementById("rnrModeText").innerHTML = "[Recognition] / Recall"
+      document.getElementById("rnrModeText").innerHTML = "<b>[Recognition]</b> / Recall"
 
     } else if ( e.key == "2" && !inCard ) {
 
       rnrMode = "recall"
-      document.getElementById("rnrModeText").innerHTML = "Recognition / [Recall]"
+      document.getElementById("rnrModeText").innerHTML = "Recognition / <b>[Recall]</b>"
 
     } else if ( e.key == "Enter" && inCard ) {
 
@@ -1487,7 +1748,8 @@ document.onkeypress = function (e) {
 
 
 
-// ---------- BOILER PLATE ----------
+
+// ⸻⸻⸻⸻⸻⸻ BOILER PLATE ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻ //
 function back() {
     if ( confirm("You are about to forfeit the battle!") ) {
         document.querySelector(".dark").classList.add("slide-in");

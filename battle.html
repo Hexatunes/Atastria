@@ -103,10 +103,22 @@
     <img id = "team1" src = "" style="display: none;">
     <img id = "team2" src = "" style="display: none;">
 
-    <img id = "sub3" src = "" style="display: none;">
-    <img id = "sub4" src = "" style="display: none;">
-    <img id = "sub5" src = "" style="display: none;">
-
+    <div id = "SwitchMenu">
+        <input type="image" onclick="switchMember(3)" id = "myIcon3" src = "">
+        <input type="image" onclick="switchMember(4)"id = "myIcon4" src = "">
+        <input type="image" onclick="switchMember(5)" id = "myIcon5" src = "">
+        <button id = "CloseSwitch" onclick="closeSwitch()"><b>X</b></button>
+        <div id = "myHP3" class = "myHP">
+            <div id = "myHP3Fill" class = "myHPFill"></div>
+        </div>
+        <div id = "myHP4" class = "myHP">
+            <div id = "myHP4Fill" class = "myHPFill"></div>
+        </div>
+        <div id = "myHP5" class = "myHP">
+            <div id = "myHP5Fill" class = "myHPFill"></div>
+        </div>
+    </div>
+    
     
 
     
@@ -141,11 +153,13 @@
     <div id = "recallFlashcard" class = "flashcard" style="display: none;">
         <p id = "recallQuestion" class = "question">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque nisl, euismod quis finibus vitae, iaculis sit amet nunc.</p>
         <input id = "recallAnswer" tabindex="-1">
+        <button id = "OverruleButton">Overrule: I was wrong :c</button>
     </div>
 
     <p id = "flashcardFeedback" style="display: none;">The correct answer was: </p>
 
-    <p id = "rnrModeText">[Recognition] / Recall</p>
+    <div id = "rnrBG"></div>
+    <p id = "rnrModeText"><b>[Recognition]</b> / Recall</p>
     
 
     <input id = "AttackButton" type="image" src="/Scenes/Battle/Sprites/AttackButton.png" class="hover-button elastic-button" onclick="initiateFlashcard('attack')" tabindex="-1" onmouseenter="displayAttackInfo()" onmouseleave="hideAttackInfo()">
@@ -157,6 +171,8 @@
     <button id = "teammateTarget0" onclick="mySlotInput(0)"> 1</button>
     <button id = "teammateTarget1" onclick="mySlotInput(1)"> 2</button>
     <button id = "teammateTarget2" onclick="mySlotInput(2)"> 3</button>
+
+    <button id = "SwitchButton" onclick = "promptSwitch()">Switch</button>
 
     <div id = "AttackInfo">
         <b id = "AttackName"></b>

@@ -77,6 +77,19 @@ body {
     display: none;
 }
 
+#myHP3 {
+    top: 85%;
+    left: 18%;
+}
+#myHP4 {
+    top: 85%;
+    left: 50%;
+}
+#myHP5 {
+    top: 85%;
+    left: 82%;
+}
+
 .myHP {
     position: absolute;
     width: 30%;
@@ -335,6 +348,17 @@ body {
     left: 4%;
 }
 
+#rnrBG {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 18%;
+    height: 25%;
+    top: 100%;
+    left: 72%;
+    background-image: linear-gradient(to right, #f5ccfd97 0%, #ffffff95 25%, #e6f9ff96 61%, #ccebffab 75%, #fde6ffb7 100%);
+    border-radius: 25px;
+}
+
 .turnOrder {
     width: auto;
     height: 100%;
@@ -580,6 +604,75 @@ body {
     font-size: 1.5vh;
     top: 15%;
     left: 5%;
+}
+
+#SwitchButton {
+    position: absolute;
+    font-size: 2vh;
+    top: 91%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+}
+
+#SwitchMenu {
+    background-image: linear-gradient(to right, #fbe8ff 0%, #fff 25%, #e6f9ff 61%, #e0f3ff 75%, #fde6ff 100%);
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    opacity: 0;
+    pointer-events: none; 
+}
+
+#myIcon3 {
+    position: absolute;
+    width: 33%;
+    height: auto;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    display: none;
+    pointer-events: auto; 
+}
+#myIcon4 {
+    position: absolute;
+    width: 33%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    pointer-events: auto; 
+}
+#myIcon5 {
+    position: absolute;
+    width: 33%;
+    height: auto;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    display: none;
+    pointer-events: auto; 
+}
+#CloseSwitch {
+    position: absolute;
+    top: 12%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto; 
+}
+
+#OverruleButton {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto; 
+    font-size: 2.5vh;
+    display: none;
 }
 
 /* ------------------------------------- */

@@ -92,6 +92,17 @@ window.addEventListener('pageshow', (event) => {
   if (event.persisted) {
     checkAudioState();
   }
+  if ( localStorage.getItem("flashsets") == null ) {
+      
+      savedFlashsets = {
+        "flashsets": [],
+      };
+
+
+      localStorage.setItem("flashsets", JSON.stringify(savedFlashsets));
+
+      console.log("No save detected. Made a new one!")
+    }
 });
 
 overlay.addEventListener('click', () => {

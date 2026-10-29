@@ -61,7 +61,7 @@ const CHAR_DB = {
 
         "DISPLAY_NAME" : "XiaoLing",
 
-        "BASE_HP" : 60,
+        "BASE_HP" : 80,
         "BASE_STRENGTH" : 170,
         "BASE_MAGIC" : 85,
         "BASE_DEFENCE" : 90,

@@ -64,6 +64,17 @@ body {
     top: 70%;
 }
 
+#ImportQuizletButton {
+    position: absolute;
+    font-size: 2vw;
+    translate: calc(-50%, -50%);
+    left: 12.5%;
+    top: 70%;
+    background-image: linear-gradient(to right, #4255ff 0%,  #4255ff 100%);
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .SetName {
     font-size: 2vw;
     text-align: center;

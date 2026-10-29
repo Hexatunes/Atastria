@@ -4,11 +4,11 @@ const ENEMY_DB = {
         "DISPLAY_NAME" : "Test Dummy",
 
         "BASE_HP" : 200,
-        "BASE_STRENGTH" : 50,
-        "BASE_MAGIC" : 130,
+        "BASE_STRENGTH" : 65,
+        "BASE_MAGIC" : 100,
         "BASE_DEFENCE" : 150,
         "BASE_RESISTENCE" : 130,
-        "BASE_SPEED" : 80,
+        "BASE_SPEED" : 85,
 
         "ATTACK" : {
             "name": "Basic Hit",
@@ -16,16 +16,16 @@ const ENEMY_DB = {
             "stat": "strength",
             "basePower": 45,
             "hits": 1,
-            "accuracy": 0.9,
+            "accuracy": 0.95,
         },
 
         "TECHNIQUE" : {
             "name": "subscribe to hexatunes",
-            "description": "play relapse on steam LMAO",
+            "description": "play relapse on steam lol",
             "stat": "magic",
-            "basePower": 120,
+            "basePower": 100,
             "hits": 1,
-            "accuracy": 0.9,
+            "accuracy": 0.95,
             "type": "damage",
         },
     }

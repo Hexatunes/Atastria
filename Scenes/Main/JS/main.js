@@ -17,6 +17,27 @@ let currentCredential = null;
 
 
 window.onload = () => {
+
+  document.querySelector(".dark").classList.add("slide-out");
+  document.querySelector(".white").classList.add("slide-out");
+  document.querySelector(".logo").classList.add("slide-out");
+
+  if ( localStorage.getItem("storyProgress") == null ) {
+    
+    storyProgress = {
+      "main": {},
+    }
+
+    localStorage.setItem("storyProgress", JSON.stringify(storyProgress));
+    
+  } else {
+    storyProgress = JSON.parse(localStorage.getItem("storyProgress"))
+  }
+
+  if ( localStorage.getItem("name") == null ) {
+    localStorage.setItem("name", "");
+  }
+
   google.accounts.id.initialize({
     client_id: CLIENT_ID,
     callback: handleSignIn
@@ -26,6 +47,12 @@ window.onload = () => {
     document.getElementById('hiddenGoogleBtn'),
     { theme: 'outline', size: 'large' }
   );
+
+  if ( getCookie("guest") ) {
+    setUp()
+    document.getElementById("UsernameDisplay").innerHTML = "Guest"
+    return
+  }
   
   // Check if already logged in
   fetch(SERVER_URL + '/auth/me', {
@@ -44,6 +71,7 @@ window.onload = () => {
         fadeIn("UsernameSetupDiv", 500)
         fadeOut("SignInButton", 500)
         fadeOut("GoogleLogo", 500)
+        fadeOut("GuestButton", 500)
 
         document.getElementById('SignedInView').style.display = 'block';
 
@@ -135,10 +163,7 @@ function refreshSetList() {
 
     console.log("Flashsets: ", flashsets)
 
-    if ( flashsets.length == 0 ) {
-        document.getElementById("NoSetsLabel").style.display = "block"
-        return
-    } 
+    
 
     for ( let i = 0; i < flashsets.length; i++ ) {
 
@@ -267,6 +292,12 @@ function loadNode(i) {
     document.getElementById("TitleInfo").style.display = "block";
     document.getElementById("CancelBattle").style.display = "block";
 
+    var flashsets = JSON.parse(localStorage.getItem("flashsets")).flashsets;
+
+    if ( flashsets.length == 0 ) {
+        document.getElementById("NoSetsLabel").style.display = "block"
+    } 
+
     document.getElementById("MainStory").style.display = "none";
     
     pendingNodeLoad = i
@@ -279,6 +310,7 @@ function cancelBattle() {
   document.getElementById("FlashsetList").style.display = "none";
   document.getElementById("TitleInfo").style.display = "none";
   document.getElementById("CancelBattle").style.display = "none";
+  document.getElementById("NoSetsLabel").style.display = "none";
 
   document.getElementById("MainStory").style.display = "block";
   pendingNodeLoad = -1
@@ -319,6 +351,12 @@ function closeMainStory() {
   }, 200)
 }
 
+
+function playAsGuest() {
+  setUp()
+  setCookie("guest", JSON.stringify(true), 1)
+  document.getElementById("UsernameDisplay").innerHTML = "Guest"
+}
 
 // ⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻//
 
@@ -393,27 +431,6 @@ function back() {
 }
 
 
-window.addEventListener("load", () => {
-    document.querySelector(".dark").classList.add("slide-out");
-    document.querySelector(".white").classList.add("slide-out");
-    document.querySelector(".logo").classList.add("slide-out");
-
-    if ( localStorage.getItem("storyProgress") == null ) {
-      
-      storyProgress = {
-        "main": {},
-      }
-
-      localStorage.setItem("storyProgress", JSON.stringify(storyProgress));
-      
-    } else {
-      storyProgress = JSON.parse(localStorage.getItem("storyProgress"))
-    }
-
-    if ( localStorage.getItem("name") == null ) {
-      localStorage.setItem("name", "");
-    }
-});
 
 document.getElementById('SignInButton').addEventListener('click', () => {
   document.getElementById('hiddenGoogleBtn').querySelector('div[role="button"]').click();
@@ -421,21 +438,29 @@ document.getElementById('SignInButton').addEventListener('click', () => {
 
 // --- Sign out ---
 document.getElementById('SignOutButton').addEventListener('click', () => {
+  
+  document.getElementById('SignedInView').style.display = 'none';
+  document.getElementById('SignedOutView').style.display = 'block';
+  document.getElementById("SignedOutView").style.opacity = "1";
+  document.getElementById("GoogleLogo").style.opacity = "1";
+  document.getElementById("SignInButton").style.opacity = "1";
+  document.getElementById("GuestButton").style.opacity = "1";
+
+  document.getElementById("UsernameSetupDiv").style.display = "none";
+  document.getElementById("StoryOptionsDiv").style.display = "none";
+
+
+  if ( getCookie("guest") ) {
+    document.cookie = "guest=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    return
+  }
+  
   fetch(SERVER_URL + '/auth/logout', {
     method: 'POST',
     credentials: 'include'
   }).finally(() => {
     currentCredential = null;
     save = null;
-
-    document.getElementById('SignedInView').style.display = 'none';
-    document.getElementById('SignedOutView').style.display = 'block';
-    document.getElementById("SignedOutView").style.opacity = "1";
-    document.getElementById("GoogleLogo").style.opacity = "1";
-    document.getElementById("SignInButton").style.opacity = "1";
-
-    document.getElementById("UsernameSetupDiv").style.display = "none";
-    document.getElementById("StoryOptionsDiv").style.display = "none";
 
     google.accounts.id.disableAutoSelect(); // stops it from silently re-signing them in
   });

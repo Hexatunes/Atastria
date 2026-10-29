@@ -180,7 +180,7 @@ window.addEventListener("load", () => {
       };
 
 
-      localStorage.setItem("save", JSON.stringify(savedFlashsets));
+      localStorage.setItem("flashsets", JSON.stringify(savedFlashsets));
 
       console.log("No save detected. Made a new one!")
     }
