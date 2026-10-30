@@ -36,6 +36,13 @@
 
     <p id = "CardAmountWarning" style="display: none;">Your flashset must have at least 5 cards or more to be used!</p>
 
+    <div id = "ImportFromQuizlet">
+        <img id = "Step1Quizlet" src = "/Scenes/FlashcardBuilder/Sprites/step1.png">
+        <img id = "Step2Quizlet" src = "/Scenes/FlashcardBuilder/Sprites/step2.png">
+        <textarea id = "QuizletInput" placeholder="Paste your Quizlet set into here with Ctrl + V! Then press Import"></textarea>
+        <button id = "ImportQuizletSet" onclick = "importQuizlet()">Import</button>
+    </div>
+
 
     <canvas id="trail"></canvas>
     <div class="cursor-dot" id="cursorDot"></div>

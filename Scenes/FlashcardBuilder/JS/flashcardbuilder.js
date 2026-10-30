@@ -361,9 +361,19 @@ function renameSet(idx) {
 }
 
 
+// -------------------QUIZLET IMPORT----------------------
 
+var importingQuizlet = false
 
+function openQuizletImporter() {
+    document.getElementById("ImportFromQuizlet").style.display = "block";
 
+    document.getElementById("FlashsetList").style.display = "none"
+    document.getElementById("NewSet").style.display = "none"
+    document.getElementById("ImportQuizletButton").style.display = "none"
+
+    importingQuizlet = true
+}
 
 
 
@@ -409,7 +419,7 @@ document.addEventListener('click', (event) => {
 });
 
 function back() {
-    if ( editingSet == -1){
+    if ( !importingQuizlet && editingSet == -1){
         document.querySelector(".dark").classList.add("slide-in");
         document.querySelector(".white").classList.add("slide-in");
         document.querySelector(".logo").classList.add("slide-in");
@@ -417,6 +427,14 @@ function back() {
         fadeAudio(bgm, bgm.volume, 0, 800, () => {
             window.location.href = "/index.html";
         });
+    } else if ( importingQuizlet ) {
+        document.getElementById("ImportFromQuizlet").style.display = "none";
+
+        document.getElementById("FlashsetList").style.display = "block";
+        document.getElementById("NewSet").style.display = "block";
+        document.getElementById("ImportQuizletButton").style.display = "block";
+
+        importingQuizlet = false
     } else {
         document.getElementById("FlashcardEditor").style.display = "none";
         document.getElementById("StandardCard").style.display = "none";
